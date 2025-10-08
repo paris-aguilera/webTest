@@ -3,7 +3,7 @@ import '@fontsource-variable/alexandria';
 import '@fontsource/bebas-neue';
 import "../styles/global.css";
 interface Props {
-	title: string;
+    title: string;
 }
 
 const {title} = Astro.props;
@@ -11,59 +11,85 @@ const {title} = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<header>
-	<div class="header-container">
-        <nav>
-			<div class="menuList">
-				<ul>
-					<li>
-					<a>SOBRE MI
-					</a>
-					</li>
-				</ul>
-				<ul>
-					<li>
-						<a>PROYECTOS
-						</a>   
-					</li>
-				</ul>	 
-					<ul>
-					<li>
-						<a>CONTACTO
-						</a>   
-					</li>
-				</ul>	 
-			</div>   
-        </nav>	
-		</div>
-	</header>
-	<body>
-			<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    
+    <body> 
+        <header>
+            <div class="header-container">
+                <nav>
+                    <div class="menuList">
+                        <ul>
+                            <li>
+                                <a href="#sobre-mi" class="smooth-scroll">SOBRE MI</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#proyectos" class="smooth-scroll">PROYECTOS</a>
+                            </li> 
+                        </ul>    
+                        <ul>
+                            <li>
+                                <a href="#contacto" class="smooth-scroll">CONTACTO</a>
+                            </li> 
+                        </ul>    
+                    </div>  
+                </nav>  
+            </div>
+        </header>
+        <slot />
+    </body>
 </html>
 
 <style>
-
-	@reference "tailwindcss";
-
-
-	header{
-		font-family: 'Bebas Neue', sans-serif;
-		color: white;
-		font-weight:lighter;
-		padding: 25px 0 100px 0px;
-        width: 100%;
+    /* -------------------------------------- */
+    /* 1. ARREGLO DE ANCHO Y ALINEACIÓN DEL HEADER */
+    /* -------------------------------------- */
+    /* Esto debe ir en el CSS de tu layout principal (donde está el <html> o <body>) */
+html, body {
+    overflow-x: hidden;
+    /* Esto previene que aparezca la barra horizontal cuando un elemento usa 100vw */
+}
+    header{
+        font-family: 'Bebas Neue', sans-serif;
+        color: white;
+        font-weight:lighter;
+        
+        /* Mantenemos padding vertical, el horizontal lo ponemos en el container */
+        padding: 25px 0 100px 0px; 
+        
+        /* CLAVE: Rompe el padding del body forzando el 100% del viewport */
+        width: 100vw !important; 
+        position: relative !important; 
+        left: 50% !important;
+        right: 50% !important;
+        margin-left: -50vw !important; 
+        margin-right: -50vw !important;
         box-sizing: border-box;
-	}	
+    } 
 
-	  .menuList {
+    .header-container {
+        /* CLAVE: Aplica el padding de 13% para alinear el contenido con el body */
+        padding-inline: 13%; 
+        width: 100%;
+        margin: 0 auto;
+        display: flex; 
+        justify-content: flex-end; 
+        align-items: center; 
+        box-sizing: border-box;
+    }
+    
+    /* -------------------------------------- */
+    /* 2. ESTILOS DEL MENÚ */
+    /* -------------------------------------- */
+    
+    .menuList {
         display: flex; 
         align-items: center; 
         margin-left: auto;
@@ -79,19 +105,17 @@ const {title} = Astro.props;
         list-style: none;
         margin: 0;
         padding: 0;
-		
     }
     
-     .menuList a {
-		cursor: pointer;
-		  font-size: clamp(20px, 2.5vw, 30px); 
-		width: 100%;
+    .menuList a {
+        cursor: pointer;
+        font-size: clamp(20px, 2.5vw, 30px); 
+        width: 100%;
         text-decoration: none;
         color: inherit;
         padding: 0px 15px 0px 15px; 
         display: block;
         transition: color 0.3s ease;
-        
         position: relative; 
         overflow: hidden;
 
@@ -99,18 +123,15 @@ const {title} = Astro.props;
             color: white; 
         }
     }
-	   .menuList a::after {
+    
+    .menuList a::after {
         content: ''; 
-        
         position: absolute;
         bottom: 0;
         left: 0;
         height: 2px;
         background-color: white;
-        
         width: 0;
-        
-
         transition: width 0.2s ease-out; 
     }
 
@@ -118,88 +139,89 @@ const {title} = Astro.props;
         width: 100%;
     }
 
- .header-container {
-        margin: 0 auto;
-        display: flex; 
-        justify-content: flex-end; 
-        align-items: center; 
-    }
     nav {
-      width: 100%;
+        width: 100%;
         display: flex;
         justify-content: flex-end; 
     }
+    
+    /* -------------------------------------- */
+    /* 3. ESTILOS DEL BODY (SE MANTIENEN TUS ESTILOS) */
+    /* -------------------------------------- */
+    
+    body {
+        /* Eliminamos 'scroll-behavior: smooth' ya que lo manejamos con JS */
+        margin: 0;
+        font-family: 'Alexandria Variable', sans-serif;
+        background: linear-gradient(to bottom, #010005, #1B1843);
+        background-size: 400% 400%;
+        animation: gradient 5s ease infinite;      
+        width: 100%;
+        padding: 2% 13% 0% 13%; /* Padding lateral de tu layout */
+    }
 
-@media (max-width: 768px) {
-		header{
-	
-		padding: 25px 0 50px 0px;
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    /* -------------------------------------- */
+    /* 4. RESPONSIVE */
+    /* -------------------------------------- */
+
+    @media (max-width: 768px) {
+        header{
+            padding: 25px 0 50px 0px;
+        }
         
-	}
-    
-    /* 1. Ajustar el contenedor general del header */
-    .header-container {
-        /* Permite que el contenido se extienda y no esté forzado a un ancho fijo */
-        width: 100%;
-        /* Desactiva justify-content: flex-end de la versión desktop */
-        justify-content: center; 
+        .header-container {
+            /* Asumiendo que el padding del body es menor en móvil, p. ej., 5% */
+            padding-inline: 5%; 
+            justify-content: center; 
+        }
+
+        .menuList {
+            margin-left: 0;
+            flex-wrap: wrap; 
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .menuList ul {
+            padding: 0 5px; 
+        }
+        
+        .menuList a {
+            padding: 0 5px; 
+        }
+
+        nav {
+            justify-content: center;
+        }
     }
-
-    /* 2. Modificar el menú principal (.menuList) */
-    .menuList {
-        /* Elimina el margen automático que lo empuja a la derecha */
-        margin-left: 0;
-        /* Permite que los elementos se apilen si no caben (opcional, pero útil) */
-        flex-wrap: wrap; 
-        /* Centra el menú horizontalmente en el contenedor */
-        justify-content: center;
-        width: 100%;
-    }
-    
-    /* 3. Ajustar los contenedores <ul> */
-    .menuList ul {
-        /* Reduce el padding lateral para ahorrar espacio */
-        padding: 0 5px; 
-    }
-    
-    /* 4. Ajustar el padding de los links <a> (opcional) */
-    .menuList a {
-        padding: 0 5px; /* Menos padding horizontal para que quepan */
-        /* Puedes reducir el font-size de clamp() un poco más si es necesario: */
-        /* font-size: clamp(18px, 4vw, 30px); */
-    }
-
-    /* 5. Asegurar que la nav no fuerce a la derecha si no hay logo */
-     nav {
-        justify-content: center;
-    }
-}
-
-	body {
-		margin: 0;
-		font-family: 'Alexandria Variable', sans-serif;
-			 background: linear-gradient(to bottom, #010005, #1B1843);
-		 background-size: 400% 400%;
-		 animation: gradient 5s ease infinite;   	
-		 width: 100%;
-		 height: 100dvh;
-		   padding: 2% 13% 5% 13%;
-
-		
-	}
-
-	@keyframes gradient {
-
-		0% {
-        background-position: 0% 50%;
-    	}
-    	50% {
-        background-position: 100% 50%;
-    	}
-		100% {
-        background-position: 0% 50%;
-    	}
-		
-	}
-
 </style>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Selecciona todos los enlaces con la clase 'smooth-scroll'
+        const links = document.querySelectorAll('a.smooth-scroll');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Usa scrollIntoView con 'smooth' para el efecto gradual
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start' // Alinea el elemento con el inicio del viewport
+                    });
+                }
+            });
+        });
+    });
+</script>

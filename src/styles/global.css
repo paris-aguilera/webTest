@@ -26,3 +26,41 @@
         background-position: 100% 50%;
     }
 }
+
+/* ================================================= */
+/* 🚀 1. ANIMACIONES DE ENTRADA AL HACER SCROLL */
+/* Usadas en el Intersection Observer (JS) */
+/* ================================================= */
+
+/* Transiciones Base: Define la duración y suavidad de la animación (0.6s) */
+.entradaDesdeIzquierda-style,
+.entradaDesdeDerecha-style {
+    /* CLAVE: Transición para que los cambios de transform/opacity sean suaves */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: transform, opacity; /* Optimización de rendimiento */
+}
+
+/* Estado Inicial Oculto: Posiciona los elementos fuera de la vista y transparentes */
+.entradaDesdeIzquierda-style {
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.entradaDesdeDerecha-style {
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+/* Estado de Visibilidad (Disparado por JS): Restaura la posición y opacidad */
+/* Esta es la clase que el JavaScript añade y quita */
+.is-visible {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+}
+
+/* Estado Oculto (Disparado por JS): Revierte al estado inicial */
+/* Esta clase se usa si quieres que se vaya por completo cuando se pierde de vista. */
+/* Si no la usas, se mantendrá en su posición final al salir. */
+.is-hidden {
+    /* Simplemente revierte al estado de .entradaDesdeIzquierda-style o .entradaDesdeDerecha-style */
+}

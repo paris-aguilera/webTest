@@ -1,11 +1,198 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import SobreMi from "../components/sobreMi.astro"; 
+import Proyectos from "../components/proyectos.astro"; 
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Me">
+     <div class="divInicio"> 
+         <div class="texto-bienvenida hidden">
+            <span id="typingText" class="bg-clip-text-gradient"></span>
+            <span id="cursor" class="cursor">|</span>
+            <span>✌️👩‍💻</span>
+        </div>
+        
+        <div class="texto-proposito visible">
+            <span class="infoInicio">Transformar necesidades en</span>
+            <span class="bg-clip-text-gradient infoInicioEspecial"> experiencias digitales</span>
+            <span class="infoInicio"> intuitivas es mi propósito.</span>
+        </div>
+    </div>
+
+      <SobreMi />
+       <Proyectos />
+      
+    <style>
+    @reference "tailwindcss";
+    
+    span {
+        /* Unidades VW para adaptación (RESPONSIVE) */
+        font-size: 5vw; 
+        font-weight: bold;
+        letter-spacing: -0.02em; 
+        line-height: 1.1;
+        /* El 'display: inline-block;' permite que las líneas se rompan */
+        display: inline-block; 
+    }
+    
+    .infoInicio {
+        color: white;
+    }
+    
+    .divInicio {
+        text-align: center;
+        position: relative; 
+       width: 100%; 
+        padding-bottom: 30%; 
+    }
+    
+   .texto-proposito, .texto-bienvenida {
+        /* Ambos deben ocupar la misma posición absoluta */
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; 
+        padding: 0 10px;
+        box-sizing: border-box;
+        
+        /* Transición de opacidad para el efecto de desvanecimiento */
+        transition: opacity 1s ease-in-out; 
+    }
+    
+    /* El propósito debe estar visible al inicio y desvanecerse */
+    .texto-proposito.visible {
+        opacity: 1;
+    }
+    .texto-proposito:not(.visible) {
+        opacity: 0;
+        /* Para que no interfiera cuando está invisible */
+        pointer-events: none; 
+    }
+    
+    /* El contenedor de Bienvenida inicia oculto */
+    .hidden {
+        display: none !important; /* Oculta completamente el contenedor */
+    }
+
+    /* 🚀 Texto de Bienvenida (Máquina de Escribir) */
+    .texto-bienvenida {
+        opacity: 1; /* Siempre visible cuando la clase 'hidden' se remueve */
+        text-align: center;
+    }
+
+    /* El texto escrito no debe tener opacidad 0 */
+    #typingText {
+        /* Para que el texto se rompa en líneas si el ancho es pequeño */
+        white-space: normal; 
+    }
+
+    /* Cursor parpadeante */
+.cursor {
+        font-weight: normal;
+        margin-left: -0.1em;
+        animation: blink 0.75s step-end infinite, flujo-color 5s ease infinite alternate; /* Aplicamos ambas animaciones */
+        
+        /* Aplicamos el degradado del bg-clip-text-gradient */
+        background-image: linear-gradient(
+            90deg,
+            #BE07AE,
+            #110773,
+            #BE07AE 
+        );
+        background-size: 400% 400%;
+
+        /* Hacemos que el COLOR del cursor sea la parte VISIBLE del degradado */
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    /* Nota: Usamos las mismas propiedades bg-clip-text y color: transparent 
+       que el texto normal, pero como el cursor es un carácter simple (|) 
+       y no es el texto principal, esto funciona para darle el estilo degradado animado.
+       El color transparente es el que permite que el fondo degradado se muestre.
+    */
+
+    @keyframes blink {
+        from, to { opacity: 1; }
+        50% { opacity: 0; }
+    }
+</style>
+
+     <script>
+        // --- Elementos y Contenidos ---
+        const propositoDiv = document.querySelector('.texto-proposito');
+        const bienvenidaDiv = document.querySelector('.texto-bienvenida');
+        const typingElement = document.getElementById('typingText');
+        const cursorElement = document.getElementById('cursor');
+        
+        const textToType = 'Hola, soy Ailen Nahuel diseñadora UX UI !';
+        const typingSpeed = 75; // Velocidad de escritura (ms por carácter)
+        
+        // --- Tiempos de la Secuencia (en milisegundos) ---
+        const initialDelay = 3000;  // Tiempo inicial de lectura
+        const fadeDuration = 1000;  // Duración del desvanecimiento CSS
+        const pauseAfterTyping = 1500; // Pausa después de terminar de escribir
+        const typingDuration = textToType.length * typingSpeed; // ~3000ms
+
+        // --- Lógica del Ciclo ---
+        
+        /** Inicia la animación de máquina de escribir */
+        function typeWriter(callback) {
+            typingElement.textContent = ''; // Limpiar contenido
+            let charIndex = 0;
+            
+            bienvenidaDiv.classList.remove('hidden'); // Mostrar contenedor de bienvenida
+            cursorElement.style.opacity = '1'; // Mostrar cursor
+
+            function type() {
+                if (charIndex < textToType.length) {
+                    typingElement.textContent += textToType.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, typingSpeed);
+                } else {
+                    // Escritura terminada
+                    setTimeout(() => {
+                        cursorElement.style.opacity = '0'; // Ocultar cursor
+                        setTimeout(callback, pauseAfterTyping); // Pausa y llama al siguiente paso
+                    }, pauseAfterTyping / 2); // Pausa corta para que el cursor se oculte
+                }
+            }
+            type();
+        }
+
+        /** Secuencia completa: Desaparecer Bienvenida y Aparecer Propósito */
+        function transitionToProposito() {
+            // 1. Desaparecer Bienvenida
+            bienvenidaDiv.style.opacity = '0';
+            
+            setTimeout(() => {
+                bienvenidaDiv.classList.add('hidden'); // Ocultar físicamente
+                bienvenidaDiv.style.opacity = '1'; // Resetear opacidad para el próximo ciclo
+                
+                // 2. Aparecer Propósito
+                propositoDiv.classList.add('visible');
+                
+                // 3. Iniciar el loop de nuevo
+                setTimeout(startSequence, initialDelay);
+            }, fadeDuration);
+        }
+
+        /** Secuencia completa: Desaparecer Propósito y Empezar a Escribir Bienvenida */
+        function startSequence() {
+            // 1. Desaparecer Propósito
+            propositoDiv.classList.remove('visible');
+            
+            setTimeout(() => {
+                // 2. Esperar a que desaparezca y empezar a escribir
+                typeWriter(transitionToProposito); // Cuando termine de escribir, ir a transitionToProposito
+            }, fadeDuration); // El timing debe coincidir con la duración de la transición CSS
+        }
+
+        // Iniciar el Loop (La primera iteración)
+        propositoDiv.classList.add('visible'); // Asegurar que esté visible al cargar
+        setTimeout(startSequence, initialDelay); // Iniciar la secuencia después de la lectura inicial
+
+    </script>
 </Layout>

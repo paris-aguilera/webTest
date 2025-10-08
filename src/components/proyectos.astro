@@ -1,0 +1,192 @@
+---
+import '@fontsource-variable/alexandria';
+
+---
+<script src="../styles/efectos.js" type="module"></script>
+<div class="sobreMi-container">
+
+    
+    <h1 class="titulo-card proyectos-titulo entradaDesdeIzquierda-style">Proyectos 💻</h1>
+
+    <div class="proyectos-grid">
+
+        
+        <div class="proyecto-card entradaDesdeDerecha-style" style="transition-delay: 0.3s;">
+            <h2 class="card-titulo">PORTAFOLIO</h2>
+            <span class="card-tag-fechas"> - Actualidad</span>
+            <p class="card-descripcion">Pagina web creada en astro y diseñada por mi con ❤.</p>
+            <span class="card-tag">Figma | Illustrator | Astro | UX UI</span>
+        </div>
+
+         <div class="proyecto-card entradaDesdeDerecha-style" style="transition-delay: 0.1s;">
+            <h2 class="card-titulo">MI GRAN CASINO777</h2>
+            <span class="card-tag-fechas">Marzo 2025 - Julio 2025</span>
+            <p class="card-descripcion">Practica profesional, diseñadora de la app, creadora de imagenes para publicidad, comunity manager.</p>
+            <span class="card-tag">Figma | Illustrator | Photoshop | UX UI</span>
+        </div>
+
+        <div class="proyecto-card entradaDesdeIzquierda-style">
+            <h2 class="card-titulo">KIUBO</h2>
+             <span class="card-tag-fechas">Portafolio de titulo</span>
+            <p class="card-descripcion">Aplicación mobile de gestión de tareas para la tercera edad.</p>
+            <span class="card-tag">Figma | Illustrator | UX UI</span>
+        </div>
+
+       
+        <div class="proyecto-card entradaDesdeIzquierda-style" style="transition-delay: 0.2s;">
+            <h2 class="card-titulo">CASTIZA BEER</h2>
+             <span class="card-tag-fechas">Primer año de diseño</span>
+            <p class="card-descripcion">Cerveceria artesanal.</p>
+            <span class="card-tag">Figma | IA | Photoshop | UX UI</span>
+        </div>
+
+
+    </div>
+</div>
+
+
+<style>
+    /* -------------------------------------- */
+    /* ESTILOS ESPECÍFICOS DE LA PÁGINA PROYECTOS */
+    /* -------------------------------------- */
+
+    /* El sobreMi-container debe tener los estilos base de ancho/centrado que ya usas */
+    .sobreMi-container {
+        font-family: 'Alexandria Variable', sans-serif;
+        padding: 50px 0;
+        margin: 0 auto; /* Centrado */
+        box-sizing: border-box;
+    }
+  .titulo-card {
+        font-size: clamp(30px, 4vw, 50px);
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    .proyectos-titulo {
+        font-size: clamp(36px, 5vw, 60px);
+        color: white;
+        margin-bottom: 40px;
+        padding-left: 20px; /* Pequeño margen para separación */
+    }
+
+    /* -------------------------------------- */
+    /* LAYOUT DE ESCRITORIO (CSS GRID 2x2) */
+    /* -------------------------------------- */
+    .proyectos-grid {
+        display: grid;
+        /* Dos columnas de igual ancho */
+        grid-template-columns: 1fr 1fr; 
+        /* Espacio entre las tarjetas */
+        gap: 30px; 
+        padding: 0 20px; 
+    }
+
+    /* -------------------------------------- */
+    /* ESTILO DE CADA TARJETA DE PROYECTO */
+    /* -------------------------------------- */
+    .proyecto-card {
+        /* Usamos la misma base oscura que el Sobre Mí Card */
+        background-color: rgba(23, 21, 31, 0.9);
+        border-radius: 20px;
+        padding: 30px;
+        color: white;
+        min-height: 200px; /* Asegura una altura mínima */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        /* Permite que los estilos de animación de 'efectos.css' se apliquen */
+        position: relative; 
+        overflow: hidden;
+        /* La transición de entrada/salida ya está definida en efectos.css */
+    }
+    
+    .proyecto-card:hover {
+        /* Efecto sutil de levantamiento al pasar el ratón */
+        transform: translateY(-5px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    }
+
+    .card-titulo {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: white; /* Color de acento de tu web */
+    }
+    
+    .card-descripcion {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    .card-tag {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: rgba(67, 39, 191, 0.15); /* Fondo muy suave con acento */
+        color: #4327BF;
+    }
+
+    /* -------------------------------------- */
+    /* MEDIA QUERY PARA MÓVIL (1 columna) */
+    /* -------------------------------------- */
+    @media (max-width: 768px) {
+        .proyectos-grid {
+            /* 🚀 CAMBIO CLAVE: Una sola columna para móvil */
+            grid-template-columns: 1fr; 
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .proyectos-titulo {
+            text-align: center;
+            padding-left: 0;
+        }
+    }
+
+    .proyecto-card p {
+        font-size: clamp(16px, 1.5vw, 20px);
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .card-tag-fechas {
+    display: block; /* Ocupa todo el ancho y se va a la siguiente línea */
+    font-size: 0.9rem;
+    font-weight: 400; /* Normal para que sea menos prominente que el título */
+    color: rgba(255, 255, 255, 0.7); /* Color grisáceo y sutil */
+    margin-bottom: 15px; /* Espacio debajo de la fecha antes de la descripción */
+}
+</style>
+
+<script is:inline>
+// 🚀 MEJORA: Es buena práctica envolver el código del script en un 'DOMContentLoaded' 
+// aunque en Astro con 'is:inline' al final del body no siempre es estrictamente necesario, 
+// asegura que todos los divs existan antes de que el script los busque.
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px 0px -100px 0px', 
+            threshold: 0.05 
+        };
+
+        const sectionsToAnimate = document.querySelectorAll('.entradaDesdeIzquierda-style, .entradaDesdeDerecha-style');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    entry.target.classList.remove('is-hidden'); 
+                } else {
+                    entry.target.classList.remove('is-visible');
+                    entry.target.classList.add('is-hidden'); 
+                }
+            });
+        }, observerOptions);
+
+        sectionsToAnimate.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>

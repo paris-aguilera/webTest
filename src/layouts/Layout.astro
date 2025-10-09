@@ -2,6 +2,9 @@
 import '@fontsource-variable/alexandria';
 import '@fontsource/bebas-neue';
 import "../styles/global.css";
+// --- ✨ CAMBIO 1: Importamos la imagen del logo ---
+import logo from '../assets/logo.png';
+
 interface Props {
     title: string;
 }
@@ -20,23 +23,29 @@ const {title} = Astro.props;
     </head>
     
     <body> 
+        <div id="custom-cursor" class="custom-cursor">Ailen Luna</div>
         <header>
             <div class="header-container">
+                {/* --- ✨ CAMBIO 2: Añadimos el logo envuelto en un enlace a la página de inicio --- */}
+                <a href="/" class="header-logo-link">
+                    <img src={logo.src} alt="Logo Ailen Nahuel" class="header-logo" />
+                </a>
+
                 <nav>
                     <div class="menuList">
                         <ul>
                             <li>
-                                <a href="#sobre-mi" class="smooth-scroll">SOBRE MI</a>
+                                <a href="#sobre-mi" class="smooth-scroll"><span>SOBRE MI</span></a>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <a href="#proyectos" class="smooth-scroll">PROYECTOS</a>
+                                <a href="#proyectos" class="smooth-scroll"><span>PROYECTOS</span></a>
                             </li> 
                         </ul>    
                         <ul>
                             <li>
-                                <a href="#contacto" class="smooth-scroll">CONTACTO</a>
+                                <a href="#contacto" class="smooth-scroll"><span>CONTACTO</span></a>
                             </li> 
                         </ul>    
                     </div>  
@@ -44,184 +53,161 @@ const {title} = Astro.props;
             </div>
         </header>
         <slot />
+
+        <script is:inline>
+          // Tu script de smooth scroll y custom cursor
+          document.addEventListener('DOMContentLoaded', () => {
+            // Smooth Scroll
+            const links = document.querySelectorAll('a.smooth-scroll');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Custom Cursor
+            const cursor = document.getElementById('custom-cursor');
+            const hoverElements = document.querySelectorAll('a, button');
+            if (!('ontouchstart' in window)) {
+                document.addEventListener('mouseenter', () => { cursor.style.opacity = 1; });
+                window.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+                document.addEventListener('mouseleave', () => { cursor.style.opacity = 0; });
+                hoverElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hover-effect'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hover-effect'));
+                });
+            }
+          });
+        </script>
     </body>
 </html>
 
 <style>
-    /* -------------------------------------- */
-    /* 1. ARREGLO DE ANCHO Y ALINEACIÓN DEL HEADER */
-    /* -------------------------------------- */
-    /* Esto debe ir en el CSS de tu layout principal (donde está el <html> o <body>) */
+/* ... (Estilos de html, body y header se mantienen) ... */
 html, body {
     overflow-x: hidden;
-    /* Esto previene que aparezca la barra horizontal cuando un elemento usa 100vw */
 }
-    header{
-        font-family: 'Bebas Neue', sans-serif;
-        color: white;
-        font-weight:lighter;
-        
-        /* Mantenemos padding vertical, el horizontal lo ponemos en el container */
-        padding: 25px 0 100px 0px; 
-        
-        /* CLAVE: Rompe el padding del body forzando el 100% del viewport */
-        width: 100vw !important; 
-        position: relative !important; 
-        left: 50% !important;
-        right: 50% !important;
-        margin-left: -50vw !important; 
-        margin-right: -50vw !important;
-        box-sizing: border-box;
-    } 
+header {
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    font-weight:lighter;
+    padding: 25px 0 75px 0px; 
+    width: 100vw !important; 
+    position: relative !important; 
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important; 
+    margin-right: -50vw !important;
+    box-sizing: border-box;
+} 
 
+/* --- ✨ CAMBIO 3: Ajustamos el contenedor del header --- */
+.header-container {
+    padding-inline: 13%; 
+    width: 100%;
+    margin: 0 auto;
+    display: flex; 
+    /* Alinear items: logo a la izquierda, nav a la derecha */
+    justify-content: space-between; 
+    align-items: center; 
+    box-sizing: border-box;
+}
+
+/* --- ✨ CAMBIO 4: Añadimos estilos para el logo --- */
+.header-logo-link {
+    display: flex;
+    align-items: center;
+}
+.header-logo {
+    height: 50px; /* Altura del logo en escritorio */
+    width: auto;  /* El ancho se ajusta automáticamente */
+}
+
+/* --- ✨ CAMBIO 5: Quitamos el margen automático del menú --- */
+.menuList {
+    display: flex; 
+    align-items: center; 
+    /* Ya no es necesario, 'space-between' en el padre se encarga de la posición */
+    /* margin-left: auto; */
+}
+
+.menuList ul { list-style: none; margin: 0; display: flex; }
+.menuList li { list-style: none; margin: 0; padding: 0; }
+.menuList a {
+    cursor: pointer;
+    font-size: clamp(20px, 2.5vw, 30px); 
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+    position: relative; 
+}
+.menuList a:hover { color: white; }
+.menuList a span { position: relative; }
+.menuList a span::after {
+    content: ''; 
+    position: absolute;
+    bottom: -5px; left: 0;
+    height: 2px;
+    background-color: white;
+    width: 0;
+    transition: width 0.3s ease-out; 
+}
+.menuList a:hover span::after { width: 100%; }
+nav {
+    /* No necesita width 100% ahora que es un item flex */
+    /* width: 100%; */
+    display: flex;
+    justify-content: flex-end; 
+}
+
+/* ... (Estilos del body se mantienen) ... */
+body {
+    margin: 0;
+    font-family: 'Alexandria Variable', sans-serif;
+    background: linear-gradient(to bottom, #010107, #090416, #0E0B23, #18214A);
+    width: 100%;
+    padding: 2% 13% 0% 13%;
+    min-height: 100vh;
+}
+
+/* --- ✨ CAMBIO 6: Ajustes para la vista móvil --- */
+@media (max-width: 768px) {
+    body{ padding: 2% 5% 0% 5% !important; }
+    header{ padding: 25px 0 35px 0px; }
+    
     .header-container {
-        /* CLAVE: Aplica el padding de 13% para alinear el contenido con el body */
-        padding-inline: 13%; 
-        width: 100%;
-        margin: 0 auto;
-        display: flex; 
-        justify-content: flex-end; 
-        align-items: center; 
-        box-sizing: border-box;
+        padding-inline: 5%; 
+        /* Mantenemos space-between para que el logo quede a la izquierda */
+        justify-content: space-between; 
     }
-    
-    /* -------------------------------------- */
-    /* 2. ESTILOS DEL MENÚ */
-    /* -------------------------------------- */
-    
+
+    /* Reducimos el tamaño del logo en móvil */
+    .header-logo {
+        height: 40px;
+    }
+
     .menuList {
-        display: flex; 
-        align-items: center; 
-        margin-left: auto;
+        /* Eliminamos 'width: 100%' para que no ocupe todo el espacio y se alinee bien */
+        margin-left: 0;
+        flex-wrap: wrap; 
+        justify-content: flex-end; /* Alineamos los links a la derecha del menú */
     }
-
-    .menuList ul {
-        list-style: none; 
-        margin: 0;
-        display: flex;
-    }
-
-    .menuList li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .menuList a {
-        cursor: pointer;
-        font-size: clamp(20px, 2.5vw, 30px); 
-        width: 100%;
-        text-decoration: none;
-        color: inherit;
-        padding: 0px 15px 0px 15px; 
-        display: block;
-        transition: color 0.3s ease;
-        position: relative; 
-        overflow: hidden;
-
-        &:hover {
-            color: white; 
-        }
-    }
-    
-    .menuList a::after {
-        content: ''; 
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        background-color: white;
-        width: 0;
-        transition: width 0.2s ease-out; 
-    }
-
-    .menuList a:hover::after {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end; 
-    }
-    
-    /* -------------------------------------- */
-    /* 3. ESTILOS DEL BODY (SE MANTIENEN TUS ESTILOS) */
-    /* -------------------------------------- */
-    
-    body {
-        /* Eliminamos 'scroll-behavior: smooth' ya que lo manejamos con JS */
-        margin: 0;
-        font-family: 'Alexandria Variable', sans-serif;
-        background: linear-gradient(to bottom, #010005, #1B1843);
-        background-size: 400% 400%;
-        animation: gradient 5s ease infinite;      
-        width: 100%;
-        padding: 2% 13% 0% 13%; /* Padding lateral de tu layout */
-    }
-
-    @keyframes gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-    
-    /* -------------------------------------- */
-    /* 4. RESPONSIVE */
-    /* -------------------------------------- */
-
-    @media (max-width: 768px) {
-        header{
-            padding: 25px 0 50px 0px;
-        }
-        
-        .header-container {
-            /* Asumiendo que el padding del body es menor en móvil, p. ej., 5% */
-            padding-inline: 5%; 
-            justify-content: center; 
-        }
-
-        .menuList {
-            margin-left: 0;
-            flex-wrap: wrap; 
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .menuList ul {
-            padding: 0 5px; 
-        }
-        
-        .menuList a {
-            padding: 0 5px; 
-        }
-
-        nav {
-            justify-content: center;
-        }
-    }
+    .menuList ul { padding: 0 5px; }
+    .menuList a { padding: 0 5px; }
+    nav { justify-content: flex-end; }
+}
 </style>
-
-<script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Selecciona todos los enlaces con la clase 'smooth-scroll'
-        const links = document.querySelectorAll('a.smooth-scroll');
-
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    // Usa scrollIntoView con 'smooth' para el efecto gradual
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start' // Alinea el elemento con el inicio del viewport
-                    });
-                }
-            });
-        });
-    });
-</script>

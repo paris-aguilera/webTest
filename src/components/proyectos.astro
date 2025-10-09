@@ -1,27 +1,23 @@
 ---
 import '@fontsource-variable/alexandria';
-import porta from '../assets/porta.jpg';
-import castiza from '../assets/castiza.png';
-import casino from '../assets/mycasinogold.png';
-import kiubo from '../assets/kiubo.jpg';
 
-const imagenPortafolio = porta.src; 
-const imagenCastiza= castiza.src; 
-const imagenCasino = casino.src; 
-const imagenKiubo = kiubo.src; 
+// Se mantienen las importaciones de imágenes que necesitas
+import portaImg from '../assets/portaWeb.png';
+import castizaImg from '../assets/castizaWeb.png';
+import casinoImg from '../assets/casinoMobile.png';
+import kiuboImg from '../assets/kiuboWeb.png';
 ---
+
 <script src="../styles/efectos.js" type="module"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <div class="sobreMi-container" id="proyectos">
-
-    <h1 class="titulo-card proyectos-titulo entradaDesdeIzquierda-style">Proyectos 💻</h1>
-
+    <h1 class="titulo-card proyectos-titulo">Proyectos 💻</h1>
     <div class="proyectos-grid">
 
         <a href="https://ejemplo.com/portafolio" class="proyecto-card entradaDesdeIzquierda-style" style="transition-delay: 0.3s;" data-url="https://ejemplo.com/portafolio">
             <div class="card-content-wrapper">
-             <div class="card-image" style={`background-image: url('${imagenPortafolio}');`}></div>
+                <img src={portaImg.src} alt="Vista previa del proyecto Portafolio" class="card-image" />
                 <div class="card-info">
                     <h2 class="card-titulo">PORTAFOLIO</h2>
                     <span class="card-tag-fechas"> - Actualidad</span>
@@ -29,14 +25,16 @@ const imagenKiubo = kiubo.src;
                     <span class="card-tag">Figma | Illustrator | Astro | UX UI</span>
                 </div>
             </div>
+            {/* --- ✨ CAMBIO 1: Añadimos el texto al botón --- */}
             <button class="card-arrow-button" aria-label="Ir a Portafolio">
-                 <i class="fas fa-arrow-right"></i> 
+                <span>Ver proyecto</span>
+                <i class="fas fa-arrow-right"></i>
             </button>
         </a>
 
         <a href="https://ejemplo.com/casino" class="proyecto-card entradaDesdeDerecha-style" style="transition-delay: 0.1s;" data-url="https://ejemplo.com/casino">
             <div class="card-content-wrapper">
-                <div class="card-image" style={`background-image: url('${imagenCasino}');`}></div>
+                <img src={casinoImg.src} alt="Vista previa del proyecto My Casino Gold" class="card-image" />
                 <div class="card-info">
                     <h2 class="card-titulo">MY CASINO GOLD</h2>
                     <span class="card-tag-fechas">Marzo 2025 - Julio 2025</span>
@@ -45,13 +43,14 @@ const imagenKiubo = kiubo.src;
                 </div>
             </div>
             <button class="card-arrow-button" aria-label="Ir a Mi Gran Casino777">
+                <span>Ver proyecto</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </a>
 
         <a href="https://ejemplo.com/kiubo" class="proyecto-card entradaDesdeIzquierda-style" data-url="https://ejemplo.com/kiubo">
             <div class="card-content-wrapper">
-                  <div class="card-image" style={`background-image: url('${imagenKiubo}');`}></div>
+                <img src={kiuboImg.src} alt="Vista previa del proyecto Kiubo" class="card-image" />
                 <div class="card-info">
                     <h2 class="card-titulo">KIUBO</h2>
                     <span class="card-tag-fechas">Portafolio de titulo</span>
@@ -60,13 +59,14 @@ const imagenKiubo = kiubo.src;
                 </div>
             </div>
             <button class="card-arrow-button" aria-label="Ir a Kiubo">
+                <span>Ver proyecto</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </a>
 
         <a href="https://ejemplo.com/castiza" class="proyecto-card entradaDesdeDerecha-style" style="transition-delay: 0.2s;" data-url="https://ejemplo.com/castiza">
             <div class="card-content-wrapper">
-                  <div class="card-image" style={`background-image: url('${imagenCastiza}');`}></div>
+                <img src={castizaImg.src} alt="Vista previa del proyecto Castiza Beer" class="card-image" />
                 <div class="card-info">
                     <h2 class="card-titulo">CASTIZA BEER</h2>
                     <span class="card-tag-fechas">Primer año de diseño</span>
@@ -75,6 +75,7 @@ const imagenKiubo = kiubo.src;
                 </div>
             </div>
             <button class="card-arrow-button" aria-label="Ir a Castiza Beer">
+                <span>Ver proyecto</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </a>
@@ -82,210 +83,170 @@ const imagenKiubo = kiubo.src;
     </div>
 </div>
 
-
 <style>
-    /* -------------------------------------- */
-    /* ESTILOS ESPECÍFICOS DE LA PÁGINA PROYECTOS */
-    /* -------------------------------------- */
+.sobreMi-container {
+    font-family: 'Alexandria Variable', sans-serif;
+    padding: 50px 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.titulo-card {
+    font-size: clamp(30px, 4vw, 50px);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.proyectos-titulo {
+    font-size: clamp(36px, 5vw, 60px);
+    color: white;
+    margin-bottom: 40px;
+    padding-left: 20px;
+}
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+.proyecto-card {
+    background-color: rgba(23, 21, 31, 0.1);
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.proyecto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+.card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.card-image {
+    width: 100%;
+    height: 350px;
+    border-radius: 20px 20px 0 0; 
+    display: block;
+    object-fit: cover;
+}
+.card-info {
+    padding: 30px;
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    flex-grow: 1;
+}
 
-    .sobreMi-container {
-        font-family: 'Alexandria Variable', sans-serif;
-        padding: 50px 0;
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
-    .titulo-card {
-        font-size: clamp(30px, 4vw, 50px);
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
+/* --- ✨ CAMBIO 2: Se ajusta el título para que no choque con el nuevo botón --- */
+.card-titulo {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: white;
+    /* Dejamos más espacio a la derecha para el botón más ancho */
+    margin-right: 170px; 
+}
+
+.card-descripcion {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+}
+.card-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(67, 39, 191, 0.15);
+    color: #4327BF;
+}
+.card-tag-fechas {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+}
+
+/* --- ✨ CAMBIO 3: Se modifica completamente el estilo del botón --- */
+.card-arrow-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    
+    /* De círculo a píldora */
+    border-radius: 50px; /* Borde muy redondeado para forma de píldora */
+    width: auto; /* Ancho automático para que quepa el texto */
+    height: 40px;
+    padding: 0 20px; /* Espacio interno horizontal */
+    
+    /* Alineación del texto y el ícono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre el texto y la flecha */
+    
+    /* Estilos de texto */
+    font-family: 'Alexandria Variable', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Evita que el texto se parta */
+
+    pointer-events: none; 
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.proyecto-card:hover .card-arrow-button {
+    background-color: #4327BF;
+    border-color: #4327BF;
+    transform: scale(1.05); /* Escala ligeramente en lugar de 1.1 */
+}
+.card-arrow-button i {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
     .proyectos-titulo {
-        font-size: clamp(36px, 5vw, 60px);
-        color: white;
-        margin-bottom: 40px;
-        padding-left: 20px;
+        text-align: center;
+        padding-left: 0;
     }
-
-    /* -------------------------------------- */
-    /* LAYOUT DE ESCRITORIO (CSS GRID 2x2) */
-    /* -------------------------------------- */
     .proyectos-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
         gap: 30px;
         padding: 0 20px;
-        /* Asegura que los ítems dentro del grid se estiren para ocupar toda la altura */
-        align-items: stretch; /* Esto debería ser suficiente, pero lo mantenemos explícito */
     }
-
-    /* -------------------------------------- */
-    /* ESTILO DE CADA TARJETA DE PROYECTO */
-    /* -------------------------------------- */
-    .proyecto-card {
-        background-color: rgba(23, 21, 31, 0.9);
-        border-radius: 20px;
-        color: white;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-        position: relative;
-        overflow: hidden;
-        text-decoration: none;
-        display: block;
-        /* CLAVE: Ocupa toda la altura de la celda del grid */
-        height: 100%; 
-        min-height: 200px;
-        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    }
-
-    .proyecto-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
-        cursor: pointer;
-    }
-    
-    /* ESTRUCTURA 30% IMAGEN | 70% CONTENIDO */
-    .card-content-wrapper {
-        display: flex;
-        /* CLAVE: Asegura que el wrapper interno ocupe 100% de la altura del proyecto-card */
-        height: 100%; 
-        align-items: stretch;
-    }
-
-    /* 30% Imagen */
     .card-image {
-        flex: 0 0 30%;
-        max-width: 30%;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        background-color: rgba(67, 39, 191, 0.5);
-        background-size: cover;
-        background-position: center;
-          background-size: 100%;
+        height: 200px;
     }
-
-    /* 70% Contenido */
     .card-info {
-        flex: 1; 
-        padding: 30px;
-        position: relative;
-        /* CLAVE: Asegura que el contenido ocupe el resto del espacio */
-        display: flex; 
-        flex-direction: column; 
+        padding: 25px;
     }
 
-    /* -------------------------------------- */
-    /* ESTILOS DE TIPOGRAFÍA Y BOTÓN */
-    /* -------------------------------------- */
-
-    .card-titulo {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-        color: white;
-        margin-right: 50px; 
-    }
-    
-    .card-descripcion {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 15px;
-        /* CLAVE: Permite que la descripción empuje los tags hacia abajo */
-        flex-grow: 1; 
-    }
-
-    .card-tag {
-        display: inline-block;
-        font-size: 0.8rem;
-        font-weight: bold;
-        padding: 5px 10px;
-        border-radius: 5px;
-        background-color: rgba(67, 39, 191, 0.15);
-        color: #4327BF;
-    }
-
-    .card-tag-fechas {
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 15px;
-    }
-
+    /* Ajustamos el botón y el título para móvil */
     .card-arrow-button {
-        position: absolute;
-        top: 30px; /* Ajustado para el nuevo padding de 30px */
-        right: 30px;
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        color: white;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* El pointer-events: none es una buena práctica para que el clic caiga en el <a> */
-        pointer-events: none; 
-        transition: all 0.3s ease-in-out;
-        z-index: 10;
+        top: 25px;
+        right: 25px;
+        padding: 0 15px;
+        height: 38px;
+        font-size: 0.8rem;
     }
-
-    .proyecto-card:hover .card-arrow-button {
-        background-color: #4327BF;
-        border-color: #4327BF;
-        transform: scale(1.1);
+    .card-titulo {
+        /* Reducimos el margen para pantallas pequeñas */
+        margin-right: 0;
     }
-    
-    .card-arrow-button i {
-        font-size: 1rem;
-    }
+}
 
-    /* -------------------------------------- */
-    /* MEDIA QUERY PARA MÓVIL (1 columna) */
-    /* -------------------------------------- */
-    @media (max-width: 768px) {
-        .proyectos-titulo {
-            text-align: center;
-            padding-left: 0;
-        }
-
-        .proyectos-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        .proyecto-card {
-            height: auto; /* Volvemos a auto en móvil */
-        }
-
-        .card-content-wrapper {
-            flex-direction: column;
-            height: auto; 
-        }
-
-        .card-image {
-            flex: none;
-            max-width: 100%;
-            height: 150px;
-            border-radius: 20px 20px 0 0;
-              background-size: 80%;
-        }
-        
-        .card-info {
-            padding: 20px;
-            height: auto; /* Vuelve a auto */
-        }
-
-        .card-arrow-button {
-             /* Posición ajustada para móvil, relativo al card-info y ya no al card */
-             top: 20px;
-             right: 20px;
-             position: absolute;
-        }
-    }
-
-    .proyecto-card p {
-        font-size: clamp(16px, 1.5vw, 20px);
-        line-height: 1.6;
-        margin-bottom: 15px;
-    }
+.proyecto-card p {
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
 </style>

@@ -1,200 +1,243 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SobreMi from "../components/sobreMi.astro"; 
-import Proyectos from "../components/proyectos.astro"; 
-import Footer from "../components/footer.astro"; 
+import SobreMi from "../components/sobreMi.astro";
+import Proyectos from "../components/proyectos.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <Layout title="Me">
-     <div class="divInicio"> 
-         <div class="texto-bienvenida hidden">
-            <span id="typingText" class="bg-clip-text-gradient"></span>
-            <span id="cursor" class="cursor">|</span>
-            <span>✌️👩‍💻</span>
-        </div>
-        
-        <div class="texto-proposito visible">
-            <span class="infoInicio">Transformar necesidades en</span>
-            <span class="bg-clip-text-gradient infoInicioEspecial"> experiencias digitales</span>
-            <span class="infoInicio"> intuitivas es mi propósito.</span>
-        </div>
+  <div class="divInicio">
+    <div id="texto-bienvenida" class="texto-animado">
+      <span id="bienvenida-texto" class="bg-clip-text-gradient"></span>
+      <span id="bienvenida-emojis"></span>
+      <span id="cursor-bienvenida" class="cursor">|</span>
     </div>
 
-      <SobreMi />
-       <Proyectos />
-       <Footer />
-      
-    <style>
+    <div id="texto-proposito" class="texto-animado hidden">
+      <span id="proposito-texto-1" class="infoInicio"></span>
+      <span id="proposito-texto-2" class="bg-clip-text-gradient infoInicioEspecial"></span>
+      <span id="proposito-texto-3" class="infoInicio"></span>
+      <span id="proposito-emojis"></span>
+      <span id="cursor-proposito" class="cursor">|</span>
+    </div>
+  </div>
+
+  <SobreMi />
+  <Proyectos />
+  <Footer />
+
+  <style>
     @reference "tailwindcss";
-    
+
     span {
-        /* Unidades VW para adaptación (RESPONSIVE) */
-        font-size: 5vw; 
-        font-weight: bold;
-        letter-spacing: -0.02em; 
-        line-height: 1.1;
-        /* El 'display: inline-block;' permite que las líneas se rompan */
-        display: inline-block; 
+      font-size: 5vw;
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      display: inline-block;
+      /* Asegura que el texto se ajuste si la pantalla es muy pequeña */
+      white-space: normal; 
+      vertical-align: middle; /* Alinea mejor los emojis y el cursor */
     }
-    
+
     .infoInicio {
-        color: white;
+      color: white;
     }
-    
-    .divInicio {
-        text-align: center;
-        position: relative; 
-       width: 100%; 
-        padding-bottom: 30%; 
+
+  .divInicio {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  padding-bottom: 30%; /* Usa padding para mantener el espacio dinámico */
+  min-height: 150px;
+}
+
+    .texto-animado {
+    position: absolute;
+    top: 0; /* Lo pega arriba */
+    left: 50%;
+    transform: translateX(-50%); /* Solo centra horizontalmente */
+    width: 90%;
+    padding-top: 1rem; /* Opcional: añade un pequeño espacio superior */
     }
-    
-   .texto-proposito, .texto-bienvenida {
-        /* Ambos deben ocupar la misma posición absoluta */
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%; 
-        padding: 0 10px;
-        box-sizing: border-box;
         
-        /* Transición de opacidad para el efecto de desvanecimiento */
-        transition: opacity 1s ease-in-out; 
-    }
-    
-    /* El propósito debe estar visible al inicio y desvanecerse */
-    .texto-proposito.visible {
-        opacity: 1;
-    }
-    .texto-proposito:not(.visible) {
-        opacity: 0;
-        /* Para que no interfiera cuando está invisible */
-        pointer-events: none; 
-    }
-    
-    /* El contenedor de Bienvenida inicia oculto */
+    /* Clase para ocultar un contenedor */
     .hidden {
-        display: none !important; /* Oculta completamente el contenedor */
+      display: none;
     }
 
-    /* 🚀 Texto de Bienvenida (Máquina de Escribir) */
-    .texto-bienvenida {
-        opacity: 1; /* Siempre visible cuando la clase 'hidden' se remueve */
-        text-align: center;
+    /* Cursor parpadeante con degradado */
+    .cursor {
+      font-weight: normal;
+      animation: blink 0.75s step-end infinite, flujo-color 5s ease infinite alternate;
+      background-image: linear-gradient(
+        90deg,
+        #BE07AE,
+        #110773,
+        #BE07AE
+      );
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-
-    /* El texto escrito no debe tener opacidad 0 */
-    #typingText {
-        /* Para que el texto se rompa en líneas si el ancho es pequeño */
-        white-space: normal; 
-    }
-
-    /* Cursor parpadeante */
-.cursor {
-        font-weight: normal;
-        margin-left: -0.1em;
-        animation: blink 0.75s step-end infinite, flujo-color 5s ease infinite alternate; /* Aplicamos ambas animaciones */
-        
-        /* Aplicamos el degradado del bg-clip-text-gradient */
-        background-image: linear-gradient(
-            90deg,
-            #BE07AE,
-            #110773,
-            #BE07AE 
-        );
-        background-size: 400% 400%;
-
-        /* Hacemos que el COLOR del cursor sea la parte VISIBLE del degradado */
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-    
-    /* Nota: Usamos las mismas propiedades bg-clip-text y color: transparent 
-       que el texto normal, pero como el cursor es un carácter simple (|) 
-       y no es el texto principal, esto funciona para darle el estilo degradado animado.
-       El color transparente es el que permite que el fondo degradado se muestre.
-    */
 
     @keyframes blink {
-        from, to { opacity: 1; }
-        50% { opacity: 0; }
+      from, to { opacity: 1; }
+      50% { opacity: 0; }
     }
-</style>
 
-     <script>
-        // --- Elementos y Contenidos ---
-        const propositoDiv = document.querySelector('.texto-proposito');
-        const bienvenidaDiv = document.querySelector('.texto-bienvenida');
-        const typingElement = document.getElementById('typingText');
-        const cursorElement = document.getElementById('cursor');
-        
-        const textToType = 'Hola, soy Ailen Nahuel diseñadora UX UI !';
-        const typingSpeed = 75; // Velocidad de escritura (ms por carácter)
-        
-        // --- Tiempos de la Secuencia (en milisegundos) ---
-        const initialDelay = 3000;  // Tiempo inicial de lectura
-        const fadeDuration = 1000;  // Duración del desvanecimiento CSS
-        const pauseAfterTyping = 1500; // Pausa después de terminar de escribir
-        const typingDuration = textToType.length * typingSpeed; // ~3000ms
+    @media (max-width: 768px) {
+  
+  /* Aumenta el tamaño de la letra de la animación.
+    Cambiamos de 5vw a 8vw para que sea más grande en pantallas pequeñas.
+  */
+  .divInicio span {
+    font-size: 8vw;
+  }
 
-        // --- Lógica del Ciclo ---
-        
-        /** Inicia la animación de máquina de escribir */
-        function typeWriter(callback) {
-            typingElement.textContent = ''; // Limpiar contenido
-            let charIndex = 0;
-            
-            bienvenidaDiv.classList.remove('hidden'); // Mostrar contenedor de bienvenida
-            cursorElement.style.opacity = '1'; // Mostrar cursor
+  /* Reduce el espacio inferior del contenedor de la animación.
+    Lo bajamos de 30% a 25% para minimizar el espacio vacío.
+  */
+  .divInicio {
+    padding-bottom: 55%;
+    min-height: 190px; /* También ajustamos la altura mínima */
+  }
 
-            function type() {
-                if (charIndex < textToType.length) {
-                    typingElement.textContent += textToType.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(type, typingSpeed);
-                } else {
-                    // Escritura terminada
-                    setTimeout(() => {
-                        cursorElement.style.opacity = '0'; // Ocultar cursor
-                        setTimeout(callback, pauseAfterTyping); // Pausa y llama al siguiente paso
-                    }, pauseAfterTyping / 2); // Pausa corta para que el cursor se oculte
-                }
-            }
-            type();
+}
+  @media (max-width: 600px) {
+  
+  /* Aumenta el tamaño de la letra de la animación.
+    Cambiamos de 5vw a 8vw para que sea más grande en pantallas pequeñas.
+  */
+  .divInicio span {
+    font-size: 8vw;
+  }
+
+  /* Reduce el espacio inferior del contenedor de la animación.
+    Lo bajamos de 30% a 25% para minimizar el espacio vacío.
+  */
+  .divInicio {
+    padding-bottom: 35%;
+    min-height: 250px; /* También ajustamos la altura mínima */
+  }
+
+}
+
+  @media (max-width: 450px) {
+  
+  /* Aumenta el tamaño de la letra de la animación.
+    Cambiamos de 5vw a 8vw para que sea más grande en pantallas pequeñas.
+  */
+  .divInicio span {
+    font-size: 8vw;
+  }
+
+  /* Reduce el espacio inferior del contenedor de la animación.
+    Lo bajamos de 30% a 25% para minimizar el espacio vacío.
+  */
+  .divInicio {
+    padding-bottom: 35%;
+    min-height: 190px; /* También ajustamos la altura mínima */
+  }
+
+}
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // --- ELEMENTOS DEL DOM ---
+      const bienvenidaDiv = document.getElementById('texto-bienvenida');
+      const propositoDiv = document.getElementById('texto-proposito');
+      
+      const bienvenidaTextoEl = document.getElementById('bienvenida-texto');
+      const bienvenidaEmojisEl = document.getElementById('bienvenida-emojis');
+      const bienvenidaCursor = document.getElementById('cursor-bienvenida');
+
+      const propositoTexto1El = document.getElementById('proposito-texto-1');
+      const propositoTexto2El = document.getElementById('proposito-texto-2');
+      const propositoTexto3El = document.getElementById('proposito-texto-3');
+      const propositoEmojisEl = document.getElementById('proposito-emojis');
+      const propositoCursor = document.getElementById('cursor-proposito');
+
+      // --- CONTENIDO Y CONFIGURACIÓN ---
+      const textos = {
+        bienvenida: 'Hola, soy Ailen Nahuel diseñadora UX UI !',
+        proposito1: 'Transformar necesidades ',
+        proposito2: 'en experiencias digitales',
+        proposito3: ' intuitivas es mi propósito.',
+        emojis: ' ✌️👩‍💻'
+      };
+      
+      const config = {
+        typingSpeed: 80, // ms por caracter
+        erasingSpeed: 50, // ms por caracter
+        pauseAfterHello: 5000, // 5 segundos
+        pauseAfterPurpose: 5000, // 5 segundos antes de repetir
+      };
+
+      // --- FUNCIONES DE ANIMACIÓN ---
+      const delay = (ms) => new Promise(res => setTimeout(res, ms));
+
+      /** Escribe texto en un elemento, caracter por caracter */
+      async function type(element, text) {
+        for (const char of text) {
+          element.textContent += char;
+          await delay(config.typingSpeed);
         }
+      }
 
-        /** Secuencia completa: Desaparecer Bienvenida y Aparecer Propósito */
-        function transitionToProposito() {
-            // 1. Desaparecer Bienvenida
-            bienvenidaDiv.style.opacity = '0';
-            
-            setTimeout(() => {
-                bienvenidaDiv.classList.add('hidden'); // Ocultar físicamente
-                bienvenidaDiv.style.opacity = '1'; // Resetear opacidad para el próximo ciclo
-                
-                // 2. Aparecer Propósito
-                propositoDiv.classList.add('visible');
-                
-                // 3. Iniciar el loop de nuevo
-                setTimeout(startSequence, initialDelay);
-            }, fadeDuration);
+      /** Borra texto de un array de elementos, en orden inverso */
+      async function erase(elements) {
+        for (let i = elements.length - 1; i >= 0; i--) {
+          const element = elements[i];
+          let text = element.textContent;
+          while (text.length > 0) {
+            text = text.slice(0, -1);
+            element.textContent = text;
+            await delay(config.erasingSpeed);
+          }
         }
+      }
 
-        /** Secuencia completa: Desaparecer Propósito y Empezar a Escribir Bienvenida */
-        function startSequence() {
-            // 1. Desaparecer Propósito
-            propositoDiv.classList.remove('visible');
-            
-            setTimeout(() => {
-                // 2. Esperar a que desaparezca y empezar a escribir
-                typeWriter(transitionToProposito); // Cuando termine de escribir, ir a transitionToProposito
-            }, fadeDuration); // El timing debe coincidir con la duración de la transición CSS
+      // --- SECUENCIA PRINCIPAL ---
+      async function runAnimationLoop() {
+        while (true) {
+          // --- 1. Muestra "Hola, soy..." ---
+          propositoDiv.classList.add('hidden');
+          bienvenidaDiv.classList.remove('hidden');
+
+          bienvenidaCursor.style.display = 'inline-block';
+          await type(bienvenidaTextoEl, textos.bienvenida);
+          await type(bienvenidaEmojisEl, textos.emojis);
+          bienvenidaCursor.style.display = 'none';
+
+          await delay(config.pauseAfterHello);
+          
+          bienvenidaCursor.style.display = 'inline-block';
+          await erase([bienvenidaEmojisEl, bienvenidaTextoEl]);
+          bienvenidaCursor.style.display = 'none';
+
+          // --- 2. Muestra "Transformar..." ---
+          bienvenidaDiv.classList.add('hidden');
+          propositoDiv.classList.remove('hidden');
+
+          propositoCursor.style.display = 'inline-block';
+          await type(propositoTexto1El, textos.proposito1);
+          await type(propositoTexto2El, textos.proposito2);
+          await type(propositoTexto3El, textos.proposito3);
+          propositoCursor.style.display = 'none';
+          
+          await delay(config.pauseAfterPurpose);
+
+          propositoCursor.style.display = 'inline-block';
+          await erase([propositoEmojisEl, propositoTexto3El, propositoTexto2El, propositoTexto1El]);
+          propositoCursor.style.display = 'none';
         }
+      }
 
-        // Iniciar el Loop (La primera iteración)
-        propositoDiv.classList.add('visible'); // Asegurar que esté visible al cargar
-        setTimeout(startSequence, initialDelay); // Iniciar la secuencia después de la lectura inicial
-
-    </script>
+      // Iniciar la animación
+      runAnimationLoop();
+    });
+  </script>
 </Layout>

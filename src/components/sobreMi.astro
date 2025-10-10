@@ -8,102 +8,88 @@ import blender from '../assets/Blender.svg';
 ---
 
 <script src="../styles/efectos.js" type="module"></script>
-<div class="sobreMi-container" id="sobre-mi">
-    <div class="sobreMi-card">
-        
-        <section class="info-section entradaDesdeIzquierda-style">
-            <h2 class="titulo-card">Sobre mí 👋</h2>
-            <p>Soy Ailen Nahuel, una diseñadora UX/UI apasionada por combinar estética y funcionalidad.</p>
-            <p>Actualmente me enfoco en crecer en el diseño digital, interfaces y experiencia de usuario.</p>
+<section class="sobreMi-container" id="sobre-mi">
+    
+    <section class="info-section entradaDesdeIzquierda-style">
+        <h2>Sobre mí 👋</h2>
+        <p>Soy Ailen Nahuel, una diseñadora UX/UI apasionada por combinar estética y funcionalidad.</p>
+        <p>Actualmente me enfoco en crecer en el diseño digital, interfaces y experiencia de usuario.</p>
 
-            <div class="contacto-info">
-                <div class="logos-grid">
-                    <div class="logo-wrapper">
-                        <img src={photoshop.src} alt="Logo Photoshop" class="tool-logo"/>
-                    </div>
-                    <div class="logo-wrapper">
-                        <img src={illustrator.src} alt="Logo Illustrator" class="tool-logo"/>
-                    </div>
-                    <div class="logo-wrapper">
-                        <img src={indesing.src} alt="Logo InDesign" class="tool-logo"/>
-                    </div>
-                    <div class="logo-wrapper">
-                        <img src={figma.src} alt="Logo Figma" class="tool-logo"/>
-                    </div>
-                    <div class="logo-wrapper">
-                        <img src={blender.src} alt="Logo Blender" class="tool-logo"/>
-                    </div>
+        <div class="contacto-info">
+            <div class="logos-grid">
+                <div class="logo-wrapper">
+                    <img src={photoshop.src} alt="Logo Photoshop" class="tool-logo"/>
+                </div>
+                <div class="logo-wrapper">
+                    <img src={illustrator.src} alt="Logo Illustrator" class="tool-logo"/>
+                </div>
+                <div class="logo-wrapper">
+                    <img src={indesing.src} alt="Logo InDesign" class="tool-logo"/>
+                </div>
+                <div class="logo-wrapper">
+                    <img src={figma.src} alt="Logo Figma" class="tool-logo"/>
+                </div>
+                <div class="logo-wrapper">
+                    <img src={blender.src} alt="Logo Blender" class="tool-logo"/>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="avatar-section entradaDesdeDerecha-style">
-            <div class="avatar-wrapper">
-                <iframe
-                    src="https://player.mux.com/Hoy5wg8JN00IzyFEZ2Yj7dbaLzBem21Y758iD5Exmt3s?primary-color=%23f3e2e2&autoplay=true&loop=true&muted=true"
-                    style="width: 100%; border: none; aspect-ratio: 5/7;"
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                    allowfullscreen
-                ></iframe>
-            </div>
-        </section>
-        
-    </div>
-</div>
+    <section class="avatar-section entradaDesdeDerecha-style">
+        <div class="avatar-wrapper">
+            <iframe
+                src="https://player.mux.com/Hoy5wg8JN00IzyFEZ2Yj7dbaLzBem21Y758iD5Exmt3s?primary-color=%23f3e2e2&autoplay=true&loop=true&muted=true"
+                style="border: none;"
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </section>
+    
+</section>
 
 <style>
-/* ... (todos los estilos anteriores se mantienen igual) ... */
 .sobreMi-container {
     font-family: 'Alexandria Variable', sans-serif;
-    padding: 50px 0;
-    max-width: 100%;
+    padding: 80px 150px;
+    margin: 0 auto;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
-}
-.sobreMi-card {
-    width: 100%;
-    border-radius: 40px;
-    box-sizing: border-box;
-    color: white;
-    display: flex;
-    background-color: rgba(23, 21, 31, 0.9);
-    background-image: linear-gradient(
-        to right, 
-        rgba(39, 37, 51, 0.9),
-        rgba(23, 21, 31, 0.9),
-        rgba(39, 37, 51, 0.9)
-    );
-    background-size: 300% 100%; 
-    animation: slow-shift 15s linear infinite;
-    backdrop-filter: blur(5px); 
-    -webkit-backdrop-filter: blur(5px);
-}
-@keyframes slow-shift {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
-.info-section {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    padding: 70px 40px 70px 70px; 
-    flex: 3; 
-    min-width: 55%; 
-    box-sizing: border-box;
+    align-items: center;
+    gap: 40px;
 }
-.info-section p:last-of-type {
-    margin-bottom: auto;
-    padding-bottom: 30px;
+
+.info-section {
+    color: white;
+    flex: 1;
+    max-width: 600px;
 }
+
 .avatar-section {
-    flex: 2; 
-    align-self: stretch;
-    display: flex;
-    justify-content: flex-end;
-    align-items: stretch;
-    min-width: 200px; 
+    flex-shrink: 0;
 }
+
+.avatar-wrapper {
+    width: 300px;
+    height: 420px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
 .titulo-card {
     font-size: clamp(30px, 4vw, 50px);
     margin-bottom: 20px;
@@ -114,102 +100,40 @@ import blender from '../assets/Blender.svg';
     line-height: 1.6;
     margin-bottom: 15px;
 }
+
 .contacto-info {
-    margin-top: 30px;
-    padding-top: 20px;
+    margin-top: 40px; 
+    padding-top: 25px; 
     border-top: 1px solid rgba(255, 255, 255, 0.1); 
 }
-.avatar-wrapper {
-    overflow: hidden;
-    width: 100%; 
-    max-width: none;
-    height: 100%;
-}
-.avatar-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 0 40px 40px 0; 
+
+.herramientas-titulo {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px; 
 }
 
-/* ... (resto de los estilos sin cambios) ... */
-@media (max-width: 850px) {
-    .profile-avatar {
-        --size: 100px; 
-        transform: translate(-50%, calc(-1 * var(--size) / 2));
-    }
-    .sobreMi-card {
-        margin-top: calc(100px / 2); 
-        flex-direction: column;
-        padding: 25px;
-    }
-    .info-section {
-        padding: 0; 
-        padding-top: 20px; 
-        min-width: 100%; 
-    }
-    .info-section p:last-of-type {
-        margin-bottom: 15px;
-        padding-bottom: 0;
-    }
-    .avatar-section {
-        order: -1; 
-        justify-content: center; 
-        margin-bottom: 30px;
-        min-width: 100%;
-        align-self: auto;
-    }
-    .avatar-wrapper {
-        max-width: 250px;
-        height: auto;
-    }
-
-    /* --- ✨ ARREGLO AQUÍ --- */
-    .avatar-wrapper iframe {
-        /* En móvil, aplicamos un radio a todas las esquinas para que se vea bien */
-        border-radius: 30px;
-    }
-}
-.avatar-video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    border-radius: 10px;
-}
-.avatar-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
-/* Se fusiona el media query de 768px con el de 850px para evitar duplicados */
-@media (max-width: 768px) {
-    .logos-grid {
-        justify-content: center; 
-    }
-}
 .logos-grid {
     display: flex;
     gap: 15px; 
     flex-wrap: wrap; 
-    margin-top: 15px;
 }
+
 .logo-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
+    width: 55px;
     height: 60px;
-    border-radius: 10px; 
+    border-radius: 15px; 
     background-color: rgb(30, 28, 38); 
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3); 
     transition: all 0.2s ease-in-out; 
     cursor: pointer;
 }
 .logo-wrapper:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 0 12px 4px #4327BF; 
+    transform: scale(1.55); 
 }
 .tool-logo {
     width: 70%; 
@@ -217,9 +141,68 @@ import blender from '../assets/Blender.svg';
     object-fit: contain;
     transition: all 0.2s ease-in-out;
 }
+
+@media (max-width: 1350px) {
+    .sobreMi-container {
+        flex-direction: column;
+        padding: 100px 20px;
+    }
+    .avatar-section {
+        order: -1;
+        /* ✨ CAMBIO CLAVE: Hacemos que la sección ocupe todo el ancho disponible ✨ */
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .avatar-wrapper {
+        /* ✨ CAMBIO CLAVE: El wrapper también debe ocupar el 100% de su contenedor padre ✨ */
+        width: 100%; 
+        height: 600px;
+    }
+
+    .avatar-wrapper iframe {
+        width: 150%;
+        height: 150%;
+    }
+
+    .info-section {
+        max-width: 100%;
+       
+    }
+   
+}
+@media (max-width: 450px) {
+    .logo-wrapper {
+        width: 38px;
+        height: 55px;
+    }
+
+ 
+}
+
+
+@media (max-width: 400px) {
+    .logo-wrapper {
+        width: 42px;
+        height: 55px;
+    }
+
+    .sobreMi-container {
+        padding: 80px 20px;
+    }
+}
+@media (max-width: 363px) {
+    .logo-wrapper {
+        width: 40px;
+        height: 55px;
+    }
+
+
+}
 </style>
 
-<script is:inline>
+<script>
+// El script de IntersectionObserver se mantiene igual
 document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null, 

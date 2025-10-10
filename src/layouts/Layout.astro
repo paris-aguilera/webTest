@@ -24,10 +24,10 @@ const {title} = Astro.props;
     
     <body> 
         <div id="custom-cursor" class="custom-cursor">Ailen Luna</div>
-        <header>
+        <header id="headerL" class="smooth-scroll">
             <div class="header-container">
                 {/* --- ✨ CAMBIO 2: Añadimos el logo envuelto en un enlace a la página de inicio --- */}
-                <a href="/" class="header-logo-link">
+                <a href=`${import.meta.env.BASE_URL}/` class="header-logo-link">
                     <img src={logo.src} alt="Logo Ailen Nahuel" class="header-logo" />
                 </a>
 
@@ -35,7 +35,7 @@ const {title} = Astro.props;
                     <div class="menuList">
                         <ul>
                             <li>
-                                <a href="#sobre-mi" class="smooth-scroll"><span>SOBRE MI</span></a>
+                                <a href=`${import.meta.env.BASE_URL}/#sobre-mi` class="smooth-scroll"><span>SOBRE MI</span></a>
                             </li>
                         </ul>
                         <ul>
@@ -97,8 +97,10 @@ const {title} = Astro.props;
 /* ... (Estilos de html, body y header se mantienen) ... */
 html, body {
     overflow-x: hidden;
+   
 }
 header {
+   
     font-family: 'Bebas Neue', sans-serif;
     color: white;
     font-weight:lighter;
@@ -114,6 +116,7 @@ header {
 
 /* --- ✨ CAMBIO 3: Ajustamos el contenedor del header --- */
 .header-container {
+   
     padding-inline: 13%; 
     width: 100%;
     margin: 0 auto;
@@ -130,7 +133,7 @@ header {
     align-items: center;
 }
 .header-logo {
-    height: 50px; /* Altura del logo en escritorio */
+    height: 120px; /* Altura del logo en escritorio */
     width: auto;  /* El ancho se ajusta automáticamente */
 }
 
@@ -176,6 +179,7 @@ nav {
 
 /* ... (Estilos del body se mantienen) ... */
 body {
+     
     margin: 0;
     font-family: 'Alexandria Variable', sans-serif;
     background: linear-gradient(to bottom, #010107, #090416, #0E0B23, #18214A);
@@ -197,7 +201,7 @@ body {
 
     /* Reducimos el tamaño del logo en móvil */
     .header-logo {
-        height: 40px;
+        height: 80px;
     }
 
     .menuList {

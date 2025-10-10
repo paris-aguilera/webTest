@@ -1,252 +1,234 @@
 ---
 import '@fontsource-variable/alexandria';
+import { Image } from 'astro:assets';
 
-// Se mantienen las importaciones de imágenes que necesitas
+// Importaciones de imágenes (sin cambios)
 import portaImg from '../assets/portaWeb.png';
 import castizaImg from '../assets/castizaWeb.png';
 import casinoImg from '../assets/casinoMobile.png';
 import kiuboImg from '../assets/kiuboWeb.png';
+
+const proyectosData = [
+  {
+    titulo: "Kiubo",
+    descripcion: "Aplicación mobile de gestión de tareas para la tercera edad.",
+    imagen: kiuboImg,
+    tags: ["Figma", "Illustrator", "Photoshop", "UX UI"],
+     url: `${import.meta.env.BASE_URL}/kiubo`
+  },
+  {
+    titulo: "Portafolio",
+    descripcion: "Página web creada en Astro y diseñada por mí con ❤, donde muestro mis habilidades y proyectos.",
+    imagen: kiuboImg,
+    tags: ["Figma", "Illustrator", "Astro", "UX UI"],
+    url: "#"
+  },
+  {
+    titulo: "My Casino Gold",
+    descripcion: "Práctica profesional como diseñadora de la app, creadora de imágenes para publicidad y community manager.",
+    imagen: kiuboImg,
+    tags: ["Figma", "Illustrator", "Photoshop"],
+    url: "#"
+  },
+  {
+    titulo: "Castiza Beer",
+    descripcion: "Proyecto de branding y diseño de interfaz para una cervecería artesanal.",
+    imagen: kiuboImg,
+    tags: ["Figma", "IA", "Photoshop", "UX UI"],
+    url: "#"
+  }
+];
 ---
 
-<script src="../styles/efectos.js" type="module"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<div class="sobreMi-container" id="proyectos">
-    <h1 class="titulo-card proyectos-titulo">Proyectos 💻</h1>
-    <div class="proyectos-grid">
-
-        <a href="https://ejemplo.com/portafolio" class="proyecto-card entradaDesdeIzquierda-style" style="transition-delay: 0.3s;" data-url="https://ejemplo.com/portafolio">
-            <div class="card-content-wrapper">
-                <img src={portaImg.src} alt="Vista previa del proyecto Portafolio" class="card-image" />
-                <div class="card-info">
-                    <h2 class="card-titulo">PORTAFOLIO</h2>
-                    <span class="card-tag-fechas"> - Actualidad</span>
-                    <p class="card-descripcion">Pagina web creada en astro y diseñada por mi con ❤.</p>
-                    <span class="card-tag">Figma | Illustrator | Astro | UX UI</span>
+<section class="proyectos-container" id="proyectos">
+    <h2 class="titulo-seccion">Proyectos 💻</h2>
+    
+    <div class="proyectos-lista">
+        {proyectosData.map(proyecto => (
+            <article class="proyecto-item">
+                
+                <div class="proyecto-info entradaDesdeIzquierda-style">
+                    <h3 class="proyecto-titulo">{proyecto.titulo}</h3>
+                    <p class="proyecto-descripcion">{proyecto.descripcion}</p>
+                    <div class="tags-container">
+                        {proyecto.tags.map(tag => <span class="card-tag">{tag}</span>)}
+                    </div>
+                    <a href={proyecto.url} class="ver-proyecto-button">
+                        <span>Ver proyecto</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-            </div>
-            {/* --- ✨ CAMBIO 1: Añadimos el texto al botón --- */}
-            <button class="card-arrow-button" aria-label="Ir a Portafolio">
-                <span>Ver proyecto</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        </a>
 
-        <a href="https://ejemplo.com/casino" class="proyecto-card entradaDesdeDerecha-style" style="transition-delay: 0.1s;" data-url="https://ejemplo.com/casino">
-            <div class="card-content-wrapper">
-                <img src={casinoImg.src} alt="Vista previa del proyecto My Casino Gold" class="card-image" />
-                <div class="card-info">
-                    <h2 class="card-titulo">MY CASINO GOLD</h2>
-                    <span class="card-tag-fechas">Marzo 2025 - Julio 2025</span>
-                    <p class="card-descripcion">Practica profesional, diseñadora de la app, creadora de imagenes para publicidad, comunity manager.</p>
-                    <span class="card-tag">Figma | Illustrator | Photoshop | UX UI</span>
-                </div>
-            </div>
-            <button class="card-arrow-button" aria-label="Ir a Mi Gran Casino777">
-                <span>Ver proyecto</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        </a>
+                <a href={proyecto.url} class="proyecto-imagen-enlace entradaDesdeDerecha-style">
+                    <Image src={proyecto.imagen} alt={`Vista previa del proyecto ${proyecto.titulo}`} class="proyecto-imagen"/>
+                </a>
 
-        <a href="https://ejemplo.com/kiubo" class="proyecto-card entradaDesdeIzquierda-style" data-url="https://ejemplo.com/kiubo">
-            <div class="card-content-wrapper">
-                <img src={kiuboImg.src} alt="Vista previa del proyecto Kiubo" class="card-image" />
-                <div class="card-info">
-                    <h2 class="card-titulo">KIUBO</h2>
-                    <span class="card-tag-fechas">Portafolio de titulo</span>
-                    <p class="card-descripcion">Aplicación mobile de gestión de tareas para la tercera edad.</p>
-                    <span class="card-tag">Figma | Illustrator | UX UI</span>
-                </div>
-            </div>
-            <button class="card-arrow-button" aria-label="Ir a Kiubo">
-                <span>Ver proyecto</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        </a>
-
-        <a href="https://ejemplo.com/castiza" class="proyecto-card entradaDesdeDerecha-style" style="transition-delay: 0.2s;" data-url="https://ejemplo.com/castiza">
-            <div class="card-content-wrapper">
-                <img src={castizaImg.src} alt="Vista previa del proyecto Castiza Beer" class="card-image" />
-                <div class="card-info">
-                    <h2 class="card-titulo">CASTIZA BEER</h2>
-                    <span class="card-tag-fechas">Primer año de diseño</span>
-                    <p class="card-descripcion">Cerveceria artesanal.</p>
-                    <span class="card-tag">Figma | IA | Photoshop | UX UI</span>
-                </div>
-            </div>
-            <button class="card-arrow-button" aria-label="Ir a Castiza Beer">
-                <span>Ver proyecto</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        </a>
-
+            </article>
+        ))}
     </div>
-</div>
+</section>
 
 <style>
-.sobreMi-container {
+/* --- Contenedores Principales --- */
+.proyectos-container {
     font-family: 'Alexandria Variable', sans-serif;
-    padding: 50px 0;
+    padding: 30px 150px 200px;
     margin: 0 auto;
     box-sizing: border-box;
+    max-width: 1920px;
 }
-.titulo-card {
-    font-size: clamp(30px, 4vw, 50px);
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-.proyectos-titulo {
+
+.titulo-seccion {
+    color: white;
     font-size: clamp(36px, 5vw, 60px);
-    color: white;
-    margin-bottom: 40px;
-    padding-left: 20px;
+    margin-bottom: 20px;
 }
-.proyectos-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-}
-.proyecto-card {
-    background-color: rgba(23, 21, 31, 0.1);
-    border-radius: 20px;
-    color: white;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-    display: block;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
-.proyecto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-}
-.card-content-wrapper {
+
+.proyectos-lista {
     display: flex;
     flex-direction: column;
-}
-.card-image {
-    width: 100%;
-    height: 350px;
-    border-radius: 20px 20px 0 0; 
-    display: block;
-    object-fit: cover;
-}
-.card-info {
-    padding: 30px;
-    position: relative;
-    display: flex; 
-    flex-direction: column;
-    flex-grow: 1;
+    gap: 150px;
 }
 
-/* --- ✨ CAMBIO 2: Se ajusta el título para que no choque con el nuevo botón --- */
-.card-titulo {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+/* --- Estructura de cada Proyecto (Desktop) --- */
+.proyecto-item {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Lógica para alternar el orden en elementos pares */
+.proyecto-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.proyecto-info {
+    flex: 1;
     color: white;
-    /* Dejamos más espacio a la derecha para el botón más ancho */
-    margin-right: 170px; 
 }
 
-.card-descripcion {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    flex-grow: 1; 
+.proyecto-imagen-enlace {
+    flex: 1.2; 
+    display: block;
 }
+
+.proyecto-imagen {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Estilos de Texto, Tags y Botón (Sin cambios mayores) --- */
+.proyecto-titulo {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+}
+
+.proyecto-descripcion {
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
 .card-tag {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 5px 12px;
     border-radius: 5px;
     background-color: rgba(67, 39, 191, 0.15);
-    color: #4327BF;
-}
-.card-tag-fechas {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 15px;
+    color: #8A78F5;
 }
 
-/* --- ✨ CAMBIO 3: Se modifica completamente el estilo del botón --- */
-.card-arrow-button {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    color: white;
-    
-    /* De círculo a píldora */
-    border-radius: 50px; /* Borde muy redondeado para forma de píldora */
-    width: auto; /* Ancho automático para que quepa el texto */
-    height: 40px;
-    padding: 0 20px; /* Espacio interno horizontal */
-    
-    /* Alineación del texto y el ícono */
-    display: flex;
+.ver-proyecto-button {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px; /* Espacio entre el texto y la flecha */
-    
-    /* Estilos de texto */
-    font-family: 'Alexandria Variable', sans-serif;
+    gap: 8px;
+    background-color: #4327BF;
+    border: 1px solid #4327BF;
+    color: white;
+    padding: 10px 20px;
     font-weight: 600;
     font-size: 0.9rem;
-    white-space: nowrap; /* Evita que el texto se parta */
-
-    pointer-events: none; 
-    transition: all 0.3s ease-in-out;
-    z-index: 10;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.ver-proyecto-button:hover {
+    background-color: #5a40d8;
+}
+.ver-proyecto-button .fas {
+    transition: transform 0.3s ease-in-out;
+}
+.ver-proyecto-button:hover .fas {
+    transform: translateX(5px);
 }
 
-.proyecto-card:hover .card-arrow-button {
-    background-color: #4327BF;
-    border-color: #4327BF;
-    transform: scale(1.05); /* Escala ligeramente en lugar de 1.1 */
-}
-.card-arrow-button i {
-    font-size: 1rem;
+/* --- LÓGICA RESPONSIVE CORREGIDA --- */
+@media (max-width: 1024px) {
+    .proyectos-container {
+        padding: 40px 20px 200px;
+    }
+    
+    .proyectos-lista {
+        gap: 100px;
+    }
+    
+    .proyecto-item,
+    .proyecto-item:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .proyecto-imagen-enlace {
+        order: -1;
+        width: 100%;
+    }
+
+    .tags-container, .ver-proyecto-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (max-width: 768px) {
-    .proyectos-titulo {
-        text-align: center;
-        padding-left: 0;
+    .proyectos-container {
+        padding: 40px 20px  200px;
     }
-    .proyectos-grid {
-        gap: 30px;
-        padding: 0 20px;
+    .titulo-seccion {
+        margin-bottom: 60px;
     }
-    .card-image {
-        height: 200px;
-    }
-    .card-info {
-        padding: 25px;
-    }
-
-    /* Ajustamos el botón y el título para móvil */
-    .card-arrow-button {
-        top: 25px;
-        right: 25px;
-        padding: 0 15px;
-        height: 38px;
-        font-size: 0.8rem;
-    }
-    .card-titulo {
-        /* Reducimos el margen para pantallas pequeñas */
-        margin-right: 0;
-    }
-}
-
-.proyecto-card p {
-    font-size: clamp(16px, 1.5vw, 20px);
-    line-height: 1.6;
-    margin-bottom: 15px;
 }
 </style>
+
+<script>
+// El script de IntersectionObserver se mantiene igual
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        root: null, 
+        rootMargin: '0px 0px -100px 0px', 
+        threshold: 0.05 
+    };
+    const sectionsToAnimate = document.querySelectorAll('.entradaDesdeIzquierda-style, .entradaDesdeDerecha-style');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                entry.target.classList.remove('is-hidden'); 
+            } else {
+                entry.target.classList.remove('is-visible');
+                entry.target.classList.add('is-hidden'); 
+            }
+        });
+    }, observerOptions);
+    sectionsToAnimate.forEach(section => {
+        observer.observe(section);
+    });
+});
+</script>

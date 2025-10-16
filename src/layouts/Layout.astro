@@ -2,216 +2,191 @@
 import '@fontsource-variable/alexandria';
 import '@fontsource/bebas-neue';
 import "../styles/global.css";
-// --- ✨ CAMBIO 1: Importamos la imagen del logo ---
 import logo from '../assets/logo.png';
 
 interface Props {
-    title: string;
+title: string;
 }
 
 const {title} = Astro.props;
 ---
-
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-    </head>
-    
-    <body> 
-        <div id="custom-cursor" class="custom-cursor">Ailen Luna</div>
-        <header id="headerL" class="smooth-scroll">
-            <div class="header-container">
-                {/* --- ✨ CAMBIO 2: Añadimos el logo envuelto en un enlace a la página de inicio --- */}
-                <a href=`${import.meta.env.BASE_URL}/` class="header-logo-link">
-                    <img src={logo.src} alt="Logo Ailen Nahuel" class="header-logo" />
-                </a>
+<head>
+<meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/png" href={logo.src}>
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+</head>
+<body>
+<div id="custom-cursor" class="custom-cursor">Ailen Luna</div>
+<header id="headerL">
+<div class="header-container">
+ <a href=`${import.meta.env.BASE_URL}` class="header-logo-link">
+ <img src={logo.src} alt="Logo Ailen Nahuel" class="header-logo" />
+</a>
+<nav>
+<div class="menuList">
+ <ul>
+ <li>
+<a href=`${import.meta.env.BASE_URL}#sobre-mi` class="nav-link"><span>SOBRE MI</span></a>
+</li>
+</ul>
+<ul>
+ <li>
+<a href=`${import.meta.env.BASE_URL}#proyectos` class="nav-link"><span>PROYECTOS</span></a>
+</li>
+</ul>
+<ul>
+ <li>
+<a href=`${import.meta.env.BASE_URL}#contacto` class="nav-link"><span>CONTACTO</span></a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+ </header>
 
-                <nav>
-                    <div class="menuList">
-                        <ul>
-                            <li>
-                                <a href=`${import.meta.env.BASE_URL}/#sobre-mi` class="smooth-scroll"><span>SOBRE MI</span></a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="#proyectos" class="smooth-scroll"><span>PROYECTOS</span></a>
-                            </li> 
-                        </ul>    
-                        <ul>
-                            <li>
-                                <a href="#contacto" class="smooth-scroll"><span>CONTACTO</span></a>
-                            </li> 
-                        </ul>    
-                    </div>  
-                </nav>  
-            </div>
-        </header>
-        <slot />
+<slot />
 
-        <script is:inline>
-          // Tu script de smooth scroll y custom cursor
-          document.addEventListener('DOMContentLoaded', () => {
-            // Smooth Scroll
-            const links = document.querySelectorAll('a.smooth-scroll');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+<script is:inline>
+ const BASE_URL = import.meta.env.BASE_URL;
+document.addEventListener('DOMContentLoaded', () => {
+const navLinks = document.querySelectorAll('a.nav-link');
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+ const url = new URL(link.href);
+ const targetId = url.hash;
+if (window.location.pathname === BASE_URL && targetId) {
+e.preventDefault();
+const targetElement = document.querySelector(targetId);
+ if (targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+ }
+ });
+});
 
-            // Custom Cursor
-            const cursor = document.getElementById('custom-cursor');
-            const hoverElements = document.querySelectorAll('a, button');
-            if (!('ontouchstart' in window)) {
-                document.addEventListener('mouseenter', () => { cursor.style.opacity = 1; });
-                window.addEventListener('mousemove', (e) => {
-                    cursor.style.left = e.clientX + 'px';
-                    cursor.style.top = e.clientY + 'px';
-                });
-                document.addEventListener('mouseleave', () => { cursor.style.opacity = 0; });
-                hoverElements.forEach(el => {
-                    el.addEventListener('mouseenter', () => cursor.classList.add('hover-effect'));
-                    el.addEventListener('mouseleave', () => cursor.classList.remove('hover-effect'));
-                });
-            }
-          });
-        </script>
-    </body>
+ const cursor = document.getElementById('custom-cursor');
+ const hoverElements = document.querySelectorAll('a, button');
+if (!('ontouchstart' in window)) {
+document.addEventListener('mouseenter', () => { cursor.style.opacity = 1; });
+window.addEventListener('mousemove', (e) => {
+cursor.style.left = e.clientX + 'px';
+ cursor.style.top = e.clientY + 'px';
+});
+document.addEventListener('mouseleave', () => { cursor.style.opacity = 0; });
+hoverElements.forEach(el => {
+el.addEventListener('mouseenter', () => cursor.classList.add('hover-effect'));
+el.addEventListener('mouseleave', () => cursor.classList.remove('hover-effect'));
+});
+ }
+ });
+ </script>
+</body>
 </html>
 
 <style>
-/* ... (Estilos de html, body y header se mantienen) ... */
+html {
+scroll-behavior: smooth;
+}
+
 html, body {
-    overflow-x: hidden;
-   
+overflow-x: hidden;
 }
 header {
-   
-    font-family: 'Bebas Neue', sans-serif;
-    color: white;
-    font-weight:lighter;
-    padding: 25px 0 75px 0px; 
-    width: 100vw !important; 
-    position: relative !important; 
-    left: 50% !important;
-    right: 50% !important;
-    margin-left: -50vw !important; 
-    margin-right: -50vw !important;
-    box-sizing: border-box;
+font-family: 'Bebas Neue', sans-serif;
+color: white;
+font-weight:lighter;
+padding: 25px 0 75px 0px; 
+width: 100vw !important; 
+position: relative !important; 
+left: 50% !important;
+right: 50% !important;
+margin-left: -50vw !important; 
+margin-right: -50vw !important;
+box-sizing: border-box;
 } 
-
-/* --- ✨ CAMBIO 3: Ajustamos el contenedor del header --- */
 .header-container {
-   
-    padding-inline: 13%; 
-    width: 100%;
-    margin: 0 auto;
-    display: flex; 
-    /* Alinear items: logo a la izquierda, nav a la derecha */
-    justify-content: space-between; 
-    align-items: center; 
-    box-sizing: border-box;
+padding-inline: 13%; 
+width: 100%;
+margin: 0 auto;
+display: flex; 
+justify-content: space-between; 
+align-items: center; 
+box-sizing: border-box;
 }
-
-/* --- ✨ CAMBIO 4: Añadimos estilos para el logo --- */
 .header-logo-link {
-    display: flex;
-    align-items: center;
+display: flex;
+align-items: center;
 }
 .header-logo {
-    height: 120px; /* Altura del logo en escritorio */
-    width: auto;  /* El ancho se ajusta automáticamente */
+height: 120px;
+width: auto;
 }
-
-/* --- ✨ CAMBIO 5: Quitamos el margen automático del menú --- */
 .menuList {
-    display: flex; 
-    align-items: center; 
-    /* Ya no es necesario, 'space-between' en el padre se encarga de la posición */
-    /* margin-left: auto; */
+display: flex; 
+align-items: center; 
 }
-
 .menuList ul { list-style: none; margin: 0; display: flex; }
 .menuList li { list-style: none; margin: 0; padding: 0; }
 .menuList a {
-    cursor: pointer;
-    font-size: clamp(20px, 2.5vw, 30px); 
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
-    padding: 10px 15px;
-    display: inline-block;
-    transition: color 0.3s ease;
-    position: relative; 
+cursor: pointer;
+font-size: clamp(20px, 2.5vw, 30px); 
+width: 100%;
+text-decoration: none;
+color: inherit;
+padding: 10px 15px;
+display: inline-block;
+transition: color 0.3s ease;
+position: relative; 
 }
 .menuList a:hover { color: white; }
 .menuList a span { position: relative; }
 .menuList a span::after {
-    content: ''; 
-    position: absolute;
-    bottom: -5px; left: 0;
-    height: 2px;
-    background-color: white;
-    width: 0;
-    transition: width 0.3s ease-out; 
+content: ''; 
+position: absolute;
+bottom: -5px; left: 0;
+height: 2px;
+background-color: white;
+width: 0;
+transition: width 0.3s ease-out; 
 }
 .menuList a:hover span::after { width: 100%; }
 nav {
-    /* No necesita width 100% ahora que es un item flex */
-    /* width: 100%; */
-    display: flex;
-    justify-content: flex-end; 
+display: flex;
+justify-content: flex-end; 
 }
-
-/* ... (Estilos del body se mantienen) ... */
 body {
-     
-    margin: 0;
-    font-family: 'Alexandria Variable', sans-serif;
-    background: linear-gradient(to bottom, #010107, #090416, #0E0B23, #18214A);
-    width: 100%;
-    padding: 2% 13% 0% 13%;
-    min-height: 100vh;
+margin: 0;
+font-family: 'Alexandria Variable', sans-serif;
+background: linear-gradient(to bottom, #010107, #090416, #0E0B23, #18214A);
+width: 100%;
+padding: 2% 13% 0% 13%;
+min-height: 100vh;
 }
-
-/* --- ✨ CAMBIO 6: Ajustes para la vista móvil --- */
 @media (max-width: 768px) {
-    body{ padding: 2% 5% 0% 5% !important; }
-    header{ padding: 25px 0 35px 0px; }
-    
-    .header-container {
-        padding-inline: 5%; 
-        /* Mantenemos space-between para que el logo quede a la izquierda */
-        justify-content: space-between; 
-    }
+body{ padding: 2% 5% 0% 5% !important; }
+header{ padding: 25px 0 35px 0px; }
 
-    /* Reducimos el tamaño del logo en móvil */
-    .header-logo {
-        height: 80px;
-    }
-
-    .menuList {
-        /* Eliminamos 'width: 100%' para que no ocupe todo el espacio y se alinee bien */
-        margin-left: 0;
-        flex-wrap: wrap; 
-        justify-content: flex-end; /* Alineamos los links a la derecha del menú */
-    }
-    .menuList ul { padding: 0 5px; }
-    .menuList a { padding: 0 5px; }
-    nav { justify-content: flex-end; }
+.header-container {
+padding-inline: 5%; 
+justify-content: space-between; 
+}
+.header-logo {
+height: 80px;
+ }
+.menuList {
+margin-left: 0;
+flex-wrap: wrap; 
+justify-content: flex-end;
+}
+.menuList ul { padding: 0 5px; }
+.menuList a { padding: 0 5px; }
+nav { justify-content: flex-end; }
 }
 </style>

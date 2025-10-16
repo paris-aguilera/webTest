@@ -1,168 +1,163 @@
 ---
 import '@fontsource-variable/alexandria';
-// Se necesita Font Awesome para los íconos
 ---
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <footer class="main-footer" id="contacto">
-    
     <div class="footer-content-wrapper">
-        
         <div class="footer-contact-section">
             <p class="contact-text">¡Mantengámonos en contacto!</p>
         </div>
-
         <div class="footer-social-section">
-            
             <a href="https://www.linkedin.com/in/ailen-nahuel-341a7b292/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <i class="fab fa-linkedin social-icon"></i>
             </a>
-            
             <a href="https://www.instagram.com/aileeeeeeen_n/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <i class="fab fa-instagram social-icon"></i>
             </a>
-            
             <a href="https://www.behance.net/ailennahuel" target="_blank" rel="noopener noreferrer" aria-label="Behance">
                 <i class="fab fa-behance-square social-icon"></i>
             </a>
-            
         </div>
     </div>
 </footer>
 
+<a href="#" id="scrollTopBtn" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+</a>
 <style>
-    /* -------------------------------------- */
-    /* ANIMACIÓN (COPIADA DE TU TARJETA .sobreMi-card) */
-    /* -------------------------------------- */
+    /* Estilos originales del footer (sin cambios) */
     @keyframes slow-shift {
         0% { background-position: 0% 50%; }
         100% { background-position: 100% 50%; }
     }
-    
-    /* -------------------------------------- */
-    /* ESTILOS DEL FOOTER (ROMPIENDO REGLAS Y APLICANDO EFECTOS) */
-    /* -------------------------------------- */
-    
     .main-footer {
         color: white;
         font-family: 'Alexandria Variable', sans-serif;
         box-sizing: border-box;
-        
-        /* 1. ROMPER EL PADDING DEL BODY (TÉCNICA 100VW) */
         width: 100vw !important;
         position: relative !important; 
         left: 50% !important;
         right: 50% !important;
         margin-left: -50vw !important; 
         margin-right: -50vw !important;
-        
-        /* 2. ESTILOS DE LA TARJETA (.sobreMi-card) */
-        background-color: rgba(23, 21, 31, 0.9); /* #17151F = rgb(23, 21, 31) */
-        
-        /* Degradado de Lenta Animación para el efecto "viviente" */
-        background-image: linear-gradient(
-            to right, 
-            rgba(39, 37, 51, 0.9), 
-            rgba(23, 21, 31, 0.9), 
-            rgba(39, 37, 51, 0.9)
-        );
+        background-color: rgba(23, 21, 31, 0.9);
+        background-image: linear-gradient( to right, rgba(39, 37, 51, 0.9), rgba(23, 21, 31, 0.9), rgba(39, 37, 51, 0.9) );
         background-size: 300% 100%; 
         animation: slow-shift 15s linear infinite;
-        
-        /* Borde suave para el efecto "frosted glass" */
         backdrop-filter: blur(5px); 
         -webkit-backdrop-filter: blur(5px);
-        
-        /* 3. BORDES Y GROSOR */
-        /* Bordes redondeados en la parte superior (como pediste) */
         border-top-left-radius: 40px; 
         border-top-right-radius: 40px;
-        
-        /* Sombra sutil para imitar el card */
         box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.4); 
-        
-        /* Padding vertical para el grosor del footer */
-        padding-top: 80px; /* Un poco más de padding vertical */
+        padding-top: 80px;
         padding-bottom: 50px;
-        padding-inline: 0 !important; /* Reset de padding horizontal en el footer */
-        
+        padding-inline: 0 !important;
         margin-top: auto; 
     }
-
-    /* -------------------------------------- */
-    /* CONTENEDOR INTERNO: Respetar el Padding del Body (13%) */
-    /* -------------------------------------- */
     .footer-content-wrapper {
-        /* CLAVE: Aplica el padding lateral del 13% solo al contenido interno. */
         padding-inline: 13% !important; 
         width: 100%;
         box-sizing: border-box;
-        
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
-    /* -------------------------------------- */
-    /* SECCIONES DE CONTACTO Y SOCIAL */
-    /* -------------------------------------- */
-    
-    .footer-contact-section {
-        margin-bottom: 25px;
-        width: 100%;
-    }
+    .footer-contact-section { margin-bottom: 25px; width: 100%; }
+    .contact-text { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: bold; margin: 0; }
+    .footer-social-section { display: flex; gap: 40px; padding-top: 15px; width: 100%; justify-content: center; }
+    .footer-social-section a { color: white; text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); transition: all 0.3s ease-in-out; text-decoration: none; }
+    .social-icon { font-size: clamp(2.5rem, 6vw, 3rem); }
+    .footer-social-section a:hover { color: #4327BF; transform: scale(1.1); text-shadow: 0 0 10px #4327BF; }
 
-    .contact-text {
-        font-size: clamp(1.5rem, 4vw, 2.5rem); /* Tamaño ajustado al estilo de título del card */
-        font-weight: bold;
-        margin: 0;
-    }
-
-    .footer-social-section {
-        display: flex;
-        gap: 40px; /* Aumentamos el gap para que se parezca más al logos-grid */
-        padding-top: 15px; /* Más espacio */
-        width: 100%;
-        justify-content: center;
-    }
-
-    .footer-social-section a {
-        color: white;
-        /* Efecto de sombra para imitar el logo-wrapper: sutil y elegante */
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease-in-out;
-        text-decoration: none;
-    }
-
-    .social-icon {
-        font-size: clamp(2.5rem, 6vw, 3rem); /* Íconos un poco más grandes para el footer */
-    }
-
-    .footer-social-section a:hover {
-        color: #4327BF; /* Color de acento al pasar el ratón */
-        transform: scale(1.1);
-        text-shadow: 0 0 10px #4327BF; /* Brillo de acento */
-    }
-
-    /* -------------------------------------- */
-    /* RESPONSIVE: Ajuste para Móviles */
-    /* -------------------------------------- */
     @media (max-width: 768px) {
-        .main-footer {
-            border-top-left-radius: 20px; 
-            border-top-right-radius: 20px;
-            padding-top: 40px; 
-            padding-bottom: 40px;
-        }
-
-        .footer-content-wrapper {
-            /* Asumiendo un padding del body de 5% en móvil */
-            padding-inline: 5% !important; 
-        }
-
-        .footer-social-section {
-            gap: 25px;
-        }
+         #scrollTopBtn {
+                width: 60px !important;
+                height: 60px !important;
+                font-size: 30px !important; 
+         }
+        .main-footer { border-top-left-radius: 20px; border-top-right-radius: 20px; padding-top: 40px; padding-bottom: 40px;}
+        .footer-content-wrapper { padding-inline: 5% !important; }
+        .footer-social-section { gap: 25px; }
     }
+
+    /* ===== ESTILOS AÑADIDOS PARA EL BOTÓN ===== */
+    #scrollTopBtn {
+        /* Posición y visibilidad */
+        position: fixed; /* Clave: lo mantiene fijo en la pantalla */
+        bottom: 20px;
+        right: 20px;
+        /*z-index: 1;  */
+        
+        /* Apariencia */
+        background-color: #4327BF; /* Usando tu color de acento */
+        color: white;
+        border: none;
+        border-radius: 50%; /* Lo hace circular */
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+        cursor: pointer;
+        
+        /* Centrado del ícono */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Estado inicial (oculto) */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px); /* Efecto sutil de aparición */
+        transition: opacity 0.3s, visibility 0.3s, transform 0.3s ease-in-out;
+    }
+
+    #scrollTopBtn.show {
+        /* Estado visible */
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    #scrollTopBtn:hover {
+        background-color: #5a3fd6; /* Un poco más claro al pasar el cursor */
+        transform: scale(1.1); /* Efecto de crecimiento */
+    }
+    /* =========================================== */
 </style>
+
+<script>
+// --- SCRIPT AÑADIDO PARA EL BOTÓN ---
+// Seleccionamos el botón por su ID
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+// Función para mostrar u ocultar el botón
+const toggleScrollTopBtn = () => {
+    // Si el scroll vertical es mayor a 300px
+    if (window.scrollY > 300) {
+        // Añadimos la clase 'show' para que aparezca
+        scrollTopBtn.classList.add('show');
+    } else {
+        // La quitamos para que se oculte
+        scrollTopBtn.classList.remove('show');
+    }
+};
+
+// Función para hacer scroll suave hacia arriba
+const scrollToTop = (e) => {
+    // Prevenimos el comportamiento por defecto del enlace (#)
+    e.preventDefault();
+    // Hacemos scroll al inicio de la página con animación suave
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
+
+// Escuchamos el evento de scroll en la ventana
+window.addEventListener('scroll', toggleScrollTopBtn);
+
+// Escuchamos el evento de click en el botón
+scrollTopBtn.addEventListener('click', scrollToTop);
+// --- FIN DEL SCRIPT AÑADIDO ---
+</script>

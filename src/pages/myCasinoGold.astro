@@ -1,0 +1,306 @@
+---
+import '@fontsource-variable/alexandria';
+import Layout from '../layouts/Layout.astro';
+import casinoGoldPrimera from '../assets/casinoGoldPrimera.png';
+import casinoIzq from '../assets/casinoImagen.png';
+import Footer from "../components/footer.astro";
+import casinoGoldPrimeraMob from '../assets/mobileCasinoUno.png';
+import mockCasinoCelAntes from '../assets/antesCeluCasino.png';
+import mockCasinoAntesUno from '../assets/mockCasinoUno.png';
+import mockCasinoAntesDos from '../assets/mockCasinoDos.png';
+import mockCasinoAntesTres from '../assets/mockCasinoTres.png';
+import bigCasino from '../assets/bigCasinoRedes.png';
+import nuevoInsta from '../assets/nuevoInstaCasino.png';
+import fuenteCasino from '../assets/fuenteCasino.png';
+import caballeroCasino from '../assets/senorCasino.png';
+---
+
+<Layout title="Proyecto My Casino Gold">
+  <section class="page-container">
+    <div class="defectoSection fade-in-on-scroll">
+        <h2>My Casino Gold</h2>
+        <p>Es una plataforma de entretenimiento online de juegos de azar y apuestas digitales. El proyecto consistió en rediseñar su identidad visual y presencia en redes sociales para reflejar modernidad, confianza y dinamismo, manteniendo la esencia visual del mundo del gaming.</p>
+    </div>
+
+    <div class="image-section fade-in-on-scroll">
+        <img src={casinoGoldPrimera.src} alt="My Casino Gold" class="casino-image"/>
+    </div>
+      <div class="defectoSection fade-in-on-scroll">
+        <p>La marca original tenía una estética anticuada, con poca coherencia visual en sus publicaciones y una comunicación débil en redes sociales. El desafío fue modernizar la identidad visual sin perder el espíritu de juego y emoción, además de unificar la comunicación digital para fortalecer el reconocimiento de marca.</p>
+      </div>
+  <div class="image-section fade-in-on-scroll circulo-difuminado">
+        <img src={mockCasinoCelAntes.src} alt="My Casino Gold" class="casino-image"/>
+    </div>
+    <div class="mock-gallery-section fade-in-on-scroll">
+        <img src={mockCasinoAntesUno.src} alt="Mockup casino antes uno" class="gallery-image" />
+        <img src={mockCasinoAntesDos.src} alt="Mockup casino antes dos" class="gallery-image" />
+        <img src={mockCasinoAntesTres.src} alt="Mockup casino antes tres" class="gallery-image" />
+    </div>
+      <div class="defectoSection fade-in-on-scroll">
+        <h2>Análisis visual</h2>
+        <p>El nuevo enfoque busca transmitir emoción sin caer en el exceso visual. Se prioriza el contraste entre luz y sombra, tipografías geométricas y un lenguaje visual alineado con el concepto de “suerte inteligente”.</p>
+      </div>
+       <div class="image-section fade-in-on-scroll">
+        <img src={casinoGoldPrimeraMob.src} alt="My Casino Gold" class="casino-image"/>
+    </div>
+   <div class="defectoSection fade-in-on-scroll">
+        <h2>Nueva identidad</h2>
+    </div>
+       <div class="image-section fade-in-on-scroll">
+        <img src={fuenteCasino.src} alt="My Casino Gold" class="casino-image"/>
+    </div>
+    <div class="analisis-visual-section fade-in-on-scroll">
+        <div class="imagen-analisis circulo-difuminado">
+            <img src={casinoIzq.src} alt="Imagen Análisis Visual Casino" />
+        </div>
+        <div class="paleta-colores-container">
+            <div class="color-item">
+                <div class="color-circulo" style="background-color: #410805;"></div>
+                <p class="color-codigo">#410805</p>
+            </div>
+            <div class="color-item">
+                <div class="color-circulo" style="background-color: #FFF1CA;"></div>
+                <p class="color-codigo">#FFF1CA</p>
+            </div>
+            <div class="color-item">
+                <div class="color-circulo" style="background-color: #A88C78;"></div>
+                <p class="color-codigo">#A88C78</p>
+            </div>
+            <div class="color-item">
+                <div class="color-circulo" style="background-color: #020000;"></div>
+                <p class="color-codigo">#020000</p>
+            </div>
+            <div class="color-item">
+                <div class="color-circulo" style="background-color: #E20912;"></div>
+                <p class="color-codigo">#E20912</p>
+            </div>
+        </div>
+    </div>
+     <div class="image-section fade-in-on-scroll">
+        <img src={bigCasino.src} alt="My Casino Gold" class="casino-image"/>
+    </div>
+
+  <div class="side-by-side-section fade-in-on-scroll">
+    <img src={nuevoInsta.src} alt="Post de Instagram de My Casino Gold" />
+    <img src={caballeroCasino.src} alt="Imagen de personaje para My Casino Gold" />
+  </div>
+
+   <Footer />
+</Layout>
+
+<style>
+  :global(body) {
+    background: linear-gradient(to bottom, #010107, #1C0101, #240101, #440015) !important;
+  }
+
+  .fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-in-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .defectoSection {
+    font-family: 'Alexandria Variable', sans-serif;
+    color: white;
+    text-align: left;
+    padding: 2rem 1rem;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .defectoSection h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .defectoSection p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    line-height: 1.6;
+  }
+
+  .image-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .casino-image {
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+
+  .analisis-visual-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 80%;
+    margin: 0 auto 4rem auto;
+    padding: 2rem 1rem;
+  }
+
+  .imagen-analisis {
+    flex: 1;
+  }
+
+  .imagen-analisis img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+  }
+
+  .paleta-colores-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .color-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .color-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .color-circulo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+  }
+
+  .color-codigo {
+    font-family: 'Alexandria Variable', sans-serif;
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin: 0;
+    font-weight: 500;
+    flex-grow: 1;
+    text-align: center;
+    padding-right: 50px;
+    box-sizing: border-box;
+  }
+
+  .circulo-difuminado {
+    position: relative;
+    z-index: 1;
+  }
+
+  .circulo-difuminado::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #430200 ;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+  }
+
+  .mock-gallery-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4.5rem;
+      max-width: 80%;
+      margin: 0 auto 4rem auto;
+      padding: 40px 1rem;
+  }
+
+  .gallery-image {
+      flex: 1 1 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+  }
+
+  .side-by-side-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 80%;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+  }
+
+  .side-by-side-section img {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 650px;
+    object-fit: contain;
+    border-radius: 15px;
+  }
+
+  @media (max-width: 768px) {
+    .defectoSection {
+      max-width: 100%;
+    }
+    .casino-image {
+      max-width: 100%;
+    }
+    .analisis-visual-section {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .mock-gallery-section {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .side-by-side-section {
+      flex-direction: column;
+      max-width: 100%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
+    elementsToAnimate.forEach(element => {
+      observer.observe(element);
+    });
+  });
+</script>

@@ -68,7 +68,7 @@
 
 .custom-cursor {
   position: fixed;
-  z-index: 9999;
+  z-index: 2;
   pointer-events: none;
   background-color: #6F4E37;
   color: white;

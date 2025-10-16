@@ -7,22 +7,25 @@ import logoDos from '../assets/logoDos.png';
 import logoTres from '../assets/logoTres.png';
 import ideacion from '../assets/ideacion.png';
 import mockUno from '../assets/mockUno.png';
+import mockDos from '../assets/mockDos.png';
+import primeraMock from '../assets/primeraDisenoKiubo.png';
+import segundaMock from '../assets/segundaDisenoKiubo.png';
+import terceraMock from '../assets/terceraDisenoKiubo.png';
 import Footer from "../components/footer.astro";
 ---
 
 <Layout title="Proyecto Kiubo">
   <section class="page-container">
-
-    <div class="defectoSection">
+    <div class="defectoSection fade-in-on-scroll">
         <h2>Kiubo</h2>
         <p>Crear una app que facilite la comunicacion entre vecinos para compartir servicios y eventos locales.</p>
     </div>
 
-    <div class="image-section">
+    <div class="image-section fade-in-on-scroll">
         <img src={kiuboPrimera.src} alt="Kiubo" class="kiubo-image"/>
     </div>
 
-    <div class="split-section">
+    <div class="split-section fade-in-on-scroll">
       <div class="text-content">
         <p>
           Más del 40% de las mujeres experimentan soledad por factores como la viudez, la dependencia económica, el envejecimiento o la partida de los hijos. Esta soledad impacta su salud física y mental, aumentando el riesgo de depresión, ansiedad y enfermedades cardiovasculares.El desafío: mejorar el bienestar emocional y la conexión social de las mujeres para fortalecer su calidad de vida.
@@ -35,12 +38,12 @@ import Footer from "../components/footer.astro";
       </div>
     </div>
 
-    <div class="defectoSection">
+    <div class="defectoSection fade-in-on-scroll">
         <h2>Investigación</h2>
         <p>Buscar referentes al crear una aplicación permite inspirarse en experiencias exitosas, evitar errores y aprovechar tendencias. Además, ayuda a anticipar la competencia y definir una estrategia sólida. No se trata de copiar, sino de adaptar y reinterpretar lo mejor para responder a las necesidades del público objetivo.</p>
     </div>
 
-    <div class="logos-section">
+    <div class="logos-section fade-in-on-scroll">
       <div class="logo-wrapper">
         <img src={logoUno.src} alt="Logo de referencia uno" class="logo-image"/>
       </div>
@@ -52,28 +55,36 @@ import Footer from "../components/footer.astro";
       </div>
     </div>
 
-    <div class="defectoSection">
+    <div class="defectoSection fade-in-on-scroll">
         <h2>Ideación y estructura</h2>
     </div>
 
-    <div class="image-section image-section-interactive">
+    <div class="image-section image-section-interactive fade-in-on-scroll">
         <p class="interaction-prompt"></p>
         <div id="magnifier-lens"></div>
         <img src={ideacion.src} alt="Mapa de ideación y estructura del proyecto" class="kiubo-image interactive-image" id="ideacionImage"/>
     </div>
-
-    <div class="defectoSection">
+    <div class="defectoSection fade-in-on-scroll">
         <h2>Diseño visual</h2>
     </div>
-
-    <div class="mockups-section">
-      <img src={mockUno.src} alt="Mockup de la aplicación 1" class="mockup-image"/>
-      <img src={mockUno.src} alt="Mockup de la aplicación 2" class="mockup-image"/>
-      <img src={mockUno.src} alt="Mockup de la aplicación 3" class="mockup-image"/>
-      <img src={mockUno.src} alt="Mockup de la aplicación 4" class="mockup-image"/>
+    <div class="mockups-sectionUno circulo-difuminado fade-in-on-scroll">
+      <img src={primeraMock.src} alt="Mockup de la aplicación 1" class="mockup-image"/>
     </div>
-
-  </section>
+     <div class="mockups-sectionDos fade-in-on-scroll">
+      <img src={mockUno.src} alt="Mockup de la aplicación 1" class="mockup-image"/>
+      <img src={mockDos.src} alt="Mockup de la aplicación 2" class="mockup-image"/>
+    </div>
+     <div class="mockups-sectionUno fade-in-on-scroll">
+      <img src={segundaMock.src} alt="Mockup de la aplicación 1" class="mockup-image"/>
+    </div>
+    
+      <div class="defectoSection fade-in-on-scroll">
+        <p>explicar un poco sobre lo que trata el boton de emergencia Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula</p>
+      </div>
+       <div class="mockups-sectionUno circulo-difuminado fade-in-on-scroll">
+      <img src={terceraMock.src} alt="Mockup de la aplicación 1" class="mockup-image"/>
+    </div>
+      </section>
 
   <div id="imageModal" class="modal">
     <span class="close-modal">&times;</span>
@@ -84,6 +95,18 @@ import Footer from "../components/footer.astro";
 
 
 <style>
+/* --- CÓDIGO AÑADIDO PARA LA ANIMACIÓN --- */
+  .fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-in-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+/* --- FIN DEL CÓDIGO AÑADIDO --- */
+
   .defectoSection {
     font-family: 'Alexandria Variable', sans-serif;
     color: white;
@@ -206,14 +229,39 @@ import Footer from "../components/footer.astro";
     height: 100%;
     object-fit: contain;
   }
+   .mockups-sectionUno {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding: 0 1rem 80px;
+  }
+.circulo-difuminado {
+  position: relative; 
+  z-index: 1;
+}
 
-  .mockups-section {
+.circulo-difuminado::before {
+  content: ''; 
+  position: absolute; 
+  width: 60%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #8E43F7CC;
+  border-radius: 50%; 
+  filter: blur(100px);
+  z-index: -1; 
+}
+
+  .mockups-sectionDos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     max-width: 80%;
     margin: 0 auto 4rem auto;
-    padding: 0 1rem 141px;
+    padding: 0 1rem 80px;
   }
 
   .mockup-image {
@@ -424,6 +472,28 @@ import Footer from "../components/footer.astro";
             }
         }
     }
+
+    // --- CÓDIGO AÑADIDO PARA LA ANIMACIÓN DE SCROLL ---
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
+    elementsToAnimate.forEach(element => {
+      observer.observe(element);
+    });
+    // --- FIN DEL CÓDIGO AÑADIDO ---
   });
 </script>
-

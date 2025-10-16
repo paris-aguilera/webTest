@@ -8,13 +8,13 @@ import logoTres from '../assets/logoTres.png';
 import ideacion from '../assets/ideacion.png';
 import mockUno from '../assets/mockUno.png';
 import mockDos from '../assets/mockDos.png';
-import primeraMock from '../assets/primeraDisenoKiubo.png';
+import primeraMockFix from '../assets/primeraDisenoKiubo.png';
 import segundaMock from '../assets/segundaDisenoKiubo.png';
 import terceraMock from '../assets/terceraDisenoKiubo.png';
 import Footer from "../components/footer.astro";
 ---
 
-<Layout title="Proyecto Kiubo">
+<Layout title="Ailen Nahuel C • Kiubo">
   <section class="page-container">
     <div class="defectoSection fade-in-on-scroll">
         <h2>Kiubo</h2>
@@ -22,7 +22,7 @@ import Footer from "../components/footer.astro";
     </div>
 
     <div class="image-section fade-in-on-scroll">
-        <img src={kiuboPrimera.src} alt="Kiubo" class="kiubo-image"/>
+        <img src={kiuboPrimera.src} alt="Kiubo app" class="kiubo-image"/>
     </div>
 
     <div class="split-section fade-in-on-scroll">
@@ -45,13 +45,13 @@ import Footer from "../components/footer.astro";
 
     <div class="logos-section fade-in-on-scroll">
       <div class="logo-wrapper">
-        <img src={logoUno.src} alt="Logo de referencia uno" class="logo-image"/>
+        <img src={logoUno.src} alt="Logo de referencia Kiubo App Uno" class="logo-image"/>
       </div>
       <div class="logo-wrapper">
-        <img src={logoDos.src} alt="Logo de referencia dos" class="logo-image"/>
+        <img src={logoDos.src} alt="Logo de referencia Kiubo App Dos" class="logo-image"/>
       </div>
       <div class="logo-wrapper">
-        <img src={logoTres.src} alt="Logo de referencia tres" class="logo-image"/>
+        <img src={logoTres.src} alt="Logo de referencia Kiubo App Tres" class="logo-image"/>
       </div>
     </div>
 
@@ -68,21 +68,21 @@ import Footer from "../components/footer.astro";
         <h2>Diseño visual</h2>
     </div>
     <div class="mockups-sectionUno circulo-difuminado fade-in-on-scroll">
-      <img src={primeraMock.src} alt="Mockup de la aplicación 1" class="mockup-image"/>
+      <img src={primeraMockFix.src} alt="Logo de referencia Kiubo App Cuatro" class="mockup-image"/>
     </div>
      <div class="mockups-sectionDos fade-in-on-scroll">
-      <img src={mockUno.src} alt="Mockup de la aplicación 2" class="mockup-image"/>
-      <img src={mockDos.src} alt="Mockup de la aplicación 3" class="mockup-image"/>
+      <img src={mockUno.src} alt="Mockup de la aplicación Kiubo App Uno" class="mockup-image"/>
+      <img src={mockDos.src} alt="Mockup de la aplicación Kiubo App Dos" class="mockup-image"/>
     </div>
      <div class="mockups-sectionUno fade-in-on-scroll">
-      <img src={segundaMock.src} alt="Mockup de la aplicación 4" class="mockup-image"/>
+      <img src={segundaMock.src} alt="Mockup de la aplicación Kiubo App Tres" class="mockup-image"/>
     </div>
     
       <div class="defectoSection fade-in-on-scroll">
         <p>explicar un poco sobre lo que trata el boton de emergencia Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula</p>
       </div>
        <div class="mockups-sectionUno circulo-difuminado fade-in-on-scroll">
-      <img src={terceraMock.src} alt="Mockup de la aplicación 5" class="mockup-image"/>
+      <img src={terceraMock.src} alt="Logo de referencia Kiubo App Cinco" class="mockup-image"/>
     </div>
       </section>
 
@@ -95,7 +95,7 @@ import Footer from "../components/footer.astro";
 
 
 <style>
-/* --- CÓDIGO AÑADIDO PARA LA ANIMACIÓN --- */
+
   .fade-in-on-scroll {
     opacity: 0;
     transform: translateY(30px);
@@ -105,7 +105,6 @@ import Footer from "../components/footer.astro";
     opacity: 1;
     transform: translateY(0);
   }
-/* --- FIN DEL CÓDIGO AÑADIDO --- */
 
   .defectoSection {
     font-family: 'Alexandria Variable', sans-serif;
@@ -494,6 +493,5 @@ import Footer from "../components/footer.astro";
     elementsToAnimate.forEach(element => {
       observer.observe(element);
     });
-    // --- FIN DEL CÓDIGO AÑADIDO ---
   });
 </script>

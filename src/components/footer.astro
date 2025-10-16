@@ -9,13 +9,13 @@ import '@fontsource-variable/alexandria';
             <p class="contact-text">¡Mantengámonos en contacto!</p>
         </div>
         <div class="footer-social-section">
-            <a href="https://www.linkedin.com/in/ailen-nahuel-341a7b292/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/ailen-nahuel-341a7b292/" target="_blank" rel="Mi perfil de LinkedIn Ailen Nahuel" aria-label="LinkedIn">
                 <i class="fab fa-linkedin social-icon"></i>
             </a>
-            <a href="https://www.instagram.com/aileeeeeeen_n/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/aileeeeeeen_n/" target="_blank" rel="Mi perfil de Instagram Ailen Nahuel" aria-label="Instagram">
                 <i class="fab fa-instagram social-icon"></i>
             </a>
-            <a href="https://www.behance.net/ailennahuel" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+            <a href="https://www.behance.net/ailennahuel" target="_blank" rel="Mi perfil de Behance Ailen Nahuel" aria-label="Behance">
                 <i class="fab fa-behance-square social-icon"></i>
             </a>
         </div>
@@ -26,7 +26,7 @@ import '@fontsource-variable/alexandria';
     <i class="fas fa-arrow-up"></i>
 </a>
 <style>
-    /* Estilos originales del footer (sin cambios) */
+
     @keyframes slow-shift {
         0% { background-position: 0% 50%; }
         100% { background-position: 100% 50%; }
@@ -51,7 +51,7 @@ import '@fontsource-variable/alexandria';
         border-top-right-radius: 40px;
         box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.4); 
         padding-top: 80px;
-        padding-bottom: 50px;
+        padding-bottom: 120px;
         padding-inline: 0 !important;
         margin-top: auto; 
     }
@@ -82,82 +82,75 @@ import '@fontsource-variable/alexandria';
         .footer-social-section { gap: 25px; }
     }
 
-    /* ===== ESTILOS AÑADIDOS PARA EL BOTÓN ===== */
     #scrollTopBtn {
-        /* Posición y visibilidad */
-        position: fixed; /* Clave: lo mantiene fijo en la pantalla */
+      
+        position: fixed; 
         bottom: 20px;
         right: 20px;
-        /*z-index: 1;  */
-        
-        /* Apariencia */
-        background-color: #4327BF; /* Usando tu color de acento */
+        background-color: #4327BF; 
         color: white;
         border: none;
-        border-radius: 50%; /* Lo hace circular */
+        border-radius: 50%;
         width: 80px;
         height: 80px;
         font-size: 40px;
         cursor: pointer;
         
-        /* Centrado del ícono */
+      
         display: flex;
         justify-content: center;
         align-items: center;
 
-        /* Estado inicial (oculto) */
+      
         opacity: 0;
         visibility: hidden;
-        transform: translateY(20px); /* Efecto sutil de aparición */
+        transform: translateY(20px);
         transition: opacity 0.3s, visibility 0.3s, transform 0.3s ease-in-out;
     }
 
     #scrollTopBtn.show {
-        /* Estado visible */
+      
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
     }
 
     #scrollTopBtn:hover {
-        background-color: #5a3fd6; /* Un poco más claro al pasar el cursor */
-        transform: scale(1.1); /* Efecto de crecimiento */
+        background-color: #5a3fd6;
+        transform: scale(1.1); 
     }
-    /* =========================================== */
+ 
 </style>
 
 <script>
-// --- SCRIPT AÑADIDO PARA EL BOTÓN ---
-// Seleccionamos el botón por su ID
+
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-// Función para mostrar u ocultar el botón
 const toggleScrollTopBtn = () => {
-    // Si el scroll vertical es mayor a 300px
+  
     if (window.scrollY > 300) {
-        // Añadimos la clase 'show' para que aparezca
+       
         scrollTopBtn.classList.add('show');
     } else {
-        // La quitamos para que se oculte
+       
         scrollTopBtn.classList.remove('show');
     }
 };
 
-// Función para hacer scroll suave hacia arriba
+
 const scrollToTop = (e) => {
-    // Prevenimos el comportamiento por defecto del enlace (#)
+  
     e.preventDefault();
-    // Hacemos scroll al inicio de la página con animación suave
+  
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 };
 
-// Escuchamos el evento de scroll en la ventana
+
 window.addEventListener('scroll', toggleScrollTopBtn);
 
-// Escuchamos el evento de click en el botón
 scrollTopBtn.addEventListener('click', scrollToTop);
-// --- FIN DEL SCRIPT AÑADIDO ---
+
 </script>

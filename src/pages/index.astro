@@ -34,9 +34,8 @@ import Footer from "../components/footer.astro";
       letter-spacing: -0.02em;
       line-height: 1.1;
       display: inline-block;
-      /* Asegura que el texto se ajuste si la pantalla es muy pequeña */
       white-space: normal; 
-      vertical-align: middle; /* Alinea mejor los emojis y el cursor */
+      vertical-align: middle;
     }
 
     .infoInicio {
@@ -47,25 +46,24 @@ import Footer from "../components/footer.astro";
   text-align: center;
   position: relative;
   width: 100%;
-  padding-bottom: 30%; /* Usa padding para mantener el espacio dinámico */
+  padding-bottom: 30%;
   min-height: 150px;
 }
 
     .texto-animado {
     position: absolute;
-    top: 0; /* Lo pega arriba */
+    top: 0;
     left: 50%;
-    transform: translateX(-50%); /* Solo centra horizontalmente */
+    transform: translateX(-50%);
     width: 90%;
-    padding-top: 1rem; /* Opcional: añade un pequeño espacio superior */
+    padding-top: 1rem;
     }
         
-    /* Clase para ocultar un contenedor */
     .hidden {
       display: none;
     }
 
-    /* Cursor parpadeante con degradado */
+    
     .cursor {
       font-weight: normal;
       animation: blink 0.75s step-end infinite, flujo-color 5s ease infinite alternate;
@@ -87,57 +85,41 @@ import Footer from "../components/footer.astro";
     }
 
     @media (max-width: 768px) {
-  
-  /* Aumenta el tamaño de la letra de la animación.
-    Cambiamos de 5vw a 8vw para que sea más grande en pantallas pequeñas.
-  */
+
   .divInicio span {
     font-size: 8vw;
   }
 
-  /* Reduce el espacio inferior del contenedor de la animación.
-    Lo bajamos de 30% a 25% para minimizar el espacio vacío.
-  */
+
   .divInicio {
     padding-bottom: 55%;
-    min-height: 190px; /* También ajustamos la altura mínima */
+    min-height: 190px;
   }
 
 }
   @media (max-width: 600px) {
   
-  /* Aumenta el tamaño de la letra de la animación.
-    Cambiamos de 5vw a 8vw para que sea más grande en pantallas pequeñas.
-  */
   .divInicio span {
     font-size: 8vw;
   }
 
-  /* Reduce el espacio inferior del contenedor de la animación.
-    Lo bajamos de 30% a 25% para minimizar el espacio vacío.
-  */
   .divInicio {
     padding-bottom: 35%;
-    min-height: 250px; /* También ajustamos la altura mínima */
+    min-height: 250px; 
   }
 
 }
 
   @media (max-width: 450px) {
   
-  /* Aumenta el tamaño de la letra de la animación.
-    Cambiamos de 5vw a 8vw para que sea más grande en pantallas pequeñas.
-  */
+
   .divInicio span {
     font-size: 8vw;
   }
 
-  /* Reduce el espacio inferior del contenedor de la animación.
-    Lo bajamos de 30% a 25% para minimizar el espacio vacío.
-  */
   .divInicio {
     padding-bottom: 35%;
-    min-height: 190px; /* También ajustamos la altura mínima */
+    min-height: 190px;
   }
 
 }
@@ -145,7 +127,7 @@ import Footer from "../components/footer.astro";
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // --- ELEMENTOS DEL DOM ---
+    
       const bienvenidaDiv = document.getElementById('texto-bienvenida');
       const propositoDiv = document.getElementById('texto-proposito');
       
@@ -159,7 +141,7 @@ import Footer from "../components/footer.astro";
       const propositoEmojisEl = document.getElementById('proposito-emojis');
       const propositoCursor = document.getElementById('cursor-proposito');
 
-      // --- CONTENIDO Y CONFIGURACIÓN ---
+    
       const textos = {
         bienvenida: 'Hola, soy Ailen Nahuel diseñadora UX UI !',
         proposito1: 'Transformar necesidades ',
@@ -169,16 +151,16 @@ import Footer from "../components/footer.astro";
       };
       
       const config = {
-        typingSpeed: 80, // ms por caracter
-        erasingSpeed: 50, // ms por caracter
-        pauseAfterHello: 5000, // 5 segundos
-        pauseAfterPurpose: 5000, // 5 segundos antes de repetir
+        typingSpeed: 80,
+        erasingSpeed: 50,
+        pauseAfterHello: 5000, 
+        pauseAfterPurpose: 5000,
       };
 
-      // --- FUNCIONES DE ANIMACIÓN ---
+     
       const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
-      /** Escribe texto en un elemento, caracter por caracter */
+     
       async function type(element, text) {
         for (const char of text) {
           element.textContent += char;
@@ -186,7 +168,7 @@ import Footer from "../components/footer.astro";
         }
       }
 
-      /** Borra texto de un array de elementos, en orden inverso */
+     
       async function erase(elements) {
         for (let i = elements.length - 1; i >= 0; i--) {
           const element = elements[i];
@@ -199,7 +181,7 @@ import Footer from "../components/footer.astro";
         }
       }
 
-      // --- SECUENCIA PRINCIPAL ---
+    
       async function runAnimationLoop() {
         while (true) {
           // --- 1. Muestra "Hola, soy..." ---
@@ -235,7 +217,7 @@ import Footer from "../components/footer.astro";
         }
       }
 
-      // Iniciar la animación
+    
       runAnimationLoop();
     });
   </script>

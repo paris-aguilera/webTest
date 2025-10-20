@@ -25,75 +25,73 @@ import Footer from "../components/footer.astro";
   <Proyectos />
   <Footer />
 
-  {/* --- CAMBIO 2: Se eliminó 'define:vars' ya que no se usa la variable de la imagen --- */}
-  <style>
-    @reference "tailwindcss";
+ <style>
+  @reference "tailwindcss";
 
-    span {
-      font-size: 5vw;
-      font-weight: bold;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      display: inline-block;
-      white-space: normal;
-      vertical-align: middle;
-    }
+  span {
+    font-size: 5vw;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    display: inline-block;
+    white-space: normal;
+    vertical-align: middle;
+  }
 
-    .infoInicio {
-      color: white;
-    }
+  .infoInicio {
+    color: white;
+  }
 
-    .divInicio {
-      width: 100%;
-      /* --- CAMBIO 3: La altura se ajustó a 400px --- */
-      height: 600px; 
-      position: relative;
-    
-      /* Usamos Flexbox para centrar el contenido fácilmente */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+  .divInicio {
+    width: 100%;
+    height: 600px; 
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* --- AQUÍ ESTÁ EL ARREGLO --- */
+    overflow: hidden; 
+  }
+  
+  .texto-animado {
+    width: 90%;
+  }
+      
+  .hidden {
+    display: none;
+  }
 
-    .texto-animado {
-      width: 90%;
-    }
-        
-    .hidden {
-      display: none;
-    }
+  .cursor {
+    font-weight: normal;
+    animation: blink 0.75s step-end infinite, flujo-color 5s ease infinite alternate;
+    background-image: linear-gradient(
+      90deg,
+      #BE07AE,
+      #110773,
+      #BE07AE
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 
-    .cursor {
-      font-weight: normal;
-      animation: blink 0.75s step-end infinite, flujo-color 5s ease infinite alternate;
-      background-image: linear-gradient(
-        90deg,
-        #BE07AE,
-        #110773,
-        #BE07AE
-      );
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
 
-    @keyframes blink {
-      from, to { opacity: 1; }
-      50% { opacity: 0; }
+  @media (max-width: 768px) {
+    .divInicio span {
+      font-size: 8vw;
     }
-
-    @media (max-width: 768px) {
-      .divInicio span {
-        font-size: 8vw;
-      }
-    }
-  </style>
+  }
+</style>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-    
       const bienvenidaDiv = document.getElementById('texto-bienvenida');
       const propositoDiv = document.getElementById('texto-proposito');
       
@@ -107,7 +105,6 @@ import Footer from "../components/footer.astro";
       const propositoEmojisEl = document.getElementById('proposito-emojis');
       const propositoCursor = document.getElementById('cursor-proposito');
 
-    
       const textos = {
         bienvenida: 'Hola! Soy Ailen Nahuel diseñadora UX/UI.',
         proposito1: 'Transformar necesidades ',
@@ -123,10 +120,8 @@ import Footer from "../components/footer.astro";
         pauseAfterPurpose: 5000,
       };
 
-      
       const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
-      
       async function type(element, text) {
         for (const char of text) {
           element.textContent += char;
@@ -134,7 +129,6 @@ import Footer from "../components/footer.astro";
         }
       }
 
-      
       async function erase(elements) {
         for (let i = elements.length - 1; i >= 0; i--) {
           const element = elements[i];
@@ -147,10 +141,8 @@ import Footer from "../components/footer.astro";
         }
       }
 
-    
       async function runAnimationLoop() {
         while (true) {
-          // --- 1. Muestra "Hola, soy..." ---
           propositoDiv.classList.add('hidden');
           bienvenidaDiv.classList.remove('hidden');
 
@@ -165,7 +157,6 @@ import Footer from "../components/footer.astro";
           await erase([bienvenidaEmojisEl, bienvenidaTextoEl]);
           bienvenidaCursor.style.display = 'none';
 
-          // --- 2. Muestra "Transformar..." ---
           bienvenidaDiv.classList.add('hidden');
           propositoDiv.classList.remove('hidden');
 
@@ -182,8 +173,7 @@ import Footer from "../components/footer.astro";
           propositoCursor.style.display = 'none';
         }
       }
-
-    
+      
       runAnimationLoop();
     });
   </script>

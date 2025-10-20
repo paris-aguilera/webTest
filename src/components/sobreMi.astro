@@ -17,7 +17,7 @@ const herramientas = [
     { name: 'InDesign', logo: indesing },
     { name: 'Figma', logo: figma },
     { name: 'Blender', logo: blender },
-    { name: 'Html', logo: html },
+    { name: 'HTML', logo: html },
     { name: 'CSS', logo: css },
 ];
 ---
@@ -31,16 +31,17 @@ const herramientas = [
             <h2>Sobre mí 👋</h2>
             <p class="section-description">Soy Ailen Nahuel, titulada de diseño grafico especializandome en diseño UX/UI apasionada por combinar estética y funcionalidad.</p>
             <p class="section-description">Actualmente me enfoco en crecer en el diseño digital, interfaces y experiencia de usuario.</p>
-            <a href={meCircle.src} download="CV-Ailen-Nahuel.png" class="action-btn cv-btn">
-                Descargar CV
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            </a>
+         <a href="/CV-Ailen-Nahuel.pdf" download="CV-Ailen-Nahuel.pdf" class="action-btn cv-btn">
+        Descargar CV
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </a>
+        
         </section>
 
         <section class="avatar-section entradaDesdeDerecha-style">
             <img src={meCircle.src} alt="Foto de Ailen Nahuel" class="avatar-circle"/>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/ailen-nahuel-341a7b292/" class="social-circle" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/ailen-nahuel" class="social-circle" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in social-icon"></i>
                 </a>
                 <a href="https://www.behance.net/ailennahuel" class="social-circle" aria-label="Behance" target="_blank" rel="noopener noreferrer">
@@ -305,7 +306,7 @@ const herramientas = [
 }
 @media (max-width: 1350px) {
     .sobreMi-wrapper {
-        padding: 80px 20px;
+        padding: 0px 20px;
     }
     .sobreMi-container {
         flex-direction: column;

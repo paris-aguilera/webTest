@@ -39,7 +39,7 @@ const proyectosData = [
     descripcion: "Proyecto de branding y diseño de interfaz para una cervecería artesanal.",
     imagen: castizaImg,
     tags: ["Figma", "IA", "Photoshop", "UX UI"],
-    url: "#",
+     url:`${import.meta.env.BASE_URL}/castizaBeer`,
     classText: "proyecto-info entradaDesdeDerecha-style",
     classImg: "proyecto-imagen-enlace entradaDesdeIzquierda-style circulo-difuminado"
   }
@@ -54,8 +54,8 @@ const proyectosData = [
             <article class="proyecto-item">
                 
                 <div class={proyecto.classText}>
-                    <h3 class="proyecto-titulo">{proyecto.titulo}</h3>
-                    <p class="proyecto-descripcion">{proyecto.descripcion}</p>
+                    <h3>{proyecto.titulo}</h3>
+                    <p class="proyecto-descripcion section-description">{proyecto.descripcion}</p>
                     <div class="tags-container ">
                         {proyecto.tags.map(tag => <span class="card-tag">{tag}</span>)}
                     </div>
@@ -86,9 +86,11 @@ const proyectosData = [
 
 .titulo-seccion {
     color: white;
-    font-size: clamp(36px, 5vw, 60px);
+    font-size: clamp(30px, 4vw, 50px);
     margin-bottom: 20px;
 }
+
+
 
 .proyectos-lista {
     display: flex;
@@ -172,6 +174,10 @@ const proyectosData = [
     font-size: 0.9rem;
     text-decoration: none;
     transition: all 0.3s ease;
+}
+.ver-proyecto-button:hover {
+    transform: translateY(-1px);
+    background-color: #3a22a3;
 }
 .ver-proyecto-button:hover {
     background-color: #5a40d8;

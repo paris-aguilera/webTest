@@ -3,198 +3,346 @@ import '@fontsource-variable/alexandria';
 import photoshop from '../assets/Photoshop.png';
 import illustrator from '../assets/Illustrator.png';
 import indesing from '../assets/InDesign.png';
+import html from '../assets/html.png';
+import css from '../assets/css.svg';
 import figma from '../assets/Figma.png';
 import blender from '../assets/Blender.svg';
+import platzi from '../assets/platzi.png';
+import meCircle from '../assets/meCircle.png';
+import duoc from '../assets/duoc-uc.png';
+
+const herramientas = [
+    { name: 'Photoshop', logo: photoshop },
+    { name: 'Illustrator', logo: illustrator },
+    { name: 'InDesign', logo: indesing },
+    { name: 'Figma', logo: figma },
+    { name: 'Blender', logo: blender },
+    { name: 'Html', logo: html },
+    { name: 'CSS', logo: css },
+];
 ---
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-<section class="sobreMi-container" id="sobre-mi">
-    
-    <section class="info-section entradaDesdeIzquierda-style">
-        <h2>Sobre mí 👋</h2>
-        <p>Soy Ailen Nahuel, una diseñadora UX/UI apasionada por combinar estética y funcionalidad.</p>
-        <p>Actualmente me enfoco en crecer en el diseño digital, interfaces y experiencia de usuario.</p>
+<div class="sobreMi-wrapper">
+    <section class="sobreMi-container" id="sobre-mi">
+        <section class="info-section entradaDesdeIzquierda-style">
+            <h2>Sobre mí 👋</h2>
+            <p class="section-description">Soy Ailen Nahuel, titulada de diseño grafico especializandome en diseño UX/UI apasionada por combinar estética y funcionalidad.</p>
+            <p class="section-description">Actualmente me enfoco en crecer en el diseño digital, interfaces y experiencia de usuario.</p>
+            <a href={meCircle.src} download="CV-Ailen-Nahuel.png" class="action-btn cv-btn">
+                Descargar CV
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+        </section>
 
-        <div class="contacto-info">
-            <div class="logos-grid">
-                <div class="logo-wrapper">
-                    <img src={photoshop.src} alt="Logo Photoshop Ailen Nahuel" class="tool-logo"/>
-                </div>
-                <div class="logo-wrapper">
-                    <img src={illustrator.src} alt="Logo Illustrator Ailen Nahuel" class="tool-logo"/>
-                </div>
-                <div class="logo-wrapper">
-                    <img src={indesing.src} alt="Logo InDesign Ailen Nahuel" class="tool-logo"/>
-                </div>
-                <div class="logo-wrapper">
-                    <img src={figma.src} alt="Logo Figma Ailen Nahuel" class="tool-logo"/>
-                </div>
-                <div class="logo-wrapper">
-                    <img src={blender.src} alt="Logo Blender Ailen Nahuel" class="tool-logo"/>
-                </div>
+        <section class="avatar-section entradaDesdeDerecha-style">
+            <img src={meCircle.src} alt="Foto de Ailen Nahuel" class="avatar-circle"/>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ailen-nahuel-341a7b292/" class="social-circle" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in social-icon"></i>
+                </a>
+                <a href="https://www.behance.net/ailennahuel" class="social-circle" aria-label="Behance" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-behance social-icon"></i>
+                </a>
+            </div>
+        </section>
+    </section>
+
+    <section class="full-width-section">
+        <h3>Herramientas utilizadas</h3>
+        <div class="herramientas-layout">
+            <div class="herramientas-descripcion entradaDesdeIzquierda-style">
+                <p class="section-description">
+                    Soy una diseñadora adaptable y en constante aprendizaje. Con metodologías ágiles y Design Thinking, creo experiencias intuitivas y accesibles para cualquier dispositivo.
+                </p>
+                 <p class="section-description">Mi proceso se basa en la investigación, prototipado y pruebas para entregar soluciones que alinean las necesidades del usuario con los objetivos del negocio.</p>
+            </div>
+            <div class="herramientas-logos-container entradaDesdeDerecha-style">
+                {herramientas.map(tool => (
+                    <div class="herramienta-item">
+                        <img src={tool.logo.src} alt={`Logo ${tool.name}`} class="herramienta-logo"/>
+                        <p>{tool.name}</p>
+                    </div>
+                ))}
             </div>
         </div>
     </section>
 
-    <section class="avatar-section entradaDesdeDerecha-style">
-        <div class="avatar-wrapper">
-            <iframe
-                src="https://player.mux.com/Hoy5wg8JN00IzyFEZ2Yj7dbaLzBem21Y758iD5Exmt3s?primary-color=%23f3e2e2&autoplay=true&loop=true&muted=true"
-                style="border: none;"
-                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                allowfullscreen
-            ></iframe>
+    <section class="full-width-section">
+        <h3>Estudios & Certificaciones</h3>
+        <div class="certificaciones-container entradaDesdeIzquierda-style">
+            <div class="certificacion-item">
+                <div class="certificacion-header">
+                    <img src={duoc.src} alt="Logo Duoc UC" class="institution-logo"/>
+                    <h4>Duoc UC</h4>
+                </div>
+                <p class="certificacion-titulo">Titulada de Diseño Grafico</p>
+                <span class="certificacion-date">2023 - 2025</span>
+            </div>
+            <div class="certificacion-item">
+                <div class="certificacion-header">
+                    <img src={platzi.src} alt="Logo Platzi" class="institution-logo"/>
+                    <h4>Platzi</h4>
+                </div>
+                <p class="certificacion-titulo">Fundamentos de Diseño de Interfaces UX/UI</p>
+                <a href="https://platzi.com/p/ai.nahuel/curso/5184-basico-ui/diploma/detalle/" class="action-btn" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+            </div>
+            <div class="certificacion-item">
+                <div class="certificacion-header">
+                    <img src={platzi.src} alt="Logo Platzi" class="institution-logo"/>
+                    <h4>Platzi</h4>
+                </div>
+                <p class="certificacion-titulo">Gestión de Procesos UX</p>
+                <a href="https://platzi.com/p/ai.nahuel/curso/1713-ux-avanzado/diploma/detalle/" class="action-btn" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+            </div>
+            <div class="certificacion-item">
+                <div class="certificacion-header">
+                    <img src={platzi.src} alt="Logo Platzi" class="institution-logo"/>
+                    <h4>Platzi</h4>
+                </div>
+                <p class="certificacion-titulo">Curso de User Research: Técnicas para una Investigación Efectiva</p>
+                <a href="https://platzi.com/p/ai.nahuel/curso/1742-user-research/diploma/detalle/" class="action-btn" target="_blank" rel="noopener noreferrer">Ver certificado</a>
+            </div>
         </div>
     </section>
-    
-</section>
+</div>
 
 <style>
-.sobreMi-container {
+.sobreMi-wrapper {
     font-family: 'Alexandria Variable', sans-serif;
     padding: 80px 150px;
     margin: 0 auto;
     box-sizing: border-box;
+    color: white;
+}
+.sobreMi-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
+    margin-bottom: 80px;
 }
-
 .info-section {
-    color: white;
     flex: 1;
     max-width: 600px;
 }
-
 .avatar-section {
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
 }
-
-.avatar-wrapper {
-    width: 300px;
-    height: 420px;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
-}
-
-.avatar-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.avatar-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
     object-fit: cover;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
+    border: 3px solid #4327BF;
 }
-
-.titulo-card {
+.social-links {
+    display: flex;
+    gap: 20px;
+    padding-top: 23px;
+}
+.social-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #4327BF;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.social-circle:hover {
+    transform: translateY(-5px);
+    background-color: #3a22a3;
+}
+.social-icon {
+    color: white;
+    font-size: 22px;
+}
+.info-section h2 {
     font-size: clamp(30px, 4vw, 50px);
     margin-bottom: 20px;
     font-weight: bold;
 }
 .info-section p {
-    font-size: clamp(16px, 1.5vw, 20px);
     line-height: 1.6;
     margin-bottom: 15px;
 }
-
-.contacto-info {
-    margin-top: 40px; 
-    padding-top: 25px; 
-    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+.full-width-section {
+    width: 100%;
+    margin-bottom: 80px;
 }
-
-.herramientas-titulo {
+.full-width-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.section-description {
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.herramientas-layout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+.herramientas-descripcion {
+    flex: 1;
+}
+.herramientas-logos-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.herramienta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+.herramienta-item:hover {
+    transform: scale(1.1);
+}
+.herramienta-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+.herramienta-item p {
+    margin: 0;
+    font-weight: 500;
+}
+.certificaciones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0;
+    width: 100%;
+}
+.certificacion-item {
+    display: grid;
+    grid-template-areas: 
+        "header button"
+        "title button";
+    align-items: start;
+    gap: 5px 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.certificacion-item:last-child {
+    border-bottom: none;
+}
+.certificacion-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+}
+.certificacion-titulo {
+    grid-area: title;
+    line-height: 1.5;
+    margin: 0 !important;
+}
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #4327BF;
+    border: 1px solid #4327BF;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.action-btn:hover {
+    background-color: #3a22a3;
+    border-color: #3a22a3;
+    transform: translateY(-2px);
+}
+.certificacion-item .action-btn,
+.certificacion-item .certificacion-date {
+    grid-area: button;
+    justify-self: end;
+    align-self: end;
+}
+.certificacion-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0px 22px 0px 0px;
+}
+.cv-btn {
+    margin-top: 15px;
+}
+.institution-logo {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+.certificacion-header h4 {
+    margin: 0;
     font-size: 1rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 20px; 
 }
-
-.logos-grid {
-    display: flex;
-    gap: 15px; 
-    flex-wrap: wrap; 
-}
-
-.logo-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 55px;
-    height: 60px;
-    border-radius: 15px; 
-    background-color: rgb(30, 28, 38); 
-    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3); 
-    transition: all 0.2s ease-in-out; 
-    cursor: pointer;
-}
-.logo-wrapper:hover {
-    transform: scale(1.55); 
-}
-.tool-logo {
-    width: 70%; 
-    height: 70%;
-    object-fit: contain;
-    transition: all 0.2s ease-in-out;
-}
-
 @media (max-width: 1350px) {
+    .sobreMi-wrapper {
+        padding: 80px 20px;
+    }
     .sobreMi-container {
         flex-direction: column;
-        padding: 100px 20px;
+        gap: 60px;
     }
     .avatar-section {
         order: -1;
         width: 100%;
         margin-bottom: 40px;
     }
-
-    .avatar-wrapper {
-        width: 100%; 
-        height: 600px;
-    }
-
-    .avatar-wrapper iframe {
-        width: 150%;
-        height: 150%;
-    }
-
     .info-section {
         max-width: 100%;
-       
-    }
-   
-}
-@media (max-width: 450px) {
-    .logo-wrapper {
-        width: 38px;
-        height: 55px;
-    }
-
- 
-}
-
-
-@media (max-width: 400px) {
-    .logo-wrapper {
-        width: 42px;
-        height: 55px;
-    }
-
-    .sobreMi-container {
-        padding: 80px 20px;
     }
 }
-@media (max-width: 363px) {
-    .logo-wrapper {
-        width: 40px;
-        height: 55px;
+@media (max-width: 992px) {
+    .herramientas-layout {
+        flex-direction: column;
+        gap: 40px;
     }
-
-
+    .herramientas-logos-container {
+        justify-content: center;
+        
+    }
+}
+@media (max-width: 600px) {
+    .certificacion-item {
+        grid-template-areas: 
+            "header"
+            "title"
+            "button";
+        gap: 15px;
+    }
+    .certificacion-item .action-btn,
+    .certificacion-item .certificacion-date {
+        justify-self: start;
+        align-self: initial;
+    }
 }
 </style>
 

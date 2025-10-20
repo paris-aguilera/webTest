@@ -1,192 +1,204 @@
 ---
 import '@fontsource-variable/alexandria';
-import '@fontsource/bebas-neue';
+import '@fontsource-variable/albert-sans';
 import "../styles/global.css";
 import logo from '../assets/logo.png';
 
 interface Props {
-title: string;
+  title: string;
 }
 
-const {title} = Astro.props;
+const { title } = Astro.props;
 ---
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/png" href={logo.src}>
-<meta name="generator" content={Astro.generator} />
-<title>{title}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/png" href={logo.src}>
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
 </head>
 <body>
-<div id="custom-cursor" class="custom-cursor">Ailen Luna</div>
-<header id="headerL">
-<div class="header-container">
- <a href=`${import.meta.env.BASE_URL}` class="header-logo-link">
- <img src={logo.src} alt="Logo Ailen Nahuel" class="header-logo" />
-</a>
-<nav>
-<div class="menuList">
- <ul>
- <li>
-<a href=`${import.meta.env.BASE_URL}#sobre-mi` class="nav-link"><span>SOBRE MI</span></a>
-</li>
-</ul>
-<ul>
- <li>
-<a href=`${import.meta.env.BASE_URL}#proyectos` class="nav-link"><span>PROYECTOS</span></a>
-</li>
-</ul>
-<ul>
- <li>
-<a href=`#contacto` class="nav-link"><span>CONTACTO</span></a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
- </header>
+  <div id="custom-cursor" class="custom-cursor">Ailen Luna</div>
+  <header id="headerL">
+    <div class="header-container">
+      <a href=`${import.meta.env.BASE_URL}` class="header-logo-link">
+        <span class="header-logo">Ailen N. Portfolio</span>
+      </a>
+      <nav>
+        <div class="menuList">
+          <ul>
+            <li>
+              <a href=`${import.meta.env.BASE_URL}#sobre-mi` class="nav-link"><span>Sobre mi</span></a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href=`${import.meta.env.BASE_URL}#proyectos` class="nav-link"><span>Proyectos</span></a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href=`#contacto` class="nav-link"><span>Contacto</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-<slot />
+  <slot />
 
-<script is:inline>
- const BASE_URL = import.meta.env.BASE_URL;
-document.addEventListener('DOMContentLoaded', () => {
-const navLinks = document.querySelectorAll('a.nav-link');
-navLinks.forEach(link => {
-link.addEventListener('click', function(e) {
- const url = new URL(link.href);
- const targetId = url.hash;
-if (window.location.pathname === BASE_URL && targetId) {
-e.preventDefault();
-const targetElement = document.querySelector(targetId);
- if (targetElement) {
-targetElement.scrollIntoView({
-behavior: 'smooth',
-block: 'start'
-});
-}
- }
- });
-});
+  <script is:inline>
+    const BASE_URL = import.meta.env.BASE_URL;
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('a.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const url = new URL(link.href);
+          const targetId = url.hash;
+          if (window.location.pathname === BASE_URL && targetId) {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }
+        });
+      });
 
- const cursor = document.getElementById('custom-cursor');
- const hoverElements = document.querySelectorAll('a, button');
-if (!('ontouchstart' in window)) {
-document.addEventListener('mouseenter', () => { cursor.style.opacity = 1; });
-window.addEventListener('mousemove', (e) => {
-cursor.style.left = e.clientX + 'px';
- cursor.style.top = e.clientY + 'px';
-});
-document.addEventListener('mouseleave', () => { cursor.style.opacity = 0; });
-hoverElements.forEach(el => {
-el.addEventListener('mouseenter', () => cursor.classList.add('hover-effect'));
-el.addEventListener('mouseleave', () => cursor.classList.remove('hover-effect'));
-});
- }
- });
- </script>
+      const cursor = document.getElementById('custom-cursor');
+      const hoverElements = document.querySelectorAll('a, button');
+      if (!('ontouchstart' in window)) {
+        document.addEventListener('mouseenter', () => { cursor.style.opacity = 1; });
+        window.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+        });
+        document.addEventListener('mouseleave', () => { cursor.style.opacity = 0; });
+        hoverElements.forEach(el => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('hover-effect'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('hover-effect'));
+        });
+      }
+    });
+  </script>
 </body>
 </html>
 
 <style>
-html {
-scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-html, body {
-overflow-x: hidden;
-}
-header {
-font-family: 'Bebas Neue', sans-serif;
-color: white;
-font-weight:lighter;
-padding: 25px 0 75px 0px; 
-width: 100vw !important; 
-position: relative !important; 
-left: 50% !important;
-right: 50% !important;
-margin-left: -50vw !important; 
-margin-right: -50vw !important;
-box-sizing: border-box;
-} 
-.header-container {
-padding-inline: 13%; 
-width: 100%;
-margin: 0 auto;
-display: flex; 
-justify-content: space-between; 
-align-items: center; 
-box-sizing: border-box;
-}
-.header-logo-link {
-display: flex;
-align-items: center;
-}
-.header-logo {
-height: 120px;
-width: auto;
-}
-.menuList {
-display: flex; 
-align-items: center; 
-}
-.menuList ul { list-style: none; margin: 0; display: flex; }
-.menuList li { list-style: none; margin: 0; padding: 0; }
-.menuList a {
-cursor: pointer;
-font-size: clamp(20px, 2.5vw, 30px); 
-width: 100%;
-text-decoration: none;
-color: inherit;
-padding: 10px 15px;
-display: inline-block;
-transition: color 0.3s ease;
-position: relative; 
-}
-.menuList a:hover { color: white; }
-.menuList a span { position: relative; }
-.menuList a span::after {
-content: ''; 
-position: absolute;
-bottom: -5px; left: 0;
-height: 2px;
-background-color: white;
-width: 0;
-transition: width 0.3s ease-out; 
-}
-.menuList a:hover span::after { width: 100%; }
-nav {
-display: flex;
-justify-content: flex-end; 
-}
-body {
-margin: 0;
-font-family: 'Alexandria Variable', sans-serif;
-background: linear-gradient(to bottom, #010107, #090416, #0E0B23, #18214A);
-width: 100%;
-padding: 2% 13% 0% 13%;
-min-height: 100vh;
-}
-@media (max-width: 768px) {
-body{ padding: 2% 5% 0% 5% !important; }
-header{ padding: 25px 0 35px 0px; }
+  html, body {
+    overflow-x: hidden;
+  }
 
-.header-container {
-padding-inline: 5%; 
-justify-content: space-between; 
-}
-.header-logo {
-height: 80px;
- }
-.menuList {
-margin-left: 0;
-flex-wrap: wrap; 
-justify-content: flex-end;
-}
-.menuList ul { padding: 0 5px; }
-.menuList a { padding: 0 5px; }
-nav { justify-content: flex-end; }
-}
+  header {
+    font-family: 'Albert Sans Variable', sans-serif;
+    color: white;
+    font-weight: 200;
+    padding: 10px 135px 30px 150px; 
+    width: 100%;
+    box-sizing: border-box;
+  } 
+
+  .header-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-sizing: border-box;
+  }
+
+  .header-logo-link {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo {
+    width: auto;
+    font-size: 35px;
+  }
+
+  .menuList {
+    display: flex; 
+    align-items: center; 
+  }
+
+  .menuList ul { list-style: none; margin: 0; display: flex; }
+  .menuList li { list-style: none; margin: 0; padding: 0; }
+
+  .menuList a {
+    cursor: pointer;
+    font-size: clamp(20px, 2.5vw, 23px); 
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+    position: relative; 
+  }
+
+  .menuList a:hover { color: white; }
+  .menuList a span { position: relative; }
+
+  .menuList a span::after {
+    content: ''; 
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    height: 2px;
+    background-color: white;
+    width: 0;
+    transition: width 0.3s ease-out; 
+  }
+
+  .menuList a:hover span::after { width: 100%; }
+
+  nav {
+    display: flex;
+    justify-content: flex-end; 
+  }
+
+  .header-separator {
+    margin-bottom: 50px;
+    max-width: 100%;
+    height: 1px;
+    background-color: white;
+    opacity: 0.1;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Alexandria Variable', sans-serif;
+    background: linear-gradient(to bottom, #010107, #090416, #0E0B23, #18214A);
+    width: 100%;
+    padding: 2% 13% 0% 13%;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 768px) {
+    body { padding: 2% 5% 0% 5%; }
+    header { padding: 25px 0 35px 0px; }
+    .header-container {
+      justify-content: space-between; 
+    }
+    .menuList {
+      margin-left: 0;
+      flex-wrap: wrap; 
+      justify-content: flex-end;
+    }
+    .menuList ul { padding: 0 5px; }
+    .menuList a { padding: 0 5px; }
+    nav { justify-content: flex-end; }
+  }
 </style>

@@ -92,17 +92,26 @@
 }
 
 h2 {
-    font-size: clamp(30px, 4vw, 60px);
+    font-size: clamp(30px, 4vw, 50px) !important;
     margin-bottom: 20px;
     font-weight: bold;
     color: white;
 }
 
+h3 {
+     font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
 p {
    font-weight: 200 !important;  
-     color: white;
       font-size: clamp(16px, 1.5vw, 20px);
     line-height: 1.6;
+    padding-top: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    text-align: left;
 }
 
 .defectoSection{

@@ -8,9 +8,10 @@ import logoTres from '../assets/logoTres.png';
 import ideacion from '../assets/ideacion.png';
 import mockUno from '../assets/mockUno.png';
 import mockDos from '../assets/mockDos.png';
-import primeraMockFix from '../assets/primeraDisenoKiubo.png';
+import primeraMockVisual from '../assets/disenoVisualUno.png';
 import segundaMock from '../assets/segundaDisenoKiubo.png';
 import terceraMock from '../assets/terceraDisenoKiubo.png';
+import footerKiub from '../assets/footerKiubo.png'
 import Footer from "../components/footer.astro";
 ---
 
@@ -61,27 +62,33 @@ import Footer from "../components/footer.astro";
 
     <div class="image-section image-section-interactive fade-in-on-scroll">
         <p class="interaction-prompt"></p>
-        <div id="magnifier-lens"></div>
         <img src={ideacion.src} alt="Mapa de ideación y estructura del proyecto" class="kiubo-image interactive-image" id="ideacionImage"/>
     </div>
     <div class="defectoSection fade-in-on-scroll">
         <h2>Diseño visual</h2>
     </div>
+      <div class="image-section circulo-difuminado fade-in-on-scroll">
+        <img src={primeraMockVisual.src} alt="Kiubo Visual App" class="kiubo-image-midle "/>
+    </div>
+
      <div class="mockups-sectionDos fade-in-on-scroll">
       <img src={mockUno.src} alt="Mockup de la aplicación Kiubo App Uno" class="mockup-image"/>
       <img src={mockDos.src} alt="Mockup de la aplicación Kiubo App Dos" class="mockup-image"/>
     </div>
-     <div class="mockups-sectionUno fade-in-on-scroll">
-      <img src={segundaMock.src} alt="Mockup de la aplicación Kiubo App Tres" class="mockup-image"/>
+        <div class="defectoSection fade-in-on-scroll">
+          <h2>Botón S.O.S</h2>
+          <p>El botón SOS fue diseñado como una herramienta de asistencia inmediata para usuarias que se encuentren en situaciones de riesgo o necesiten apoyo urgente. Su objetivo es ofrecer una respuesta rápida, accesible y segura, priorizando la confianza y el bienestar de la comunidad KIUBO.</p>
+          <p>El objetivo principal es garantizar que las usuarias puedan pedir ayuda con el mínimo esfuerzo posible, reduciendo la fricción en momentos de estrés o peligro.</p>
+        </div>
+        <div class="mockups-sectionUno fade-in-on-scroll circulo-difuminado-especial">
+          <img src={segundaMock.src} alt="Mockup de la aplicación Kiubo App Tres" class="mockup-image"/>
+        </div>
+     <div class="image-section-footer fade-in-on-scroll">
+        <img src={footerKiub.src} alt="Kiubo Visual App Footer" class="kiubo-image-footer"/>
     </div>
-    
-      <div class="defectoSection fade-in-on-scroll">
-        <p>explicar un poco sobre lo que trata el boton de emergencia Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula</p>
-      </div>
-       <div class="mockups-sectionUno circulo-difuminado fade-in-on-scroll">
-      <img src={terceraMock.src} alt="Logo de referencia Kiubo App Cinco" class="mockup-image"/>
-    </div>
-      </section>
+   
+
+    </section>
 
   <div id="imageModal" class="modal">
     <span class="close-modal">&times;</span>
@@ -92,6 +99,9 @@ import Footer from "../components/footer.astro";
 
 
 <style>
+  html.modal-open {
+    overflow: hidden;
+  }
 
   .fade-in-on-scroll {
     opacity: 0;
@@ -125,8 +135,8 @@ import Footer from "../components/footer.astro";
   .interaction-prompt {
     text-align: center;
     color: #aaa;
-    margin-bottom: 5px;
-    font-size: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
     height: 1.2em;
   }
 
@@ -138,20 +148,22 @@ import Footer from "../components/footer.astro";
     padding: 2rem 1rem; 
   }
 
-  .image-section-interactive {
-    position: relative;
-    overflow: hidden;
+  
+ .image-section-footer {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    margin-bottom: -50px;
+  
   }
-
-  #magnifier-lens {
-    display: none;
-    position: absolute;
-    border: 2px solid white;
-    border-radius: 50%;
-    width: 400px;
-    height: 400px;
-    pointer-events: none;
-    z-index: 10;
+    .kiubo-image-footer {
+    display: block; 
+    max-width: 60%; 
+    height: auto; 
+    margin: 0 auto; 
+    border-radius: 15px; 
   }
 
   .kiubo-image {
@@ -161,13 +173,21 @@ import Footer from "../components/footer.astro";
     margin: 0 auto; 
     border-radius: 15px; 
   }
+  .kiubo-image-midle {
+    display: block; 
+    max-width: 70%; 
+    height: auto; 
+    margin: 0 auto; 
+    border-radius: 15px; 
+  }
+
 
   .interactive-image {
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
   }
   .interactive-image:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 
   .split-section {
@@ -230,7 +250,7 @@ import Footer from "../components/footer.astro";
     flex-direction: column;
     justify-content: center; 
     align-items: center; 
-    padding: 0 1rem 80px;
+    padding: 0 1rem 0;
   }
 .circulo-difuminado {
   position: relative; 
@@ -251,13 +271,32 @@ import Footer from "../components/footer.astro";
   z-index: -1; 
 }
 
+.circulo-difuminado-especial {
+  position: relative; 
+  z-index: -1;
+}
+
+.circulo-difuminado-especial::before {
+  content: ''; 
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #8E43F7CC;
+  border-radius: 50%; 
+  filter: blur(150px);
+  z-index: -1; 
+}
+
   .mockups-sectionDos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     max-width: 80%;
     margin: 0 auto 4rem auto;
-    padding: 0 1rem 80px;
+    padding: 40px 1rem 40px;
   }
 
   .mockup-image {
@@ -282,7 +321,6 @@ import Footer from "../components/footer.astro";
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
@@ -295,17 +333,18 @@ import Footer from "../components/footer.astro";
   .modal-content {
     margin: auto;
     display: block;
-    max-width: 85%;
-    max-height: 85vh;
+    max-width: 90%;
+    max-height: 90vh;
     border-radius: 15px;
+    cursor: pointer;
   }
 
   .close-modal {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 25px;
+    right: 45px;
     color: #f1f1f1;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
@@ -316,7 +355,15 @@ import Footer from "../components/footer.astro";
   }
 
 
+
   @media (max-width: 768px) {
+
+    .kiubo-image-midle { 
+    max-width: 100%; 
+  }
+.kiubo-image-footer { 
+    max-width: 100%; 
+  }
     .defectoSection {
       max-width: 100%;
     }
@@ -374,102 +421,40 @@ import Footer from "../components/footer.astro";
     const closeBtn = document.querySelector('.close-modal');
     const prompt = document.querySelector('.interaction-prompt');
 
-    const lens = document.getElementById('magnifier-lens');
-    const imgContainer = imgToOpen ? imgToOpen.parentElement : null;
-
-    let magnifyListenersAdded = false;
-
-    const magnify = (e) => {
-        const imgRect = imgToOpen.getBoundingClientRect();
-        const containerRect = imgContainer.getBoundingClientRect();
-
-        if (imgRect.width === 0 || imgRect.height === 0) return;
-        
-        let x = e.clientX - imgRect.left;
-        let y = e.clientY - imgRect.top;
-
-        if (x > imgRect.width) x = imgRect.width;
-        if (x < 0) x = 0;
-        if (y > imgRect.height) y = imgRect.height;
-        if (y < 0) y = 0;
-        
-        lens.style.left = (e.clientX - containerRect.left - lens.offsetWidth / 2) + 'px';
-        lens.style.top = (e.clientY - containerRect.top - lens.offsetHeight / 2) + 'px';
-
-        const zoom = 2.5;
-        const ratioX = imgToOpen.naturalWidth / imgRect.width;
-        const ratioY = imgToOpen.naturalHeight / imgRect.height;
-        
-        lens.style.backgroundSize = `${imgToOpen.naturalWidth * zoom}px ${imgToOpen.naturalHeight * zoom}px`;
-        
-        const bgX = -(x * ratioX * zoom - lens.offsetWidth / 2);
-        const bgY = -(y * ratioY * zoom - lens.offsetHeight / 2);
-        
-        lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
-    };
-
-    const handleMouseEnter = () => { if(lens) lens.style.display = 'block'; };
-    const handleMouseLeave = () => { if(lens) lens.style.display = 'none'; };
-    
-    const handleImageClick = function() {
-        if (modal && modalImg) {
-            modal.classList.add('active');
-            modalImg.src = this.src;
-            document.body.style.overflow = 'hidden';
-        }
+    const openModal = function() {
+      if (modal && modalImg) {
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
+        document.documentElement.classList.add('modal-open');
+        modal.classList.add('active');
+        modalImg.src = this.src;
+      }
     }
 
-    const setupInteractivity = () => {
-        if (!imgToOpen || !prompt || !imgContainer) return;
-
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const isMobileWidth = window.innerWidth <= 728;
-
-        if (isTouchDevice || isMobileWidth) {
-            prompt.textContent = '¡Hazme tap!';
-            imgToOpen.onclick = handleImageClick;
-            imgToOpen.style.cursor = 'pointer';
-            
-            if (magnifyListenersAdded) {
-                imgContainer.removeEventListener('mousemove', magnify);
-                imgContainer.removeEventListener('mouseenter', handleMouseEnter);
-                imgContainer.removeEventListener('mouseleave', handleMouseLeave);
-                magnifyListenersAdded = false;
-                if (lens) lens.style.display = 'none';
-            }
-
-        } else {
-            prompt.textContent = 'Pasa el cursor para ampliar';
-            imgToOpen.onclick = null;
-            imgToOpen.style.cursor = 'none';
-            
-            if (!magnifyListenersAdded) {
-                lens.style.backgroundImage = `url(${imgToOpen.src})`;
-                imgContainer.addEventListener('mousemove', magnify);
-                imgContainer.addEventListener('mouseenter', handleMouseEnter);
-                imgContainer.addEventListener('mouseleave', handleMouseLeave);
-                magnifyListenersAdded = true;
-            }
-        }
-    };
+    const closeModal = function() {
+      if (modal) {
+        document.documentElement.style.paddingRight = '';
+        document.documentElement.classList.remove('modal-open');
+        modal.classList.remove('active');
+      }
+    }
     
-    setupInteractivity();
-    window.addEventListener('resize', setupInteractivity);
+    if (imgToOpen && prompt) {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      prompt.textContent = isTouchDevice ? 'Tap para aumentar' : 'Clic para aumentar';
+      imgToOpen.onclick = openModal;
+    }
     
-    if (modal && closeBtn) {
-        const closeModal = function() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+    if (modal && closeBtn && modalImg) {
+      closeBtn.onclick = closeModal;
+      modalImg.onclick = closeModal;
+      modal.onclick = function(event) {
+        if (event.target === modal) {
+          closeModal();
         }
-        closeBtn.onclick = closeModal;
-        modal.onclick = function(event) {
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
+      }
     }
 
-    // --- CÓDIGO AÑADIDO PARA LA ANIMACIÓN DE SCROLL ---
     const observerOptions = {
       root: null,
       rootMargin: '0px',

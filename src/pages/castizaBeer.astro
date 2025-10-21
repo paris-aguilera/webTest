@@ -13,278 +13,528 @@ import mockSeis from '../assets/castiza/mockSeis.png';
 import mockSiete from '../assets/castiza/mockSiete.png';
 import mockOcho from '../assets/castiza/mockOcho.png';
 import mockNueve from '../assets/castiza/mockNueve.png';
+import beerPropuesta from '../assets/castiza/propuestaVisualBeer.png';
+
+import sliderUnoWeb from '../assets/castiza/sliderUnoW.png';
+import sliderDosWeb from '../assets/castiza/sliderDosW.png';
+import sliderTresWeb from '../assets/castiza/sliderTresW.png';
+import sliderCuatroWeb from '../assets/castiza/sliderCuatroW.png';
+import sliderCincoWeb from '../assets/castiza/sliderCincoW.png';
+import sliderSeisWeb from '../assets/castiza/sliderSeisW.png';
+import sliderUnoMob from '../assets/castiza/sliderUnoMob.png';
+import sliderDosMob from '../assets/castiza/sliderDosMob.png';
+import sliderTresMob from '../assets/castiza/sliderTresMob.png';
+import sliderCuatroMob from '../assets/castiza/sliderCuatroMob.png';
+import sliderCincoMob from '../assets/castiza/sliderCincoMob.png';
+import sliderSeisMob from '../assets/castiza/sliderSeisMob.png';
+import idealExp from '../assets/castiza/ideaExp.png';
+import footerCas from '../assets/castiza/finalFooterCas.png';
+
 import Footer from "../components/footer.astro";
 
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 ---
 
 <Layout title="Ailen Nahuel C • Castiza Beer">
-  <section>
-    <div class="defectoSection fade-in-on-scroll">
-      <h2>CASTIZABEER</h2>
-      <p>Diseño visual completo de la web de Castizabeer, marca de cerveza artesanal, integrando inteligencia artificial para potenciar una identidad digital auténtica, artesanal y cercana.</p>
+<section>
+  <div class="defectoSection fade-in-on-scroll">
+    <h2>CASTIZABEER</h2>
+    <p>Diseño visual completo de la web de Castizabeer, marca de cerveza artesanal, integrando inteligencia artificial para potenciar una identidad digital auténtica, artesanal y cercana.</p>
+  </div>
+  <div class="image-section fade-in-on-scroll">
+    <img src={imagenPrincipal.src} alt="Imagen principal de Castiza" class="castiza-image"/>
+  </div>
+  <div class="defectoSection fade-in-on-scroll">
+    <h2>Objetivo del proyecto</h2>
+    <p>Castiza Beer es una pyme de cerveza artesanal que necesitaba una página web funcional y visualmente coherente con su identidad de marca.</p>
+    <p>El objetivo fue diseñar desde cero una experiencia digital que permitiera a los usuarios conocer, explorar y comprar sus productos de forma sencilla.</p>
+  </div>
+  <div class="analisis-visual-section fade-in-on-scroll">
+    <div class="imagen-analisis">
+      <img src={logoUno.src} alt="Logo Uno Castiza" />
     </div>
-    <div class="image-section fade-in-on-scroll">
-      <img src={imagenPrincipal.src} alt="Imagen principal de Castiza" class="castiza-image"/>
+    <div class="imagen-analisis">
+      <img src={logoDos.src} alt="Logo Dos Castiza" />
     </div>
-    <div class="defectoSection fade-in-on-scroll">
-      <h2>Objetivo del proyecto</h2>
-      <p>Castiza Beer es una pyme de cerveza artesanal que necesitaba una página web funcional y visualmente coherente con su identidad de marca.</p>
-      <p>El objetivo fue diseñar desde cero una experiencia digital que permitiera a los usuarios conocer, explorar y comprar sus productos de forma sencilla.</p>
-    </div>
-    <div class="analisis-visual-section fade-in-on-scroll">
-      <div class="imagen-analisis">
-        <img src={logoUno.src} alt="Logo Uno Castiza" />
+  </div>
+  <div class="defectoSection fade-in-on-scroll">
+    <h2>Propuesta visual</h2>
+  </div>
+  <div class="image-section fade-in-on-scroll">
+    <img src={beerPropuesta.src} alt="Imagen Propuesta Visual de Castiza" class="castiza-image"/>
+  </div>
+  <div class="defectoSection fade-in-on-scroll">
+    <h2>Wireframes</h2>
+    <p>El wireframe de la página web y versión móvil de Castiza Beer muestra la estructura base del sitio antes del diseño final. En él se definen la distribución de los elementos principales como el menú, el carrusel de productos, la sección de cervezas destacadas, el apartado “sobre nosotros” y el botón de compra. Su objetivo es visualizar la jerarquía de la información y la navegación del usuario, asegurando una experiencia clara, intuitiva y coherente tanto en desktop como en mobile.</p>
+  </div>
+  <div class="mock-gallery-section fade-in-on-scroll">
+    <div class="mock-row">
+      <div class="mock-image-wrapper item-small limit-height-mobile">
+        <img src={mockOcho.src} alt="Mockup 8 del proyecto Castiza" />
       </div>
-      <div class="imagen-analisis">
-        <img src={logoDos.src} alt="Logo Dos Castiza" />
+      <div class="mock-image-wrapper item-large limit-width-mobile">
+        <img src={mockNueve.src} alt="Mockup 9 del proyecto Castiza" />
       </div>
     </div>
-    <div class="defectoSection fade-in-on-scroll">
-      <p>Comunicar la esencia artesanal de Castizabeer mediante un diseño digital cálido, visualmente atractivo y coherente con el universo cervecero.</p>
-      <p>La meta fue destacar sus variedades, historia y servicio de delivery en una experiencia simple y envolvente.</p>
-      <p>💡Tip visual: acompaña esto con un wireframe del punto de partida (pantallas grises o boceto inicial).</p>
-    </div>
-    <div class="defectoSection fade-in-on-scroll">
-      <h2>Propuesta visual</h2>
-      <p>🧱 Paleta y tipografía
-      Muestra los colores con etiquetas (Hex)
-      Muestra la tipografía elegida con un breve texto de justificación:
-      “Tipografía con personalidad artesanal y legibilidad digital.”
-      🍂 Estilo gráfico
-      Texturas, íconos o elementos decorativos que refuercen lo artesanal.
-      Explica brevemente:
-      “Se utilizaron tonos cálidos y gráficos inspirados en el proceso cervecero artesanal.”</p>
-    </div>
-    <div class="defectoSection fade-in-on-scroll">
-      <h2>Wireframes</h2>
-      <p>El wireframe de la página web y versión móvil de Castiza Beer muestra la estructura base del sitio antes del diseño final. En él se definen la distribución de los elementos principales como el menú, el carrusel de productos, la sección de cervezas destacadas, el apartado “sobre nosotros” y el botón de compra. Su objetivo es visualizar la jerarquía de la información y la navegación del usuario, asegurando una experiencia clara, intuitiva y coherente tanto en desktop como en mobile.</p>
-    </div>
+  </div>
 
-    <div class="mock-gallery-section fade-in-on-scroll">
-      <div class="mock-row">
-        <div class="mock-image-wrapper mock-single-image limit-width-mobile">
-          <img src={mockUno.src} alt="Mockup 1 del proyecto Castiza" />
-        </div>
-      </div>
-      <div class="mock-row">
-        <div class="mock-image-wrapper item-large limit-width-mobile">
-          <img src={mockDos.src} alt="Mockup 2 del proyecto Castiza" />
-        </div>
-        <div class="mock-image-wrapper item-small limit-height-mobile">
-          <img src={mockTres.src} alt="Mockup 3 del proyecto Castiza" />
-        </div>
-      </div>
-      <div class="mock-row">
-        <div class="mock-image-wrapper item-small limit-height-mobile">
-          <img src={mockCuatro.src} alt="Mockup 4 del proyecto Castiza" />
-        </div>
-        <div class="mock-image-wrapper item-large limit-width-mobile">
-          <img src={mockCinco.src} alt="Mockup 5 del proyecto Castiza" />
-        </div>
-      </div>
-      <div class="mock-row">
-        <div class="mock-image-wrapper item-large limit-width-mobile">
-          <img src={mockSeis.src} alt="Mockup 6 del proyecto Castiza" />
-        </div>
-        <div class="mock-image-wrapper item-small limit-height-mobile">
-          <img src={mockSiete.src} alt="Mockup 7 del proyecto Castiza" />
-        </div>
-      </div>
-      <div class="mock-row">
-        <div class="mock-image-wrapper item-small limit-height-mobile">
-          <img src={mockOcho.src} alt="Mockup 8 del proyecto Castiza" />
-        </div>
-        <div class="mock-image-wrapper item-large limit-width-mobile">
-          <img src={mockNueve.src} alt="Mockup 9 del proyecto Castiza" />
-        </div>
-      </div>
-    </div>
-      <div class="defectoSection fade-in-on-scroll">
-      <h2>Interfaz y diseño final</h2>
-      <p>El diseño final de la web y versión móvil de Castiza Beer combina una estética artesanal y moderna. Usa tonos dorados, tipografía limpia y una navegación intuitiva que resalta los productos y la esencia de la marca. En mobile, se optimiza la experiencia para una navegación rápida y fluida.</p>
-    </div>
+  <div class="defectoSection fade-in-on-scroll">
+    <h2>Interfaz y diseño final</h2>
+    <p>El diseño final de la web y versión móvil de Castiza Beer combina una estética artesanal y moderna. Usa tonos dorados, tipografía limpia y una navegación intuitiva que resalta los productos y la esencia de la marca. En mobile, se optimiza la experiencia para una navegación rápida y fluida.</p>
+  </div>
 
-    <Footer />
+  <section class="slider-section fade-in-on-scroll hide-on-mobile">
+    <div class="swiper castiza-slider-web">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <picture>
+            <source media="(min-width: 768px)" srcset={sliderUnoWeb.src}>
+            <img src={sliderUnoMob.src} alt="Interfaz final - Pantalla 1" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture>
+            <source media="(min-width: 768px)" srcset={sliderDosWeb.src}>
+            <img src={sliderDosMob.src} alt="Interfaz final - Pantalla 2" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture>
+            <source media="(min-width: 768px)" srcset={sliderTresWeb.src}>
+            <img src={sliderTresMob.src} alt="Interfaz final - Pantalla 3" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture>
+            <source media="(min-width: 768px)" srcset={sliderCuatroWeb.src}>
+            <img src={sliderCuatroMob.src} alt="Interfaz final - Pantalla 4" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture>
+            <source media="(min-width: 768px)" srcset={sliderCincoWeb.src}>
+            <img src={sliderCincoMob.src} alt="Interfaz final - Pantalla 5" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+        <div class="swiper-slide">
+          <picture>
+            <source media="(min-width: 768px)" srcset={sliderSeisWeb.src}>
+            <img src={sliderSeisMob.src} alt="Interfaz final - Pantalla 6" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
   </section>
+
+  <section class="slider-section fade-in-on-scroll show-on-mobile">
+    <div class="swiper castiza-slider-web-mobile">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src={sliderUnoWeb.src} alt="Interfaz final Web - Pantalla 1" loading="lazy" decoding="async" />
+        </div>
+        <div class="swiper-slide">
+          <img src={sliderDosWeb.src} alt="Interfaz final Web - Pantalla 2" loading="lazy" decoding="async" />
+        </div>
+        <div class="swiper-slide">
+          <img src={sliderTresWeb.src} alt="Interfaz final Web - Pantalla 3" loading="lazy" decoding="async" />
+        </div>
+        <div class="swiper-slide">
+          <img src={sliderCuatroWeb.src} alt="Interfaz final Web - Pantalla 4" loading="lazy" decoding="async" />
+        </div>
+        <div class="swiper-slide">
+          <img src={sliderCincoWeb.src} alt="Interfaz final Web - Pantalla 5" loading="lazy" decoding="async" />
+        </div>
+        <div class="swiper-slide">
+          <img src={sliderSeisWeb.src} alt="Interfaz final Web - Pantalla 6" loading="lazy" decoding="async" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section class="slider-section fade-in-on-scroll">
+    <div class="marquee-slider-mobile">
+      <div class="marquee-wrapper">
+        <div class="marquee-slide">
+          <img src={sliderUnoMob.src} alt="Interfaz final - Pantalla 1" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderDosMob.src} alt="Interfaz final - Pantalla 2" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderTresMob.src} alt="Interfaz final - Pantalla 3" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderCuatroMob.src} alt="Interfaz final - Pantalla 4" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderCincoMob.src} alt="Interfaz final - Pantalla 5" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderSeisMob.src} alt="Interfaz final - Pantalla 6" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="marquee-slide">
+          <img src={sliderUnoMob.src} alt="Interfaz final - Pantalla 1" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderDosMob.src} alt="Interfaz final - Pantalla 2" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderTresMob.src} alt="Interfaz final - Pantalla 3" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderCuatroMob.src} alt="Interfaz final - Pantalla 4" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderCincoMob.src} alt="Interfaz final - Pantalla 5" loading="lazy" decoding="async" />
+        </div>
+        <div class="marquee-slide">
+          <img src={sliderSeisMob.src} alt="Interfaz final - Pantalla 6" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="defectoSection fade-in-on-scroll">
+    <h2>De la idea a la experiencia</h2>
+  </div>
+  <div class="analisis-visual-section fade-in-on-scroll">
+    <div class="texto-columna">
+        <p>El proyecto de Castiza Beer finaliza con la implementación del diseño en un mockup que muestra la versión móvil en uso. Este resultado evidencia una propuesta funcional, coherente y visualmente atractiva, capaz de transmitir la esencia artesanal de la marca y mejorar la experiencia de compra del usuario en entornos digitales.</p>
+    </div>
+    <div class="imagen-columna">
+      <img src={idealExp.src} alt="Ideal exp Castiza" />
+    </div>
+    
+  </div>
+    <div class="image-section fade-in-on-scroll">
+    <img src={footerCas.src} alt="Imagen Propuesta Visual de Castiza" class="castiza-image"/>
+  </div>
+  <Footer />
+</section>
 </Layout>
 
 <style>
-  :global(body) {
-    background: linear-gradient(to bottom, #070401, #190102, #320403, #8F3A01) !important;
-  }
+:global(body){
+  background:linear-gradient(to bottom,#070401,#190102,#320303,#8F3A01)!important;
+}
+.fade-in-on-scroll{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.6s ease-out,transform 0.6s ease-out;
+}
+.fade-in-on-scroll.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.defectoSection{
+  font-family:'Alexandria Variable',sans-serif;
+  color:white;
+  text-align:left;
+  padding:2rem 1rem;
+  max-width:80%;
+  margin:0 auto;
+}
+.defectoSection h2{
+  font-size:clamp(2.5rem,5vw,4rem);
+  margin-bottom:1rem;
+}
+.defectoSection h3{
+  font-size:clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: -1rem;
+  color: #ccc;
+}
+.defectoSection p{
+  font-size:clamp(1rem,2vw,1.3rem);
+  line-height:1.6;
+}
+.image-section{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:2rem 1rem;
+}
+.castiza-image{
+  display:block;
+  max-width:80%;
+  height:auto;
+  margin:0 auto;
+  border-radius:15px;
+}
+.analisis-visual-section{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  max-width:80%;
+  margin:0 auto 4rem auto;
+  padding:2rem 1rem;
+}
+.imagen-analisis{flex:1;}
+.imagen-analisis img{
+  width:50%;
+  height:auto;
+  border-radius:15px;
+  display:block;
+  margin:0 auto;
+}
+.texto-columna {
+  flex: 1;
+}
+.imagen-columna {
+  flex: 1;
+}
+.imagen-columna img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+}
+.imagen-analisis-fix img{
+  width:50%;
+  height:auto;
+  border-radius:15px;
+  display:block;
+  justify-self: end;
+}
+.mock-gallery-section{
+  max-width:80%;
+  margin:4rem auto;
+  padding:0 1rem;
+  box-sizing:border-box;
+}
+.mock-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1.5rem;
+  margin-bottom:1.5rem;
+}
+.mock-row:last-child{margin-bottom:0;}
+.mock-image-wrapper{min-width:0;}
+.mock-image-wrapper img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:15px;
+}
+.mock-single-image{flex:0 0 70%;}
+.item-large{flex:0 1 70%;}
+.item-small{flex:0 1 30%;}
 
-  .fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  .fade-in-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.slider-section {
+  width: 100vw;
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  box-sizing: border-box;
+}
 
-  .defectoSection {
-    font-family: 'Alexandria Variable', sans-serif;
-    color: white;
-    text-align: left;
-    padding: 2rem 1rem;
-    max-width: 80%;
-    margin: 0 auto;
-  }
+:global(.swiper) {
+  --swiper-theme-color: #FFFFFF;
+  --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.4);
+  --swiper-pagination-bullet-inactive-opacity: 1;
+}
+:global(.swiper-pagination-bullet) {
+  background: var(--swiper-pagination-bullet-inactive-color);
+  width: 10px;
+  height: 10px;
+}
+:global(.swiper-pagination-bullet-active) {
+  background: var(--swiper-theme-color);
+}
 
-  .defectoSection h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 1rem;
-  }
 
-  .defectoSection p {
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    line-height: 1.6;
-  }
+.castiza-slider-web {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 50px; 
+}
+.castiza-slider-web .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: auto; 
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.castiza-slider-web .swiper-slide picture,
+.castiza-slider-web .swiper-slide img {
+  display: block;
+  width: auto;
+  max-height: 550px; 
+}
+.castiza-slider-web .swiper-slide-shadow-left,
+.castiza-slider-web .swiper-slide-shadow-right {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
+.castiza-slider-web .swiper-slide-shadow-right {
+  background-image: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
 
-  .image-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem;
-  }
 
-  .castiza-image {
+.castiza-slider-web-mobile {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 50px; 
+}
+.castiza-slider-web-mobile .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 90%; 
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.castiza-slider-web-mobile .swiper-slide img {
+  display: block;
+  width: 100%; 
+  height: auto;
+}
+
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-slider-mobile {
+  overflow: hidden; 
+  padding-top: 20px;
+  padding-bottom: 50px; 
+  pointer-events: none;
+}
+.marquee-wrapper {
+  display: flex;
+  width: max-content; 
+  animation: marquee 30s linear infinite;
+}
+.marquee-slider-mobile:hover .marquee-wrapper {
+  animation-play-state: paused;
+}
+.marquee-slide {
+  width: auto; 
+  margin-right: 80px; 
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  pointer-events: auto; 
+}
+.marquee-slide:hover {
+  transform: scale(1.05); 
+  z-index: 10; 
+}
+.marquee-slide img {
+  display: block;
+  width: auto; 
+  height: auto;
+  max-height: 450px; 
+  user-drag: none; 
+  -webkit-user-drag: none;
+}
+
+
+.show-on-mobile {
+  display: none;
+}
+.hide-on-mobile {
+  display: block;
+}
+
+@media(max-width:768px){
+  .defectoSection{max-width:100%;}
+  .castiza-image{max-width:100%;}
+  .analisis-visual-section{flex-direction:column;max-width:100%;}
+  .mock-gallery-section{max-width:100%;}
+  .mock-row{flex-direction:column;align-items:center;gap:1rem;margin-bottom:1rem;}
+  .mock-single-image,.item-large,.item-small{flex-basis:auto;width:100%;}
+  .limit-width-mobile{max-width:224px;}
+  .limit-height-mobile{width:auto;}
+  .limit-height-mobile img{max-height:319px;}
+
+  .show-on-mobile {
     display: block;
-    max-width: 80%;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 15px;
+  }
+  .hide-on-mobile {
+    display: none;
   }
 
-  .analisis-visual-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    max-width: 80%;
-    margin: 0 auto 4rem auto;
-    padding: 2rem 1rem;
+  .marquee-slide img {
+     max-height: 350px; 
   }
 
-  .imagen-analisis {
-    flex: 1;
+  .castiza-slider-web-mobile .swiper-slide {
+    width: 85%;
   }
-
-  .imagen-analisis img {
-    width: 50%;
-    height: auto;
-    border-radius: 15px;
-    display: block;
-    margin: 0 auto;
-  }
-
-
-  .mock-gallery-section {
-    max-width: 80%;
-    margin: 4rem auto;
-    padding: 0 1rem;
-    box-sizing: border-box;
-  }
-
-  .mock-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .mock-row:last-child {
-    margin-bottom: 0;
-  }
-  
-  .mock-image-wrapper {
-    min-width: 0;
-  }
-
-  .mock-image-wrapper img {
+  .castiza-slider-web-mobile .swiper-slide img {
+    max-height: 350px;
     width: 100%;
     height: auto;
-    display: block;
-    border-radius: 15px;
   }
 
-  .mock-single-image {
-    flex: 0 0 70%;
+  .imagen-columna img {
+    width: 100%;
   }
-
-  .item-large {
-    flex: 0 1 70%; 
-  }
-
-  .item-small {
-    flex: 0 1 30%;
-  }
-
-
-  @media (max-width: 768px) {
-    .defectoSection {
-      max-width: 100%;
-    }
-    .castiza-image {
-      max-width: 100%;
-    }
-    .analisis-visual-section {
-      flex-direction: column;
-      max-width: 100%;
-    }
-    .mock-gallery-section {
-      max-width: 100%;
-    }
-
-    .mock-row {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .mock-single-image,
-    .item-large,
-    .item-small {
-      flex-basis: auto;
-      width: 100%;
-    }
-    .limit-width-mobile {
-      max-width: 224px;
-    }
-    
-    .limit-height-mobile {
-      width: auto; 
-    }
-    .limit-height-mobile img {
-      max-height: 319px;
-    }
-  }
+}
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
+import Swiper from 'swiper';
+import { Pagination, EffectCoverflow } from 'swiper/modules';
 
-    const observerCallback = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
-    elementsToAnimate.forEach(element => {
-      observer.observe(element);
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
     });
+  };
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
+  elementsToAnimate.forEach(element => { observer.observe(element); });
+
+  new Swiper('.castiza-slider-web', {
+    modules: [Pagination, EffectCoverflow],
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 'auto', 
+    coverflowEffect: {
+      rotate: 40,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: '.castiza-slider-web .swiper-pagination',
+      clickable: true,
+    },
   });
+
+  new Swiper('.castiza-slider-web-mobile', {
+    modules: [Pagination],
+    effect: 'slide',
+    loop: true,
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    pagination: {
+      el: '.castiza-slider-web-mobile .swiper-pagination',
+      clickable: true,
+    },
+  });
+});
 </script>

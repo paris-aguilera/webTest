@@ -1,156 +1,199 @@
 ---
 import '@fontsource-variable/alexandria';
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <footer class="main-footer" id="contacto">
-    <div class="footer-content-wrapper">
-        <div class="footer-contact-section">
-            <h3 class="contact-text">¡Mantengámonos en contacto!</h3>
-        </div>
-        <div class="footer-social-section">
-            <a href="https://www.linkedin.com/in/ailen-nahuel" target="_blank" rel="Mi perfil de LinkedIn Ailen Nahuel" aria-label="LinkedIn">
-                <i class="fab fa-linkedin social-icon"></i>
-            </a>
-            <a href="https://www.instagram.com/aileeeeeeen_n/" target="_blank" rel="Mi perfil de Instagram Ailen Nahuel" aria-label="Instagram">
-                <i class="fab fa-instagram social-icon"></i>
-            </a>
-            <a href="https://www.behance.net/ailennahuel" target="_blank" rel="Mi perfil de Behance Ailen Nahuel" aria-label="Behance">
-                <i class="fab fa-behance-square social-icon"></i>
-            </a>
-        </div>
-    </div>
+	<div class="footer-content-wrapper">
+		<div class="footer-contact-section">
+			<h3 class="contact-text">¡Mantengámonos en contacto!</h3>
+		</div>
+		<div class="footer-social-section">
+			<a
+				href="https://www.linkedin.com/in/ailen-nahuel"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="LinkedIn"
+			>
+				<i class="fab fa-linkedin social-icon"></i>
+			</a>
+			<a
+				href="https://www.instagram.com/aileeeeeeen_n/"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Instagram"
+			>
+				<i class="fab fa-instagram social-icon"></i>
+			</a>
+			<a
+				href="https://www.behance.net/ailennahuel"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Behance"
+			>
+				<i class="fab fa-behance-square social-icon"></i>
+			</a>
+		</div>
+	</div>
 </footer>
 
 <a href="#" id="scrollTopBtn" aria-label="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
+	<i class="fas fa-arrow-up"></i>
 </a>
 <style>
+	@keyframes slow-shift {
+		0% {
+			background-position: 0% 50%;
+		}
+		100% {
+			background-position: 100% 50%;
+		}
+	}
+	.main-footer {
+		color: white;
+		font-family: 'Alexandria Variable', sans-serif;
+		box-sizing: border-box;
+		width: 100vw !important;
+		position: relative !important;
+		left: 50% !important;
+		right: 50% !important;
+		margin-left: -50vw !important;
+		margin-right: -50vw !important;
+		background-color: rgba(23, 21, 31, 0.9);
+		background-image: linear-gradient(
+			to right,
+			rgba(39, 37, 51, 0.9),
+			rgba(23, 21, 31, 0.9),
+			rgba(39, 37, 51, 0.9)
+		);
+		background-size: 300% 100%;
+		animation: slow-shift 15s linear infinite;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border-top-left-radius: 40px;
+		border-top-right-radius: 40px;
+		box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.4);
+		padding-top: 80px;
+		padding-bottom: 120px;
+		padding-inline: 0 !important;
+		margin-top: auto;
+	}
+	.footer-content-wrapper {
+		padding-inline: 13% !important;
+		width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.footer-contact-section {
+		margin-bottom: 25px;
+		width: 100%;
+		align-items: center !important;
+	}
+	.contact-text {
+		font-size: clamp(1.5rem, 4vw, 2.5rem);
+		font-weight: 200;
+		margin: 0;
+	}
+	.footer-social-section {
+		display: flex;
+		gap: 40px;
+		padding-top: 15px;
+		width: 100%;
+		justify-content: center;
+	}
+	.footer-social-section a {
+		color: white;
+		text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+		transition: all 0.3s ease-in-out;
+		text-decoration: none;
+	}
+	.social-icon {
+		font-size: clamp(2.5rem, 6vw, 3rem);
+	}
+	.footer-social-section a:hover {
+		color: #4327bf;
+		transform: scale(1.1);
+		text-shadow: 0 0 10px #4327bf;
+	}
 
-    @keyframes slow-shift {
-        0% { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
-    }
-    .main-footer {
-        color: white;
-        font-family: 'Alexandria Variable', sans-serif;
-        box-sizing: border-box;
-        width: 100vw !important;
-        position: relative !important; 
-        left: 50% !important;
-        right: 50% !important;
-        margin-left: -50vw !important; 
-        margin-right: -50vw !important;
-        background-color: rgba(23, 21, 31, 0.9);
-        background-image: linear-gradient( to right, rgba(39, 37, 51, 0.9), rgba(23, 21, 31, 0.9), rgba(39, 37, 51, 0.9) );
-        background-size: 300% 100%; 
-        animation: slow-shift 15s linear infinite;
-        backdrop-filter: blur(5px); 
-        -webkit-backdrop-filter: blur(5px);
-        border-top-left-radius: 40px; 
-        border-top-right-radius: 40px;
-        box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.4); 
-        padding-top: 80px;
-        padding-bottom: 120px;
-        padding-inline: 0 !important;
-        margin-top: auto; 
-    }
-    .footer-content-wrapper {
-        padding-inline: 13% !important; 
-        width: 100%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .footer-contact-section { margin-bottom: 25px; width: 100%; align-items: center !important; }
-    .contact-text { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 200; margin: 0; }
-    .footer-social-section { display: flex; gap: 40px; padding-top: 15px; width: 100%; justify-content: center; }
-    .footer-social-section a { color: white; text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); transition: all 0.3s ease-in-out; text-decoration: none; }
-    .social-icon { font-size: clamp(2.5rem, 6vw, 3rem); }
-    .footer-social-section a:hover { color: #4327BF; transform: scale(1.1); text-shadow: 0 0 10px #4327BF; }
+	@media (max-width: 768px) {
+		#scrollTopBtn {
+			width: 60px !important;
+			height: 60px !important;
+			font-size: 30px !important;
+		}
+		.main-footer {
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+		.footer-content-wrapper {
+			padding-inline: 5% !important;
+		}
+		.footer-social-section {
+			gap: 25px;
+		}
+	}
 
-    @media (max-width: 768px) {
-         #scrollTopBtn {
-                width: 60px !important;
-                height: 60px !important;
-                font-size: 30px !important; 
-         }
-        .main-footer { border-top-left-radius: 20px; border-top-right-radius: 20px; padding-top: 40px; padding-bottom: 40px;}
-        .footer-content-wrapper { padding-inline: 5% !important; }
-        .footer-social-section { gap: 25px; }
-    }
+	#scrollTopBtn {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background-color: #4327bf;
+		color: white;
+		border: none;
+		border-radius: 50%;
+		width: 80px;
+		height: 80px;
+		font-size: 40px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(20px);
+		transition:
+			opacity 0.3s,
+			visibility 0.3s,
+			transform 0.3s ease-in-out;
+	}
 
-    #scrollTopBtn {
-      
-        position: fixed; 
-        bottom: 20px;
-        right: 20px;
-        background-color: #4327BF; 
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        font-size: 40px;
-        cursor: pointer;
-        
-      
-        display: flex;
-        justify-content: center;
-        align-items: center;
+	#scrollTopBtn.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
 
-      
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px);
-        transition: opacity 0.3s, visibility 0.3s, transform 0.3s ease-in-out;
-    }
-
-    #scrollTopBtn.show {
-      
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    #scrollTopBtn:hover {
-        background-color: #5a3fd6;
-        transform: scale(1.1); 
-    }
- 
+	#scrollTopBtn:hover {
+		background-color: #5a3fd6;
+		transform: scale(1.1);
+	}
 </style>
 
 <script>
+	const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-const scrollTopBtn = document.getElementById('scrollTopBtn');
+	const toggleScrollTopBtn = () => {
+		if (window.scrollY > 300) {
+			scrollTopBtn.classList.add('show');
+		} else {
+			scrollTopBtn.classList.remove('show');
+		}
+	};
 
-const toggleScrollTopBtn = () => {
-  
-    if (window.scrollY > 300) {
-       
-        scrollTopBtn.classList.add('show');
-    } else {
-       
-        scrollTopBtn.classList.remove('show');
-    }
-};
+	const scrollToTop = (e) => {
+		e.preventDefault();
 
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	};
 
-const scrollToTop = (e) => {
-  
-    e.preventDefault();
-  
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-};
-
-
-window.addEventListener('scroll', toggleScrollTopBtn);
-
-scrollTopBtn.addEventListener('click', scrollToTop);
-
+	window.addEventListener('scroll', toggleScrollTopBtn);
+	scrollTopBtn.addEventListener('click', scrollToTop);
 </script>

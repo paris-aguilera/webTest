@@ -1,180 +1,193 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import SobreMi from "../components/sobreMi.astro";
-import Proyectos from "../components/proyectos.astro";
-import Footer from "../components/footer.astro";
+import Layout from '../layouts/Layout.astro';
+import SobreMi from '../components/sobreMi.astro';
+import Proyectos from '../components/proyectos.astro';
+import Footer from '../components/footer.astro';
 ---
 
-<Layout title="Ailen Nahuel C • Diseñadora ✌️">
-  <section class="divInicio">
-    <div id="texto-bienvenida" class="texto-animado">
-      <span id="bienvenida-texto" class="bg-clip-text-gradient"></span>
-      <span id="bienvenida-emojis"></span>
-      <span id="cursor-bienvenida" class="cursor">|</span>
-    </div>
+<Layout title="Ailen Nahuel • Diseñadora UX/UI ✌️">
+	<section class="divInicio">
+		<div id="texto-bienvenida" class="texto-animado">
+			<span id="bienvenida-texto" class="bg-clip-text-gradient"></span>
+			<span id="bienvenida-emojis"></span>
+			<span id="cursor-bienvenida" class="cursor">|</span>
+		</div>
 
-    <div id="texto-proposito" class="texto-animado hidden">
-      <span id="proposito-texto-1" class="infoInicio"></span>
-      <span id="proposito-texto-2" class="bg-clip-text-gradient infoInicioEspecial"></span>
-      <span id="proposito-texto-3" class="infoInicio"></span>
-      <span id="proposito-emojis"></span>
-      <span id="cursor-proposito" class="cursor">|</span>
-    </div>
-  </section>
-  <SobreMi />
-  <Proyectos />
-  <Footer />
+		<div id="texto-proposito" class="texto-animado hidden">
+			<span id="proposito-texto-1" class="infoInicio"></span>
+			<span
+				id="proposito-texto-2"
+				class="bg-clip-text-gradient infoInicioEspecial"></span>
+			<span id="proposito-texto-3" class="infoInicio"></span>
+			<span id="proposito-emojis"></span>
+			<span id="cursor-proposito" class="cursor">|</span>
+		</div>
+	</section>
+	<SobreMi />
+	<Proyectos />
+	<Footer />
+</Layout>
 
- <style>
-  @reference "tailwindcss";
+<style>
+	@reference 'tailwindcss';
 
-  span {
-    font-size: 5vw;
-    font-weight: bold;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    display: inline-block;
-    white-space: normal;
-    vertical-align: middle;
-  }
+	span {
+		font-size: 5vw;
+		font-weight: bold;
+		letter-spacing: -0.02em;
+		line-height: 1.1;
+		display: inline-block;
+		white-space: normal;
+		vertical-align: middle;
+	}
 
-  .infoInicio {
-    color: white;
-  }
+	.infoInicio {
+		color: white;
+	}
 
-  .divInicio {
-    width: 100%;
-    height: 600px; 
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* --- AQUÍ ESTÁ EL ARREGLO --- */
-    overflow: hidden; 
-  }
-  
-  .texto-animado {
-    width: 90%;
-  }
-      
-  .hidden {
-    display: none;
-  }
+	.divInicio {
+		width: 100%;
+		height: 600px;
+		position: relative;
+		z-index: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		overflow: hidden;
+	}
 
-  .cursor {
-    font-weight: normal;
-    animation: blink 0.75s step-end infinite, flujo-color 5s ease infinite alternate;
-    background-image: linear-gradient(
-      90deg,
-      #BE07AE,
-      #110773,
-      #BE07AE
-    );
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+	.texto-animado {
+		width: 90%;
+	}
 
-  @keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
-  }
+	.hidden {
+		display: none;
+	}
 
-  @media (max-width: 768px) {
-    .divInicio span {
-      font-size: 8vw;
-    }
-  }
+	.cursor {
+		font-weight: normal;
+		animation:
+			blink 0.75s step-end infinite,
+			flujo-color 5s ease infinite alternate;
+		background-image: linear-gradient(
+			90deg,
+			#be07ae,
+			#110773,
+			#be07ae
+		);
+		background-size: 400% 400%;
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	@keyframes blink {
+		from,
+		to {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.divInicio span {
+			font-size: 8vw;
+		}
+	}
 </style>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const bienvenidaDiv = document.getElementById('texto-bienvenida');
-      const propositoDiv = document.getElementById('texto-proposito');
-      
-      const bienvenidaTextoEl = document.getElementById('bienvenida-texto');
-      const bienvenidaEmojisEl = document.getElementById('bienvenida-emojis');
-      const bienvenidaCursor = document.getElementById('cursor-bienvenida');
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const bienvenidaDiv = document.getElementById('texto-bienvenida');
+		const propositoDiv = document.getElementById('texto-proposito');
 
-      const propositoTexto1El = document.getElementById('proposito-texto-1');
-      const propositoTexto2El = document.getElementById('proposito-texto-2');
-      const propositoTexto3El = document.getElementById('proposito-texto-3');
-      const propositoEmojisEl = document.getElementById('proposito-emojis');
-      const propositoCursor = document.getElementById('cursor-proposito');
+		const bienvenidaTextoEl = document.getElementById('bienvenida-texto');
+		const bienvenidaEmojisEl = document.getElementById('bienvenida-emojis');
+		const bienvenidaCursor = document.getElementById('cursor-bienvenida');
 
-      const textos = {
-        bienvenida: 'Hola! Soy Ailen Nahuel diseñadora UX/UI.',
-        proposito1: 'Transformar necesidades ',
-        proposito2: 'en experiencias digitales',
-        proposito3: ' intuitivas es mi propósito.',
-        emojis: ' ✌️👩‍💻'
-      };
-      
-      const config = {
-        typingSpeed: 80,
-        erasingSpeed: 50,
-        pauseAfterHello: 5000, 
-        pauseAfterPurpose: 5000,
-      };
+		const propositoTexto1El = document.getElementById('proposito-texto-1');
+		const propositoTexto2El = document.getElementById('proposito-texto-2');
+		const propositoTexto3El = document.getElementById('proposito-texto-3');
+		const propositoEmojisEl = document.getElementById('proposito-emojis');
+		const propositoCursor = document.getElementById('cursor-proposito');
 
-      const delay = (ms) => new Promise(res => setTimeout(res, ms));
+		const textos = {
+			bienvenida: 'Hola! Soy Ailen Nahuel diseñadora UX/UI.',
+			proposito1: 'Transformar necesidades ',
+			proposito2: 'en experiencias digitales',
+			proposito3: ' intuitivas es mi propósito.',
+			emojis: ' ✌️👩‍💻',
+		};
 
-      async function type(element, text) {
-        for (const char of text) {
-          element.textContent += char;
-          await delay(config.typingSpeed);
-        }
-      }
+		const config = {
+			typingSpeed: 80,
+			erasingSpeed: 50,
+			pauseAfterHello: 5000,
+			pauseAfterPurpose: 5000,
+		};
 
-      async function erase(elements) {
-        for (let i = elements.length - 1; i >= 0; i--) {
-          const element = elements[i];
-          let text = element.textContent;
-          while (text.length > 0) {
-            text = text.slice(0, -1);
-            element.textContent = text;
-            await delay(config.erasingSpeed);
-          }
-        }
-      }
+		const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-      async function runAnimationLoop() {
-        while (true) {
-          propositoDiv.classList.add('hidden');
-          bienvenidaDiv.classList.remove('hidden');
+		async function type(element, text) {
+			for (const char of text) {
+				element.textContent += char;
+				await delay(config.typingSpeed);
+			}
+		}
 
-          bienvenidaCursor.style.display = 'inline-block';
-          await type(bienvenidaTextoEl, textos.bienvenida);
-          await type(bienvenidaEmojisEl, textos.emojis);
-          bienvenidaCursor.style.display = 'none';
+		async function erase(elements) {
+			for (let i = elements.length - 1; i >= 0; i--) {
+				const element = elements[i];
+				let text = element.textContent;
+				while (text.length > 0) {
+					text = text.slice(0, -1);
+					element.textContent = text;
+					await delay(config.erasingSpeed);
+				}
+			}
+		}
 
-          await delay(config.pauseAfterHello);
-          
-          bienvenidaCursor.style.display = 'inline-block';
-          await erase([bienvenidaEmojisEl, bienvenidaTextoEl]);
-          bienvenidaCursor.style.display = 'none';
+		async function runAnimationLoop() {
+			while (true) {
+				propositoDiv.classList.add('hidden');
+				bienvenidaDiv.classList.remove('hidden');
 
-          bienvenidaDiv.classList.add('hidden');
-          propositoDiv.classList.remove('hidden');
+				bienvenidaCursor.style.display = 'inline-block';
+				await type(bienvenidaTextoEl, textos.bienvenida);
+				await type(bienvenidaEmojisEl, textos.emojis);
+				bienvenidaCursor.style.display = 'none';
 
-          propositoCursor.style.display = 'inline-block';
-          await type(propositoTexto1El, textos.proposito1);
-          await type(propositoTexto2El, textos.proposito2);
-          await type(propositoTexto3El, textos.proposito3);
-          propositoCursor.style.display = 'none';
-          
-          await delay(config.pauseAfterPurpose);
+				await delay(config.pauseAfterHello);
 
-          propositoCursor.style.display = 'inline-block';
-          await erase([propositoEmojisEl, propositoTexto3El, propositoTexto2El, propositoTexto1El]);
-          propositoCursor.style.display = 'none';
-        }
-      }
-      
-      runAnimationLoop();
-    });
-  </script>
-</Layout>
+				bienvenidaCursor.style.display = 'inline-block';
+				await erase([bienvenidaEmojisEl, bienvenidaTextoEl]);
+				bienvenidaCursor.style.display = 'none';
+
+				bienvenidaDiv.classList.add('hidden');
+				propositoDiv.classList.remove('hidden');
+
+				propositoCursor.style.display = 'inline-block';
+				await type(propositoTexto1El, textos.proposito1);
+				await type(propositoTexto2El, textos.proposito2);
+				await type(propositoTexto3El, textos.proposito3);
+				propositoCursor.style.display = 'none';
+
+				await delay(config.pauseAfterPurpose);
+
+				propositoCursor.style.display = 'inline-block';
+				await erase([
+					propositoEmojisEl,
+					propositoTexto3El,
+					propositoTexto2El,
+					propositoTexto1El,
+				]);
+				propositoCursor.style.display = 'none';
+			}
+		}
+
+		runAnimationLoop();
+	});
+</script>

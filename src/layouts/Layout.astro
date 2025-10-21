@@ -1,218 +1,397 @@
 ---
 import '@fontsource-variable/alexandria';
 import '@fontsource-variable/albert-sans';
-import "../styles/global.css";
+import '../styles/global.css';
 import logo from '../assets/logo.png';
 import logoMobile from '../assets/logoMobile.png';
 
 interface Props {
-  title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
+const siteUrl = 'https://www.ailenahuel.cl';
+const imageUrl = `${siteUrl}/imagen-preview.png`;
+const siteDescription =
+	'Portafolio Ailen Nahuel Diseñadora UX/UI. Descubre mis proyectos de investigación, interfaces y experiencia de usuario.';
+const siteKeywords =
+	'diseñadora ux/ui, portafolio ux, ailen nahuel, diseñadora junior ux, figma, astro, chile, diseño de interfaces, experiencia de usuario';
 ---
+
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/png" href={logo.src}>
-  <meta name="generator" content={Astro.generator} />
-  <title>{title}</title>
-</head>
-<body>
-  <header id="headerL">
-    <div class="header-container">
-      <a href=`${import.meta.env.BASE_URL}` class="header-logo-link">
-        <span class="header-logo-desktop">Ailen N. Portfolio</span>
-        <img src={logoMobile.src} alt="Mobile Logo" class="header-logo-mobile" />
-      </a>
-      <nav id="desktop-nav">
-        <div class="menuList">
-          <ul>
-            <li><a href=`${import.meta.env.BASE_URL}#sobre-mi` class="nav-link"><span>Sobre mi</span></a></li>
-            <li><a href=`${import.meta.env.BASE_URL}#proyectos` class="nav-link"><span>Proyectos</span></a></li>
-            <li><a href=`#contacto` class="nav-link"><span>Contacto</span></a></li>
-          </ul>
-        </div>
-      </nav>
-      <button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir/Cerrar menú">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href={logo.src} />
+		<meta name="generator" content={Astro.generator} />
 
-  <div id="mobile-menu-overlay" class="mobile-menu-overlay">
-    <button id="close-btn" class="close-btn" aria-label="Cerrar menú">&times;</button>
-    
-    <nav class="mobile-nav-links">
-      <a href=`${import.meta.env.BASE_URL}#sobre-mi` class="nav-link-mobile">Sobre mi</a>
-      <a href=`${import.meta.env.BASE_URL}#proyectos` class="nav-link-mobile">Proyectos</a>
-      <a href=`#contacto` class="nav-link-mobile">Contacto</a>
-    </nav>
-  </div>
+		<title>{title}</title>
+		<meta name="description" content={siteDescription} />
+		<meta name="author" content="Ailen Nahuel" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={siteDescription} />
+		<meta name="keywords" content={siteKeywords} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:locale" content="es_ES" />
 
-  <slot />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={siteDescription} />
+		<meta name="twitter:image" content={imageUrl} />
 
-  <script is:inline>
-    function setupMobileMenu() {
-      const hamburgerBtn = document.getElementById('hamburger-btn');
-      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-      const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
-      const closeBtn = document.getElementById('close-btn');
+		<link rel="canonical" href={siteUrl} />
 
-      if (!hamburgerBtn || !mobileMenuOverlay || !closeBtn) {
-        console.error('Elementos del menú no encontrados.');
-        return;
-      }
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body>
+		<header id="headerL">
+			<div class="header-container">
+				<a href=`${import.meta.env.BASE_URL}` class="header-logo-link">
+					<span class="header-logo-desktop">Ailen N. Portfolio</span>
+					<img
+						src={logoMobile.src}
+						alt="Mobile Logo"
+						class="header-logo-mobile"
+					/>
+				</a>
+				<nav id="desktop-nav">
+					<div class="menuList">
+						<ul>
+							<li>
+								<a
+									href=`${import.meta.env.BASE_URL}#sobre-mi`
+									class="nav-link"><span>Sobre mi</span></a
+								>
+							</li>
+							<li>
+								<a
+									href=`${import.meta.env.BASE_URL}#proyectos`
+									class="nav-link"><span>Proyectos</span></a
+								>
+							</li>
+							<li><a href=`#contacto` class="nav-link"><span>Contacto</span></a
+								></li>
+						</ul>
+					</div>
+				</nav>
+				<button
+					id="hamburger-btn"
+					class="hamburger-btn"
+					aria-label="Abrir/Cerrar menú"
+				>
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>
 
-      const toggleMenu = () => {
-        const isMenuOpen = mobileMenuOverlay.classList.contains('active');
-        
-        hamburgerBtn.classList.toggle('active', !isMenuOpen);
-        mobileMenuOverlay.classList.toggle('active', !isMenuOpen);
+		<div id="mobile-menu-overlay" class="mobile-menu-overlay">
+			<button id="close-btn" class="close-btn" aria-label="Cerrar menú"
+				>&times;</button
+			>
 
-        if (!isMenuOpen) {
-          document.documentElement.classList.add('no-scroll');
-        } else {
-          document.documentElement.classList.remove('no-scroll');
-        }
-      };
+			<nav class="mobile-nav-links">
+				<a href=`${import.meta.env.BASE_URL}#sobre-mi` class="nav-link-mobile"
+					>Sobre mi</a
+				>
+				<a
+					href=`${import.meta.env.BASE_URL}#proyectos`
+					class="nav-link-mobile">Proyectos</a
+				>
+				<a href=`#contacto` class="nav-link-mobile">Contacto</a>
+			</nav>
+		</div>
 
-      hamburgerBtn.addEventListener('click', toggleMenu);
-      closeBtn.addEventListener('click', toggleMenu);
+		<slot />
 
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (mobileMenuOverlay.classList.contains('active')) {
-            toggleMenu();
-          }
-        });
-      });
-    }
+		<script is:inline>
+			function setupMobileMenu() {
+				const hamburgerBtn = document.getElementById('hamburger-btn');
+				const mobileMenuOverlay =
+					document.getElementById('mobile-menu-overlay');
+				const mobileNavLinks =
+					document.querySelectorAll('.nav-link-mobile');
+				const closeBtn = document.getElementById('close-btn');
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupMobileMenu);
-    } else {
-      setupMobileMenu();
-    }
-  </script>
-</body>
+				if (!hamburgerBtn || !mobileMenuOverlay || !closeBtn) {
+					console.error('Elementos del menú no encontrados.');
+					return;
+				}
+
+				const toggleMenu = () => {
+					const isMenuOpen =
+						mobileMenuOverlay.classList.contains('active');
+
+					hamburgerBtn.classList.toggle('active', !isMenuOpen);
+					mobileMenuOverlay.classList.toggle('active', !isMenuOpen);
+
+					if (!isMenuOpen) {
+						document.documentElement.classList.add('no-scroll');
+					} else {
+						document.documentElement.classList.remove('no-scroll');
+					}
+				};
+
+				hamburgerBtn.addEventListener('click', toggleMenu);
+				closeBtn.addEventListener('click', toggleMenu);
+
+				mobileNavLinks.forEach((link) => {
+					link.addEventListener('click', () => {
+						if (mobileMenuOverlay.classList.contains('active')) {
+							toggleMenu();
+						}
+					});
+				});
+			}
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', setupMobileMenu);
+			} else {
+				setupMobileMenu();
+			}
+		</script>
+	</body>
 </html>
 
 <style>
-  html { scroll-behavior: smooth; }
-  html, body { overflow-x: hidden; }
+	html {
+		scroll-behavior: smooth;
+	}
+	html,
+	body {
+		overflow-x: hidden;
+	}
 
-  html.no-scroll {
-    overflow: hidden;
-    padding-right: 15px;
-  }
+	html.no-scroll {
+		overflow: hidden;
+		padding-right: 15px;
+	}
 
-  header {
-    font-family: 'Albert Sans Variable', sans-serif;
-    color: white;
-    font-weight: 200;
-    padding: 10px 135px 30px 150px;
-    width: 100%;
-    box-sizing: border-box;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-  }
+	header {
+		font-family: 'Albert Sans Variable', sans-serif;
+		color: white;
+		font-weight: 200;
+		padding: 10px 135px 30px 150px;
+		width: 100%;
+		box-sizing: border-box;
+		position: sticky;
+		top: 0;
+		z-index: 50;
+	}
 
-  .header-container { width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-  .header-logo-link { text-decoration: none; color: inherit; }
-  .header-logo-desktop { font-size: 35px; }
-  .header-logo-mobile { display: none; max-width: 100px; }
-  #desktop-nav .menuList { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
-  #desktop-nav .menuList ul { list-style: none; margin: 0; display: flex; }
-  #desktop-nav .menuList a { font-size: clamp(20px, 2.5vw, 23px); text-decoration: none; color: inherit; padding: 10px 15px; position: relative; }
-  #desktop-nav .menuList a span::after { content: ''; position: absolute; bottom: -5px; left: 0; height: 2px; background-color: white; width: 0; transition: width 0.3s ease-out; }
-  #desktop-nav .menuList a:hover span::after { width: 100%; }
-  
-  body { 
-    margin: 0; 
-    font-family: 'Alexandria Variable', sans-serif; 
-    background: linear-gradient(to bottom, #010107, #090416, #0E0B23, #18214A); 
-    width: 100%; 
-    padding: 2% 13% 0% 13%; 
-    min-height: 100vh; 
-    box-sizing: border-box; 
-  }
-  
-  .hamburger-btn {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10000; 
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 21px;
-  }
-  .hamburger-btn span { display: block; width: 100%; height: 3px; background-color: white; border-radius: 3px; transition: all 0.3s ease-in-out; }
-  .hamburger-btn.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-  .hamburger-btn.active span:nth-child(2) { opacity: 0; }
-  .hamburger-btn.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+	.header-container {
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.header-logo-link {
+		text-decoration: none;
+		color: inherit;
+	}
+	.header-logo-desktop {
+		font-size: 35px;
+	}
+	.header-logo-mobile {
+		display: none;
+		max-width: 100px;
+	}
+	#desktop-nav .menuList {
+		display: flex;
+		align-items: center;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	#desktop-nav .menuList ul {
+		list-style: none;
+		margin: 0;
+		display: flex;
+	}
+	#desktop-nav .menuList a {
+		font-size: clamp(20px, 2.5vw, 23px);
+		text-decoration: none;
+		color: inherit;
+		padding: 10px 15px;
+		position: relative;
+	}
+	#desktop-nav .menuList a span::after {
+		content: '';
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		height: 2px;
+		background-color: white;
+		width: 0;
+		transition: width 0.3s ease-out;
+	}
+	#desktop-nav .menuList a:hover span::after {
+		width: 100%;
+	}
 
-  .mobile-menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(1, 1, 7, 0.7);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
-  .mobile-menu-overlay .mobile-nav-links { display: flex; flex-direction: column; align-items: center; }
-  .mobile-menu-overlay .nav-link-mobile {
-    color: white;
-    text-decoration: none;
-    font-size: 2.5rem;
-    margin: 1.5rem 0;
-    font-weight: 300;
-    transition: font-size 0.3s ease;
-  }
-  .mobile-menu-overlay .nav-link-mobile:hover {
-    font-size: calc(2.5rem + 4px);
-  }
- .close-btn:hover {
-  font-size: calc(80px + 4px);
-}
-  .close-btn {
-  position: absolute;
-  top: 25px;
-  right: 40px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 80px; 
-  cursor: pointer;
-  line-height: 1;
-  transition: font-size 0.3s ease;
-}
+	body {
+		margin: 0;
+		font-family: 'Alexandria Variable', sans-serif;
+		background: linear-gradient(
+			to bottom,
+			#010107,
+			#090416,
+			#0e0b23,
+			#18214a
+		);
+		width: 100%;
+		padding: 2% 13% 0% 13%;
+		min-height: 100vh;
+		box-sizing: border-box;
+	}
 
-  @media (max-width: 1300px) {
-    #desktop-nav { display: none; }
-    .hamburger-btn { display: flex; }
-    .header-logo-desktop { display: none; }
-    .header-logo-mobile { display: block; }
-    header { padding: 10px 40px; }
-    body { padding: 2% 7% 0% 7%; }
-  }
-  @media (max-width: 768px) {
-    header { padding: 25px 20px 0px 20px; }
-    body { padding: 2% 5% 0% 5%; }
-    .close-btn { top: 35px; right: 20px; }
-  }
+	.hamburger-btn {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		z-index: 10000;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 30px;
+		height: 21px;
+	}
+	.hamburger-btn span {
+		display: block;
+		width: 100%;
+		height: 3px;
+		background-color: white;
+		border-radius: 3px;
+		transition: all 0.3s ease-in-out;
+	}
+	.hamburger-btn.active span:nth-child(1) {
+		transform: translateY(9px) rotate(45deg);
+	}
+	.hamburger-btn.active span:nth-child(2) {
+		opacity: 0;
+	}
+	.hamburger-btn.active span:nth-child(3) {
+		transform: translateY(-9px) rotate(-45deg);
+	}
+
+	.mobile-menu-overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(1, 1, 7, 0.7);
+		backdrop-filter: blur(10px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
+	}
+	.mobile-menu-overlay.active {
+		opacity: 1;
+		visibility: visible;
+	}
+	.mobile-menu-overlay .mobile-nav-links {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.mobile-menu-overlay .nav-link-mobile {
+		color: white;
+		text-decoration: none;
+		font-size: 2.5rem;
+		margin: 1.5rem 0;
+		font-weight: 300;
+		transition: font-size 0.3s ease;
+	}
+	.mobile-menu-overlay .nav-link-mobile:hover {
+		font-size: calc(2.5rem + 4px);
+	}
+	.close-btn:hover {
+		font-size: calc(80px + 4px);
+	}
+	.close-btn {
+		position: absolute;
+		top: 25px;
+		right: 40px;
+		background: none;
+		border: none;
+		color: white;
+		font-size: 80px;
+		cursor: pointer;
+		line-height: 1;
+		transition: font-size 0.3s ease;
+	}
+
+	@media (max-width: 1300px) {
+		#desktop-nav {
+			display: none;
+		}
+		.hamburger-btn {
+			display: flex;
+		}
+		.header-logo-desktop {
+			display: none;
+		}
+		.header-logo-mobile {
+			display: block;
+		}
+		header {
+			padding: 10px 40px;
+		}
+		body {
+			padding: 2% 7% 0% 7%;
+		}
+	}
+	@media (max-width: 768px) {
+		header {
+			padding: 25px 20px 0px 20px;
+		}
+		body {
+			padding: 2% 5% 0% 5%;
+		}
+		.close-btn {
+			top: 35px;
+			right: 20px;
+		}
+	}
 </style>
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		const originalTitle = document.title;
+		const paddedTitle = originalTitle + '     '; // Espacios para el loop
+		let position = 0;
+
+		function animateTitle() {
+			if (document.hidden) {
+				return; // No animar si la pestaña no está visible
+			}
+
+			document.title =
+				paddedTitle.substring(position) +
+				paddedTitle.substring(0, position);
+
+			position++;
+
+			if (position >= paddedTitle.length) {
+				position = 0;
+			}
+		}
+
+		setInterval(animateTitle, 300);
+	});
+</script>

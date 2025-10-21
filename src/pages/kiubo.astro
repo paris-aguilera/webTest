@@ -10,470 +10,526 @@ import mockUno from '../assets/mockUno.png';
 import mockDos from '../assets/mockDos.png';
 import primeraMockVisual from '../assets/disenoVisualUno.png';
 import segundaMock from '../assets/segundaDisenoKiubo.png';
-import terceraMock from '../assets/terceraDisenoKiubo.png';
-import footerKiub from '../assets/footerKiubo.png'
-import Footer from "../components/footer.astro";
+import footerKiub from '../assets/footerKiubo.png';
+import Footer from '../components/footer.astro';
 ---
 
-<Layout title="Ailen Nahuel C • Kiubo">
-  <section class="page-container">
-    <div class="defectoSection fade-in-on-scroll">
-        <h2>Kiubo</h2>
-        <p>Crear una app que facilite la comunicacion entre vecinos para compartir servicios y eventos locales.</p>
-    </div>
+<Layout title="Ailen Nahuel • Kiubo ✌️">
+	<section class="page-container">
+		<div class="defectoSection fade-in-on-scroll">
+			<h2>Kiubo</h2>
+			<p>
+				Crear una app que facilite la comunicacion entre vecinos para compartir
+				servicios y eventos locales.
+			</p>
+		</div>
 
-    <div class="image-section fade-in-on-scroll">
-        <img src={kiuboPrimera.src} alt="Kiubo app" class="kiubo-image"/>
-    </div>
+		<div class="image-section fade-in-on-scroll">
+			<img src={kiuboPrimera.src} alt="Kiubo app" class="kiubo-image" />
+		</div>
 
-    <div class="split-section fade-in-on-scroll">
-      <div class="text-content">
-        <p>
-          Más del 40% de las mujeres experimentan soledad por factores como la viudez, la dependencia económica, el envejecimiento o la partida de los hijos. Esta soledad impacta su salud física y mental, aumentando el riesgo de depresión, ansiedad y enfermedades cardiovasculares.El desafío: mejorar el bienestar emocional y la conexión social de las mujeres para fortalecer su calidad de vida.
-        </p>
-      </div>
-      <div class="percentage-content">
-        <svg viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet">
-          <text x="50%" y="50%">40%</text>
-        </svg>
-      </div>
-    </div>
+		<div class="split-section fade-in-on-scroll">
+			<div class="text-content">
+				<p>
+					Más del 40% de las mujeres experimentan soledad por factores como la
+					viudez, la dependencia económica, el envejecimiento o la partida de
+					los hijos. Esta soledad impacta su salud física y mental,
+					aumentando el riesgo de depresión, ansiedad y enfermedades
+					cardiovasculares.El desafío: mejorar el bienestar emocional y la
+					conexión social de las mujeres para fortalecer su calidad de vida.
+				</p>
+			</div>
+			<div class="percentage-content">
+				<svg viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet">
+					<text x="50%" y="50%">40%</text>
+				</svg>
+			</div>
+		</div>
 
-    <div class="defectoSection fade-in-on-scroll">
-        <h2>Investigación</h2>
-        <p>Buscar referentes al crear una aplicación permite inspirarse en experiencias exitosas, evitar errores y aprovechar tendencias. Además, ayuda a anticipar la competencia y definir una estrategia sólida. No se trata de copiar, sino de adaptar y reinterpretar lo mejor para responder a las necesidades del público objetivo.</p>
-    </div>
+		<div class="defectoSection fade-in-on-scroll">
+			<h2>Investigación</h2>
+			<p>
+				Buscar referentes al crear una aplicación permite inspirarse en
+				experiencias exitosas, evitar errores y aprovechar tendencias. Además,
+				ayuda a anticipar la competencia y definir una estrategia sólida. No
+				se trata de copiar, sino de adaptar y reinterpretar lo mejor para
+				responder a las necesidades del público objetivo.
+			</p>
+		</div>
 
-    <div class="logos-section fade-in-on-scroll">
-      <div class="logo-wrapper">
-        <img src={logoUno.src} alt="Logo de referencia Kiubo App Uno" class="logo-image"/>
-      </div>
-      <div class="logo-wrapper">
-        <img src={logoDos.src} alt="Logo de referencia Kiubo App Dos" class="logo-image"/>
-      </div>
-      <div class="logo-wrapper">
-        <img src={logoTres.src} alt="Logo de referencia Kiubo App Tres" class="logo-image"/>
-      </div>
-    </div>
+		<div class="logos-section fade-in-on-scroll">
+			<div class="logo-wrapper">
+				<img
+					src={logoUno.src}
+					alt="Logo de referencia Kiubo App Uno"
+					class="logo-image"
+				/>
+			</div>
+			<div class="logo-wrapper">
+				<img
+					src={logoDos.src}
+					alt="Logo de referencia Kiubo App Dos"
+					class="logo-image"
+				/>
+			</div>
+			<div class="logo-wrapper">
+				<img
+					src={logoTres.src}
+					alt="Logo de referencia Kiubo App Tres"
+					class="logo-image"
+				/>
+			</div>
+		</div>
 
-    <div class="defectoSection fade-in-on-scroll">
-        <h2>Ideación y estructura</h2>
-    </div>
+		<div class="defectoSection fade-in-on-scroll">
+			<h2>Ideación y estructura</h2>
+		</div>
 
-    <div class="image-section image-section-interactive fade-in-on-scroll">
-        <p class="interaction-prompt"></p>
-        <img src={ideacion.src} alt="Mapa de ideación y estructura del proyecto" class="kiubo-image interactive-image" id="ideacionImage"/>
-    </div>
-    <div class="defectoSection fade-in-on-scroll">
-        <h2>Diseño visual</h2>
-    </div>
-      <div class="image-section circulo-difuminado fade-in-on-scroll">
-        <img src={primeraMockVisual.src} alt="Kiubo Visual App" class="kiubo-image-midle "/>
-    </div>
+		<div class="image-section image-section-interactive fade-in-on-scroll">
+			<p class="interaction-prompt"></p>
+			<img
+				src={ideacion.src}
+				alt="Mapa de ideación y estructura del proyecto"
+				class="kiubo-image interactive-image"
+				id="ideacionImage"
+			/>
+		</div>
+		<div class="defectoSection fade-in-on-scroll">
+			<h2>Diseño visual</h2>
+		</div>
+		<div class="image-section circulo-difuminado fade-in-on-scroll">
+			<img
+				src={primeraMockVisual.src}
+				alt="Kiubo Visual App"
+				class="kiubo-image-midle "
+			/>
+		</div>
 
-     <div class="mockups-sectionDos fade-in-on-scroll">
-      <img src={mockUno.src} alt="Mockup de la aplicación Kiubo App Uno" class="mockup-image"/>
-      <img src={mockDos.src} alt="Mockup de la aplicación Kiubo App Dos" class="mockup-image"/>
-    </div>
-        <div class="defectoSection fade-in-on-scroll">
-          <h2>Botón S.O.S</h2>
-          <p>El botón SOS fue diseñado como una herramienta de asistencia inmediata para usuarias que se encuentren en situaciones de riesgo o necesiten apoyo urgente. Su objetivo es ofrecer una respuesta rápida, accesible y segura, priorizando la confianza y el bienestar de la comunidad KIUBO.</p>
-          <p>El objetivo principal es garantizar que las usuarias puedan pedir ayuda con el mínimo esfuerzo posible, reduciendo la fricción en momentos de estrés o peligro.</p>
-        </div>
-        <div class="mockups-sectionUno fade-in-on-scroll circulo-difuminado-especial">
-          <img src={segundaMock.src} alt="Mockup de la aplicación Kiubo App Tres" class="mockup-image"/>
-        </div>
-     <div class="image-section-footer fade-in-on-scroll">
-        <img src={footerKiub.src} alt="Kiubo Visual App Footer" class="kiubo-image-footer"/>
-    </div>
-   
+		<div class="mockups-sectionDos fade-in-on-scroll">
+			<img
+				src={mockUno.src}
+				alt="Mockup de la aplicación Kiubo App Uno"
+				class="mockup-image"
+			/>
+			<img
+				src={mockDos.src}
+				alt="Mockup de la aplicación Kiubo App Dos"
+				class="mockup-image"
+			/>
+		</div>
+		<div class="defectoSection fade-in-on-scroll">
+			<h2>Botón S.O.S</h2>
+			<p>
+				El botón SOS fue diseñado como una herramienta de asistencia inmediata
+				para usuarias que se encuentren en situaciones de riesgo o necesiten
+				apoyo urgente. Su objetivo es ofrecer una respuesta rápida, accesible y
+				segura, priorizando la confianza y el bienestar de la comunidad KIUBO.
+			</p>
+			<p>
+				El objetivo principal es garantizar que las usuarias puedan pedir ayuda
+				con el mínimo esfuerzo posible, reduciendo la fricción en momentos de
+				estrés o peligro.
+			</p>
+		</div>
+		<div class="mockups-sectionUno fade-in-on-scroll circulo-difuminado-especial">
+			<img
+				src={segundaMock.src}
+				alt="Mockup de la aplicación Kiubo App Tres"
+				class="mockup-image"
+			/>
+		</div>
+		<div class="image-section-footer fade-in-on-scroll">
+			<img
+				src={footerKiub.src}
+				alt="Kiubo Visual App Footer"
+				class="kiubo-image-footer"
+			/>
+		</div>
 
-    </section>
+	</section>
 
-  <div id="imageModal" class="modal">
-    <span class="close-modal">&times;</span>
-    <img class="modal-content" id="modalImageContent">
-  </div>
-   <Footer />
+	<div id="imageModal" class="modal">
+		<span class="close-modal">&times;</span>
+		<img class="modal-content" id="modalImageContent" />
+	</div>
+	<Footer />
 </Layout>
 
-
 <style>
-  html.modal-open {
-    overflow: hidden;
-  }
+	html.modal-open {
+		overflow: hidden;
+	}
 
-  .fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  .fade-in-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	.fade-in-on-scroll {
+		opacity: 0;
+		transform: translateY(30px);
+		transition:
+			opacity 0.6s ease-out,
+			transform 0.6s ease-out;
+	}
+	.fade-in-on-scroll.is-visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
 
-  .defectoSection {
-    font-family: 'Alexandria Variable', sans-serif;
-    color: white;
-    text-align: left; 
-    padding: 2rem 1rem; 
-    max-width: 80%; 
-    margin: 0 auto; 
-  }
+	.defectoSection {
+		font-family: 'Alexandria Variable', sans-serif;
+		color: white;
+		text-align: left;
+		padding: 2rem 1rem;
+		max-width: 80%;
+		margin: 0 auto;
+	}
 
-  .defectoSection h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 1rem;
-  }
+	.defectoSection h2 {
+		font-size: clamp(2.5rem, 5vw, 4rem);
+		margin-bottom: 1rem;
+	}
 
-  .defectoSection p {
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    line-height: 1.6;
-  }
-  
-  .interaction-prompt {
-    text-align: center;
-    color: #aaa;
-    margin-bottom: 10px;
-    font-size: 16px;
-    height: 1.2em;
-  }
+	.defectoSection p {
+		font-size: clamp(1rem, 2vw, 1.3rem);
+		line-height: 1.6;
+	}
 
-  .image-section {
-    display: flex; 
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    padding: 2rem 1rem; 
-  }
+	.interaction-prompt {
+		text-align: center;
+		color: #aaa;
+		margin-bottom: 10px;
+		font-size: 16px;
+		height: 1.2em;
+	}
 
-  
- .image-section-footer {
-    display: flex; 
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    position: relative; 
-    margin-bottom: -50px;
-  
-  }
-    .kiubo-image-footer {
-    display: block; 
-    max-width: 60%; 
-    height: auto; 
-    margin: 0 auto; 
-    border-radius: 15px; 
-  }
+	.image-section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2rem 1rem;
+	}
 
-  .kiubo-image {
-    display: block; 
-    max-width: 80%; 
-    height: auto; 
-    margin: 0 auto; 
-    border-radius: 15px; 
-  }
-  .kiubo-image-midle {
-    display: block; 
-    max-width: 70%; 
-    height: auto; 
-    margin: 0 auto; 
-    border-radius: 15px; 
-  }
+	.image-section-footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		margin-bottom: -50px;
+	}
+	.kiubo-image-footer {
+		display: block;
+		max-width: 60%;
+		height: auto;
+		margin: 0 auto;
+		border-radius: 15px;
+	}
 
+	.kiubo-image {
+		display: block;
+		max-width: 80%;
+		height: auto;
+		margin: 0 auto;
+		border-radius: 15px;
+	}
+	.kiubo-image-midle {
+		display: block;
+		max-width: 70%;
+		height: auto;
+		margin: 0 auto;
+		border-radius: 15px;
+	}
 
-  .interactive-image {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  .interactive-image:hover {
-    transform: scale(1.02);
-  }
+	.interactive-image {
+		cursor: pointer;
+		transition: transform 0.3s ease;
+	}
+	.interactive-image:hover {
+		transform: scale(1.02);
+	}
 
-  .split-section {
-    font-family: 'Alexandria Variable', sans-serif;
-    color: white;
-    display: flex;
-    max-width: 80%;
-    margin: 4rem auto;
-    padding: 0 1rem;
-    gap: 2rem;
-    align-items: stretch;
-  }
+	.split-section {
+		font-family: 'Alexandria Variable', sans-serif;
+		color: white;
+		display: flex;
+		max-width: 80%;
+		margin: 4rem auto;
+		padding: 0 1rem;
+		gap: 2rem;
+		align-items: stretch;
+	}
 
-  .text-content {
-    flex: 3;
-    font-size: 1.1rem;
-    line-height: 1.7;
-  }
+	.text-content {
+		flex: 3;
+		font-size: 1.1rem;
+		line-height: 1.7;
+	}
 
-  .percentage-content {
-    flex: 2;
-  }
-  
-  .percentage-content svg {
-    width: 100%;
-    height: 100%;
-  }
+	.percentage-content {
+		flex: 2;
+	}
 
-  .percentage-content text {
-    font-family: 'Alexandria Variable', sans-serif;
-    font-weight: bold;
-    font-size: 80px;
-    fill: white;
-    text-anchor: middle;
-    dominant-baseline: middle;
-  }
-  
-  .logos-section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 2rem;
-    max-width: 80%;
-    margin: 4rem auto;
-    padding: 2rem 1rem;
-  }
+	.percentage-content svg {
+		width: 100%;
+		height: 100%;
+	}
 
-  .logo-wrapper {
-    flex: 1;
-    max-width: 200px;
-  }
+	.percentage-content text {
+		font-family: 'Alexandria Variable', sans-serif;
+		font-weight: bold;
+		font-size: 80px;
+		fill: white;
+		text-anchor: middle;
+		dominant-baseline: middle;
+	}
 
-  .logo-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-   .mockups-sectionUno {
-    display: flex; 
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    padding: 0 1rem 0;
-  }
-.circulo-difuminado {
-  position: relative; 
-  z-index: 1;
-}
+	.logos-section {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		gap: 2rem;
+		max-width: 80%;
+		margin: 4rem auto;
+		padding: 2rem 1rem;
+	}
 
-.circulo-difuminado::before {
-  content: ''; 
-  position: absolute; 
-  width: 60%;
-  height: 60%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #8E43F7CC;
-  border-radius: 50%; 
-  filter: blur(100px);
-  z-index: -1; 
-}
+	.logo-wrapper {
+		flex: 1;
+		max-width: 200px;
+	}
 
-.circulo-difuminado-especial {
-  position: relative; 
-  z-index: -1;
-}
+	.logo-image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+	.mockups-sectionUno {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0 1rem 0;
+	}
+	.circulo-difuminado {
+		position: relative;
+		z-index: 1;
+	}
 
-.circulo-difuminado-especial::before {
-  content: ''; 
-  position: absolute; 
-  width: 100%;
-  height: 100%;
-  top: 200%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #8E43F7CC;
-  border-radius: 50%; 
-  filter: blur(150px);
-  z-index: -1; 
-}
+	.circulo-difuminado::before {
+		content: '';
+		position: absolute;
+		width: 60%;
+		height: 60%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #8e43f7cc;
+		border-radius: 50%;
+		filter: blur(100px);
+		z-index: -1;
+	}
 
-  .mockups-sectionDos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 80%;
-    margin: 0 auto 4rem auto;
-    padding: 40px 1rem 40px;
-  }
+	.circulo-difuminado-especial {
+		position: relative;
+		z-index: -1;
+	}
 
-  .mockup-image {
-    width: 60%;
-    height: auto;
-    border-radius: 15px;
-  }
+	.circulo-difuminado-especial::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 200%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #8e43f7cc;
+		border-radius: 50%;
+		filter: blur(150px);
+		z-index: -1;
+	}
 
-  .mockup-image:nth-child(odd) {
-    justify-self: start;
-  }
+	.mockups-sectionDos {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		max-width: 80%;
+		margin: 0 auto 4rem auto;
+		padding: 40px 1rem 40px;
+	}
 
-  .mockup-image:nth-child(even) {
-    justify-self: end;
-  }
+	.mockup-image {
+		width: 60%;
+		height: auto;
+		border-radius: 15px;
+	}
 
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-  }
+	.mockup-image:nth-child(odd) {
+		justify-self: start;
+	}
 
-  .modal.active {
-    display: flex;
-  }
+	.mockup-image:nth-child(even) {
+		justify-self: end;
+	}
 
-  .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90vh;
-    border-radius: 15px;
-    cursor: pointer;
-  }
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 1000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+		justify-content: center;
+		align-items: center;
+	}
 
-  .close-modal {
-    position: absolute;
-    top: 25px;
-    right: 45px;
-    color: #f1f1f1;
-    font-size: 50px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  .close-modal:hover {
-    color: #bbb;
-  }
+	.modal.active {
+		display: flex;
+	}
 
+	.modal-content {
+		margin: auto;
+		display: block;
+		max-width: 90%;
+		max-height: 90vh;
+		border-radius: 15px;
+		cursor: pointer;
+	}
 
+	.close-modal {
+		position: absolute;
+		top: 25px;
+		right: 45px;
+		color: #f1f1f1;
+		font-size: 50px;
+		font-weight: bold;
+		transition: 0.3s;
+		cursor: pointer;
+		z-index: 1001;
+	}
+	.close-modal:hover {
+		color: #bbb;
+	}
 
-  @media (max-width: 768px) {
+	@media (max-width: 768px) {
+		.kiubo-image-midle {
+			max-width: 100%;
+		}
+		.kiubo-image-footer {
+			max-width: 100%;
+		}
+		.defectoSection {
+			max-width: 100%;
+		}
+		.kiubo-image {
+			max-width: 100%;
+		}
+		.split-section {
+			flex-direction: column;
+			max-width: 100%;
+		}
 
-    .kiubo-image-midle { 
-    max-width: 100%; 
-  }
-.kiubo-image-footer { 
-    max-width: 100%; 
-  }
-    .defectoSection {
-      max-width: 100%;
-    }
-    .kiubo-image {
-      max-width: 100%; 
-    }
-    .split-section {
-      flex-direction: column;
-      max-width: 100%;
-    }
+		.percentage-content {
+			order: -1;
+		}
 
-    .percentage-content {
-      order: -1;
-    }
+		.text-content {
+			text-align: left;
+		}
 
-    .text-content {
-      text-align: left;
-    }
+		.logos-section {
+			max-width: 100%;
+			gap: 1rem;
+		}
 
-    .logos-section {
-      max-width: 100%;
-      gap: 1rem;
-    }
+		.mockup-image {
+			width: 100%;
+		}
 
-    .mockups-section {
-      grid-template-columns: 1fr;
-      max-width: 100%;
-    }
-    
-    .mockup-image {
-        width: 100%;
-    }
+		.mockup-image:nth-child(odd),
+		.mockup-image:nth-child(even) {
+			justify-self: center;
+		}
 
-    .mockup-image:nth-child(odd),
-    .mockup-image:nth-child(even) {
-        justify-self: center;
-    }
-
-    .modal-content {
-      width: 100%;
-      height: 100%;
-      max-width: 100vw;
-      max-height: 100vh;
-      object-fit: contain;
-      border-radius: 0;
-    }
-  }
+		.modal-content {
+			width: 100%;
+			height: 100%;
+			max-width: 100vw;
+			max-height: 100vh;
+			object-fit: contain;
+			border-radius: 0;
+		}
+	}
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('imageModal');
-    const imgToOpen = document.getElementById('ideacionImage');
-    const modalImg = document.getElementById('modalImageContent');
-    const closeBtn = document.querySelector('.close-modal');
-    const prompt = document.querySelector('.interaction-prompt');
+	document.addEventListener('DOMContentLoaded', () => {
+		const modal = document.getElementById('imageModal');
+		const imgToOpen = document.getElementById('ideacionImage');
+		const modalImg = document.getElementById('modalImageContent');
+		const closeBtn = document.querySelector('.close-modal');
+		const prompt = document.querySelector('.interaction-prompt');
 
-    const openModal = function() {
-      if (modal && modalImg) {
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
-        document.documentElement.classList.add('modal-open');
-        modal.classList.add('active');
-        modalImg.src = this.src;
-      }
-    }
+		const openModal = function () {
+			if (modal && modalImg) {
+				const scrollbarWidth =
+					window.innerWidth - document.documentElement.clientWidth;
+				document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
+				document.documentElement.classList.add('modal-open');
+				modal.classList.add('active');
+				modalImg.src = this.src;
+			}
+		};
 
-    const closeModal = function() {
-      if (modal) {
-        document.documentElement.style.paddingRight = '';
-        document.documentElement.classList.remove('modal-open');
-        modal.classList.remove('active');
-      }
-    }
-    
-    if (imgToOpen && prompt) {
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      prompt.textContent = isTouchDevice ? 'Tap para aumentar' : 'Clic para aumentar';
-      imgToOpen.onclick = openModal;
-    }
-    
-    if (modal && closeBtn && modalImg) {
-      closeBtn.onclick = closeModal;
-      modalImg.onclick = closeModal;
-      modal.onclick = function(event) {
-        if (event.target === modal) {
-          closeModal();
-        }
-      }
-    }
+		const closeModal = function () {
+			if (modal) {
+				document.documentElement.style.paddingRight = '';
+				document.documentElement.classList.remove('modal-open');
+				modal.classList.remove('active');
+			}
+		};
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
+		if (imgToOpen && prompt) {
+			const isTouchDevice =
+				'ontouchstart' in window || navigator.maxTouchPoints > 0;
+			prompt.textContent = isTouchDevice
+				? 'Tap para aumentar'
+				: 'Clic para aumentar';
+			imgToOpen.onclick = openModal;
+		}
 
-    const observerCallback = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
+		if (modal && closeBtn && modalImg) {
+			closeBtn.onclick = closeModal;
+			modalImg.onclick = closeModal;
+			modal.onclick = function (event) {
+				if (event.target === modal) {
+					closeModal();
+				}
+			};
+		}
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
-    elementsToAnimate.forEach(element => {
-      observer.observe(element);
-    });
-  });
+		const observerOptions = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.1,
+		};
+
+		const observerCallback = (entries, observer) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		};
+
+		const observer = new IntersectionObserver(
+			observerCallback,
+			observerOptions
+		);
+		const elementsToAnimate =
+			document.querySelectorAll('.fade-in-on-scroll');
+		elementsToAnimate.forEach((element) => {
+			observer.observe(element);
+		});
+	});
 </script>
